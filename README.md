@@ -1,12 +1,12 @@
 # 3D printable syringe pumps and dual controller  [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-This project is free and open-source design of a versatile lab equipment - syringe pumps and a dual controller, here detailed for microfluidic droplet generation - a modification from [this Open-Source Syringe Pump design](https://doi.org/10.1134/S1061934820030156).
+This project is free and open-source design of a versatile lab equipment - syringe pumps and a dual controller, here detailed for microfluidic droplet generation - a modification from this [Open-Source Syringe Pump design](https://doi.org/10.1134/S1061934820030156).
 
 ## Background
 
 A syringe pump is a device that delivers precise and accurate amounts of fluid over a broad range of flow rates. These devices find versatile use across various fields like healthcare, research, and development, playing a crucial role in scenarios such as controlled drug delivery in hospitals, chemical reaction control in labs, and more.
 
-There are many 3d-printable syringe pump designs available, each with its unique features and capabilities. However, [this Open-Source Syringe Pump design](https://doi.org/10.1134/S1061934820030156) developed by the [Mass Spectrometry Research Group](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/), Analytical Chemistry Division, Chemistry Department of Moscow State University, appealed to our LIBRE Hub team with it's design and functionality.
+There are many 3d-printable syringe pump designs available, each with its unique features and capabilities. However, this [Open-Source Syringe Pump design](https://doi.org/10.1134/S1061934820030156) developed by the [Mass Spectrometry Research Group](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/), Analytical Chemistry Division, Chemistry Department of Moscow State University, appealed to our LIBRE Hub team with it's design and functionality.
 
 Our goal with this modification and enhancement is to make this open-source syringe pump design more useful to microfluidics, and generally more accessible, adaptable, and user-friendly, thus extending its potential use within the broader community.
 
