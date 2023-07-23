@@ -13,7 +13,7 @@ Our goal with this modification and enhancement is to make this open-source syri
 ## Usage
 
 ### Instructions
-This Repository provides documentation how to build the pumps and the controller, just follow the instructions here.
+This Repository provides documentation how to build the pumps and the controller, just [follow the instructions here](https://librehub.github.io/3d-printed-syringe-pumps-and-controller/).
 
 This project is documented with GitBuilding - an OpenSource project for documenting hardware projects. For more information on the GitBuilding project, or how
 to install GitBuilding please see the [GitBuilding website](http://gitbuilding.io)
