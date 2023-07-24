@@ -1,0 +1,61 @@
+# Recommended information
+Authors:
+
+    - Tomás Astudillo Inostroza
+    - Matías Hurtado Labarca
+
+Affiliation: LIBRE-hub
+
+#License: CERN-OHL-1.2
+
+Email: matias.hurtadO1@mail.udp.cl
+
+
+#Uncomment below to add custom categories
+CustomCategories:
+    printedparts:
+        Reuse: False
+        DisplayName: Printed parts
+    PrintedTool:
+        Reuse: true
+        DisplayName: Printed Tools
+    SubAssembly:
+        Reuse: false
+        DisplayName: Sub-Assemblies
+    Material:
+        Reuse: false
+        DisplayName: Materials
+    Consumable:
+        Reuse: false
+        DisplayName: Consumables
+    Optical:
+        Reuse: false
+        DisplayName: Optical Components
+    Electronic:
+        Reuse: false
+        DisplayName: Electronic Components
+    Mech:
+        Reuse: false
+        DisplayName: Mechanical Components
+DefaultCategory: Part
+PageBOMTitle: "## For this section you will need:"
+
+
+
+
+
+#Uncomment below to set a custom default category
+#DefaultCategory: printedtool
+
+#Uncomment below to set the title for the bill of material on a page
+#PageBOMTitle: '##For this step you will need'
+
+#Uncomment below to override the project title
+#Title: 'My project'
+
+#Uncomment below to set a custom Website root for static HTML builds
+#WebsiteRoot: '/path/'
+
+#Uncomment below to disable fussy warnings
+#Fussy: False
+
