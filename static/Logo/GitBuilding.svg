@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50"
+   height="50"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg22"
+   sodipodi:docname="GitLab.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata26">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Group</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="827"
+     id="namedview24"
+     showgrid="false"
+     inkscape:zoom="4.8659794"
+     inkscape:cx="-36.481857"
+     inkscape:cy="13.795646"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg22" />
+  <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">Group</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <defs
+     id="defs6" />
+  <g
+     id="Group-24"
+     sketch:type="MSShapeGroup"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:5.2463541"
+     transform="matrix(0.19060855,0,0,0.19060855,4.9743894,6.510954)">
+    <g
+       id="g877"
+       transform="matrix(0.06844565,0,0,0.06844565,79.543174,77.620001)">
+      <path
+         d="m 1969.3847,499.95594 c 119.6578,-119.6575 119.6468,-313.9622 0,-433.601204 L 589.62729,-1313.4102 c -119.6575,-119.6575 -313.951,-119.6575 -433.6085,0 L -1223.7315,66.339936 c -119.6574,119.657504 -119.6537,313.947404 0,433.604804 L 156.03729,1879.7098 c 119.639,119.6389 313.9399,119.6538 433.5974,0 z"
+         style="clip-rule:evenodd;fill:#f1502f;fill-rule:evenodd;stroke-width:27.52423286;stroke-linecap:square;stroke-miterlimit:1.5"
+         id="path6"
+         inkscape:connector-curvature="0" />
+      <g
+         id="g8"
+         transform="matrix(6.5212185,0,0,6.5212185,-1852.4806,-4483.5298)"
+         style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5">
+        <circle
+           id="circle10"
+           style="fill:#ffffff"
+           r="40.599998"
+           cy="605.211"
+           cx="292.38199" />
+      </g>
+      <g
+         id="g12"
+         transform="matrix(5.3798741,0,0,5.3798741,-2129.1366,-2481.159)"
+         style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5">
+        <circle
+           id="circle14"
+           style="fill:#ffffff"
+           r="40.599998"
+           cy="605.211"
+           cx="292.38199" />
+      </g>
+      <g
+         id="g16"
+         transform="matrix(3.4841092,0,0,3.4841092,-1121.7369,-1505.464)"
+         style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5">
+        <circle
+           id="circle18"
+           style="fill:#ffffff"
+           r="40.599998"
+           cy="605.211"
+           cx="292.38199" />
+      </g>
+      <g
+         id="g20"
+         transform="matrix(3.4841092,0,0,3.4841092,178.74519,-1999.5531)"
+         style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5">
+        <circle
+           id="circle22"
+           style="fill:#ffffff"
+           r="40.599998"
+           cy="605.211"
+           cx="292.38199" />
+      </g>
+      <g
+         id="g24"
+         transform="matrix(5.2463544,0,0,5.2463544,-4166.5562,-1753.5744)"
+         style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5">
+        <path
+           inkscape:connector-curvature="0"
+           id="path26"
+           style="fill:none;stroke:#ffffff;stroke-width:25px"
+           d="m 824.951,268.048 73.481,127.391 -80.428,84.753 4.682,124.633 -35.784,-0.971" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path28"
+         style="clip-rule:evenodd;fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:131.15885925px;stroke-linecap:square;stroke-miterlimit:1.5"
+         d="M 1107.0089,-1.4223644 603.60019,-544.8135 -132.53151,-78.166064 31.474788,278.75394 l -118.384,306.0671" />
+      <g
+         id="g30"
+         transform="matrix(5.2069813,-0.6415453,0.6415453,5.2069813,-4594.8136,-1107.9926)"
+         style="clip-rule:evenodd;fill-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.5">
+        <path
+           inkscape:connector-curvature="0"
+           id="path32"
+           style="fill:none;stroke:#ffffff;stroke-width:25px"
+           d="m 989.073,592.703 16.907,-40.082 -59.796,-54.074 -2.237,-91.826" />
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path34"
+         style="clip-rule:evenodd;fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:78.6953125px;stroke-linecap:square;stroke-miterlimit:1.5"
+         d="M 1183.6319,74.828136 -539.06627,781.67474" />
+    </g>
+  </g>
+</svg>

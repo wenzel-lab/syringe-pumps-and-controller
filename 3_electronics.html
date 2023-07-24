@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./static/Logo/favicon.ico" />
+<link rel="icon" type="image/png" href="./static/Logo/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="./static/Logo/favicon-16x16.png" sizes="16x16" />
+
+    <link href="./static/style.css" rel="stylesheet">
+        </head>
+<body>
+<header class="site-header">
+    <div class="wrapper">
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Tomás Astudillo Inostroza and Matías Hurtado Labarca</p>
+    <p class="affiliation">LIBRE-hub</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li class="active">
+    <a class="active" href="./testpage2.html">
+        Interface
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./1_printing.html">
+                Print the plastic parts
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./2_interaction_pane.html">
+                Assemble the Front Panel
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./3_electronics.html">
+                Assemble the Main Electronics
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./4_close.html">
+                Assemble everything together
+            </a>
+        </li>
+            </ul>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./testpage1.html">
+        How to build a pump 
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="assemble-the-main-electronics">Assemble the Main Electronics</h1>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="part">Parts</h3>
+<ul>
+<li>6 <a Class="bom" href="tenMthree.html">M3 - 10mm screws</a> </li>
+<li>1 <a Class="bom" href="twentyfiveMthree.html">M3 - 25mm screws</a> </li>
+<li>8 <a Class="bom" href="nuts.html">M3 nut</a> </li>
+</ul>
+<h3 id="printedparts">Printed parts</h3>
+<ul>
+<li>1 <a Class="bom" href="1_printing.html">Back Lid</a> </li>
+<li>1 <a Class="bom" href="1_printing.html">Electronics Holder</a> </li>
+<li>1 <a Class="bom" href="1_printing.html">Interface Base</a> </li>
+</ul>
+<h3 id="electronic">Electronic Components</h3>
+<ul>
+<li>7 <a Class="bom" href="F-FJ">10 cm Female-Female Jumpers</a> </li>
+<li>8 <a Class="bom" href="F-FJ">20 cm Female-Female Jumpers</a> </li>
+<li>1 <a Class="bom" href="VIpinheader">40 Pin Header</a> </li>
+<li>1 <a Class="bom" href="fiveFJC">5.5mm Female Jack Connector</a> </li>
+<li>1 <a Class="bom" href="raspberry">Raspberry Pi Pico</a> </li>
+<li>2 <a Class="bom" href="TMCD">TMC2209 Driver</a> </li>
+<li>1 <a Class="bom" href="VoltageR">Voltage Regulator</a> </li>
+</ul>
+</div>
+<h2 class="page-step" id="prepare-the-voltage-regulator-circuit">Step 1: Prepare the Voltage Regulator Circuit</h2>
+<ul>
+<li>Take 4 <a href="F-FJ">20 cm Female-Female Jumpers</a> and cut them in half.</li>
+<li>Also, cut the Dupont female end of 1 pair. </li>
+<li>Strip the ends of all wires.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/part03/step01-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/part03/step01-02.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/part03/step01-03.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/part03/step01-04.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show0" src="images/part03/step01-01.jpg" alt=""/></div>
+<ul>
+<li>Take the Voltage Regulator and the <a href="fiveFJC">5.5mm Female Jack Connector</a>.</li>
+<li>Connect them according to the wiring diagram.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/part03/step01-05.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/part03/step01-06.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show1" src="images/part03/step01-05.jpg" alt=""/></div>
+<h2 class="page-step" id="fix-the-voltage-regulator-pcb-on-the-base">Step 2: Fix the Voltage Regulator PCB on the Base</h2>
+<ul>
+<li>Use 4 <a href="tenMthree.html">M3 - 10mm screws</a> and <a href="nuts.html">M3 nut</a>s to secure the already wired Voltage Regulator.</li>
+<li>Attach it to the <a href="1_printing.html">Interface Base</a>, making sure to place the <a href="nuts.html">M3 nut</a> on the back side.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/part03/step02-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/part03/step02-02.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show2" src="images/part03/step02-01.jpg" alt=""/></div>
+<h2 class="page-step" id="install-the-55mm-female-jack-connector">Step 3: Install the 5.5mm Female Jack Connector</h2>
+<ul>
+<li>With the Voltage Regulator in place, position the 5.5mm Female Jack Connector in the top left corner of the base.</li>
+<li>Apply moderate force to ensure a tight fit.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/part03/step03-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/part03/step03-02.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/part03/step03-03.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/part03/step03-04.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show3" src="images/part03/step03-01.jpg" alt=""/></div>
+<h2 class="page-step" id="install-the-raspberry-pi-pico">Step 4: Install the Raspberry Pi Pico</h2>
+<ul>
+<li>Take the <a href="VIpinheader">40 Pin Header</a> and cut them in half.</li>
+<li>Solder them onto the <a href="raspberry">Raspberry Pi Pico</a></li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/part03/step04-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/part03/step04-02.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show4" src="images/part03/step04-01.jpg" alt=""/></div>
+<ul>
+<li>Place the <a href="raspberry">Raspberry Pi Pico</a> upside down, aligning the holes with the pins on the base.</li>
+<li>Ensure that the USB port aligns with the respective hole.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/part03/step04-03.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/part03/step04-04.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/part03/step04-05.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/part03/step04-06.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show5" src="images/part03/step04-03.jpg" alt=""/></div>
+<h2 class="page-step" id="wiring-the-pico-and-voltage-circuit">Step 5: Wiring the Pico and Voltage Circuit</h2>
+<ul>
+<li>Take the two cables that come out of the <a href="VoltageR">Voltage Regulator</a>.</li>
+<li>Connect the positive cable to the 40th pin of the <a href="raspberry">Raspberry Pi Pico</a>.</li>
+<li>Connect the negative cable to the 3rd pin of the <a href="raspberry">Raspberry Pi Pico</a>.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/part03/step05-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/part03/step05-02.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show6" src="images/part03/step05-01.jpg" alt=""/></div>
+<h2 class="page-step" id="install-the-motor-drivers">Step 6: Install the Motor Drivers</h2>
+<ul>
+<li>Take 2 <a href="TMCD">TMC2209 Driver</a> and attach the heatsinks.</li>
+<li>Make sure to attach them in the positions shown below.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/part03/step06-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/part03/step06-02.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show7" src="images/part03/step06-01.jpg" alt=""/></div>
+<ul>
+<li>Take 7 <a href="F-FJ">10 cm Female-Female Jumpers</a> and connect them to the following pins of the TMC2209 Driver.</li>
+<li>Repeat the process for the other TMC2209 Driver motor driver.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/part03/step06-03.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/part03/step06-04.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/part03/step06-05.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show8" src="images/part03/step06-03.jpg" alt=""/></div>
+<ul>
+<li>Connect the two TMC2209 Driver to the <a href="raspberry">Raspberry Pi Pico</a> pins. </li>
+<li>Follow the diagram and the images below.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/part03/step06-06.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/part03/step06-07.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show9" src="images/part03/step06-06.jpg" alt=""/></div>
+
+<ul>
+<li>Insert the TMC2209 Driver into the corresponding holes.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/part03/step06-08.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/part03/step06-09.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show10" src="images/part03/step06-08.jpg" alt=""/></div>
+<h2 class="page-step" id="fix-the-electronics-holder">Step 7: Fix the Electronics Holder</h2>
+<ul>
+<li>Take 1 <a href="twentyfiveMthree.html">M3 - 25mm screws</a> and <a href="nuts.html">M3 nut</a>.</li>
+<li>Use them to secure the <a href="1_printing.html">Electronics Holder</a> in place.</li>
+<li>The <a href="1_printing.html">Electronics Holder</a> should keep the electronic components securely in place.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show11').src=this.src" src="images/part03/step07-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show11').src=this.src" src="images/part03/step07-02.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show11').src=this.src" src="images/part03/step07-03.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show11" src="images/part03/step07-01.jpg" alt=""/></div>
+<h2 class="page-step" id="rear-cables">Step 8: Rear Cables</h2>
+<ul>
+<li>Take 4 <a href="F-FJ">20 cm Female-Female Jumpers</a> and connect them to the 4 pins shown below on one of the TMC2209 Driver.</li>
+<li>Thread the 20 cm Female-Female Jumpers through the holes.</li>
+<li>Repeat the process for the other TMC2209 Driver. </li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show12').src=this.src" src="images/part03/step08-01.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show12').src=this.src" src="images/part03/step08-03.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show12" src="images/part03/step08-01.jpg" alt=""/></div>
+<ul>
+<li>Take 2 <a href="tenMthree.html">M3 - 10mm screws</a> and <a href="nuts.html">M3 nut</a>s.</li>
+<li>Secure the 20 cm Female-Female Jumpers with the <a href="1_printing.html">Back Lid</a>.</li>
+<li>Ensure that the 20 cm Female-Female Jumpers are arranged neatly. The lid should press firmly without cutting them.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show13').src=this.src" src="images/part03/step08-04.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show13').src=this.src" src="images/part03/step08-05.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show13" src="images/part03/step08-04.jpg" alt=""/></div>
+<p>The <a name="output__assembled-interface-base"></a>Assembled Interface Base is now ready.</p>
+<hr />
+<p><a href="2_interaction_pane.html">Previous page</a> | <a href="4_close.html">Next page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2023 Tomás Astudillo Inostroza and Matías Hurtado Labarca</p>
+    <p class="email">Contact: <a href="mailto:matias.hurtadO1@mail.udp.cl">matias.hurtadO1@mail.udp.cl</a></p>
+
+    </div>
+</footer></body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./static/Logo/favicon.ico" />
+<link rel="icon" type="image/png" href="./static/Logo/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="./static/Logo/favicon-16x16.png" sizes="16x16" />
+
+    <link href="./static/style.css" rel="stylesheet">
+        </head>
+<body>
+<header class="site-header">
+    <div class="wrapper">
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Tomás Astudillo Inostroza and Matías Hurtado Labarca</p>
+    <p class="affiliation">LIBRE-hub</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./testpage2.html">
+        Interface
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./testpage1.html">
+        How to build a pump 
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="how-to-build-a-pump">How to build a pump</h1>
+<hr />
+<p>Made for infusion of microfluidics.  </p>
+<p><img alt="" src="images/zz.jpg" title="" /></p>
+<p><em>Based on the "Open-Source Syringe Pump" developed by Andrey Samokhin</em></p>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="part">Parts</h3>
+<ul>
+<li>1 <a Class="bom" href="coupling.html">coupling</a> </li>
+<li>2 <a Class="bom" href="rots.html">guide rots</a> </li>
+<li>2 <a Class="bom" href="heatinsert.html">heat inserts</a> </li>
+<li>1 <a Class="bom" href="leadscrew.html">lead screw</a> </li>
+<li>1 <a Class="bom" href="leadscrew.html">lead screw nut</a> </li>
+<li>2 <a Class="bom" href="bearings.html">linear bearings</a> </li>
+<li>2 <a Class="bom" href="tenMthree.html">M3 - 10mm screws</a> </li>
+<li>6 <a Class="bom" href="fifteenMthree.html">M3 - 15mm screws</a> </li>
+<li>6 <a Class="bom" href="twentyMthree.html">M3 - 20mm screws</a> </li>
+<li>10 <a Class="bom" href="nuts.html">nut</a> </li>
+</ul>
+<h3 id="tool">Tools</h3>
+<ul>
+<li>1 <a Class="bom" href="hexkey.html">M2.5 HEX key</a> </li>
+<li>1 <a Class="bom" href="hexkey.html">M3 HEX key</a> </li>
+<li>1 <a Class="bom" href="soldering.html">soldering iron</a> </li>
+</ul>
+<h3 id="printedparts">Printed parts</h3>
+<ul>
+<li>1 <a Class="bom" href="threeD.html">carriage</a> </li>
+<li>2 <a Class="bom" href="threeD.html">knobs</a> </li>
+<li>2 <a Class="bom" href="threeD.html">side syringe holders</a> </li>
+<li>1 <a Class="bom" href="threeD.html">stepper union</a> </li>
+<li>1 <a Class="bom" href="threeD.html">syringe holder</a> </li>
+</ul>
+<h3 id="electronic">Electronic Components</h3>
+<ul>
+<li>1 <a Class="bom" href="stepper.html">stepper motor</a> </li>
+</ul>
+</div>
+<div class="info-block">
+<p><strong>You should build two of them</strong></p>
+</div>
+<hr />
+<h2 class="page-step" id="assemble-the-couplingcouplingmdqty-1-with-the--stepper-motorsteppermdqty-1-catelectronic-and-the-lead-screwleadscrewmdqty-1">Step 1: Assemble the <a href="coupling.html">coupling</a> with the  <a href="stepper.html">stepper motor</a> and the <a href="leadscrew.html">lead screw</a></h2>
+<p>Join the mentioned elements using a <a href="hexkey.html">M2.5 HEX key</a>, ensuring that it is tight in all four inner screws.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/zc.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/zb.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show0" src="images/zc.jpg" alt=""/></div>
+
+<h2 class="page-step" id="install-the-guides">Step 2: Install the guides</h2>
+<ul>
+<li>Put the <a href="rots.html">guide rots</a> into the <a href="threeD.html">stepper union</a> and slide them until they reach the opposite face of it.</li>
+</ul>
+<div class="info-block">
+<p>Press against the table to ensure that they are aligned with the face of the stepper union.</p>
+</div>
+<ul>
+<li>After placing the rots, put the two M3 <a href="nuts.html">nut</a>s in their designated spaces and proceed to insert the <a href="fifteenMthree.html">M3 - 15mm screws</a> and tight using the <a href="hexkey.html">M3 HEX key</a>.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/za.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/antiguob.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/nn.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/y.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/z.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show1" src="images/za.jpg" alt=""/></div>
+<h2 class="page-step" id="screw-it-into-the-stepper">Step 3: Screw it into the stepper</h2>
+<p>Put both of the structures together and ensuring that that the holes of the stepper union fits the ones on the stepper motor. Then put the <a href="twentyMthree.html">M3 - 20mm screws</a> into them and screw them to the end.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/x.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/antiguoa.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/w.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/v.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/u.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show2" src="images/x.jpg" alt=""/></div>
+
+<h2 class="page-step" id="continue-with-the-carriagethreedmdqty1-cat-printedparts">Step 4: Continue with the <a href="threeD.html">carriage</a></h2>
+<ul>
+<li>Place the <a href="bearings.html">linear bearings</a> into the carriage and hold them placing  two <a href="nuts.html">nut</a>s into their designated holes and then placing two <a href="tenMthree.html">M3 - 10mm screws</a> tightly.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/t.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/antiguoc.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/r.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show3" src="images/t.jpg" alt=""/></div>
+<ul>
+<li>Continue by inserting the <a href="leadscrew.html">lead screw nut</a> into the carriage, ensuring it with two <a href="fifteenMthree.html">M3 - 15mm screws</a> and two <a href="nuts.html">nut</a>s in the opposite side.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/antiguocc.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/zd.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/q.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/p.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show4" src="images/antiguocc.jpg" alt=""/></div>
+<hr />
+<div class="info-block">
+<p><strong>Always put the screw in opposite side holes</strong></p>
+<ul>
+<li>
+<p>This gives it stability. </p>
+</li>
+<li>
+<p>It's also possible to put them all, but is not necessary.</p>
+</li>
+</ul>
+</div>
+<h2 class="page-step" id="mount-the-carriage">Step 5: Mount the carriage</h2>
+<p>You can manually twist the lead screw to make it go through.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/antiguod.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/o.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show5" src="images/antiguod.jpg" alt=""/></div>
+<h2 class="page-step" id="proceed-with-the-syringe-holderthreedmdqty1-cat-printedparts">Step 6: Proceed with the <a href="threeD.html">syringe holder</a></h2>
+<p><img alt="" src="images/e.jpg" title="" /></p>
+<p>Before assembling anything else this piece have to be prepared, for that is nesecary to do two steps:</p>
+<h2 id="step-61-heat-inserts">Step 6,1:  Heat inserts</h2>
+<p>Place the <a href="heatinsert.html">heat inserts</a> in the two front holes of the syringe holder with the help of a <a href="soldering.html">soldering iron</a>. This makes easier to screw and unscrew if needed.</p>
+<div class="caution-block">
+<p><strong>Caution:</strong>
+The soldering iron works with high temperatures.</p>
+</div>
+<hr />
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/heat-set_insert.gif" alt="" />
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/f.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show6" src="images/heat-set_insert.gif" alt=""/></div>
+
+<h2 id="step-61-knobs">Step 6,1:  Knobs</h2>
+<p><img alt="" src="images/ze.jpg" title="" /></p>
+<div class="warning-block">
+<p><strong>Be sure to clean the inner spaces of the knob before putting anything</strong></p>
+<h4 id="if-not-it-will-break">If not it will break.</h4>
+</div>
+<p>Prepare the two <a href="threeD.html">knobs</a> placing a <a href="nuts.html">nut</a> in each knob space and then screwing the <a href="twentyMthree.html">M3 - 20mm screws</a> and tight with the HEX key.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/j.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/i.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/k.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/h.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show7" src="images/j.jpg" alt=""/></div>
+<h2 class="page-step" id="place-the-side-holders">Step 7: Place the side holders</h2>
+<p>Put one of the two <a href="threeD.html">side syringe holders</a> 
+ in place and screw the knobs into the heat inserts. </p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/g.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/c.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/a.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show8" src="images/g.jpg" alt=""/></div>
+
+<h2 class="page-step" id="place-it-into-the-guide-rots">Step 8: Place it into the guide rots</h2>
+<div class="info-block">
+<p>Press against the table to ensure that they are aligned with the face of the Syringe holder.</p>
+</div>
+<p>Slide the piece and screw it like the previous ones using two <a href="fifteenMthree.html">M3 - 15mm screws</a> with the <a href="nuts.html">nut</a>s.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/n.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/l.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show9" src="images/n.jpg" alt=""/></div>
+
+<hr />
+<p>Now you have a full pump assembled and ready to be used.
+<img alt="" src="images/zz.jpg" title="" /></p>
+<hr />
+<p><a href="4_close.html">Previous page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2023 Tomás Astudillo Inostroza and Matías Hurtado Labarca</p>
+    <p class="email">Contact: <a href="mailto:matias.hurtadO1@mail.udp.cl">matias.hurtadO1@mail.udp.cl</a></p>
+
+    </div>
+</footer></body>
+</html>
