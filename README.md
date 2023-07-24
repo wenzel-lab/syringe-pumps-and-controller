@@ -15,7 +15,7 @@ Our goal with this modification and enhancement is to make this open-source syri
 ## Usage
 
 ### Instructions
-This Repository provides documentation how to build the pumps and the controller, just [follow the instructions here](https://librehub.github.io/3d-printed-syringe-pumps-and-controller/).
+This Repository provides documentation how to build the pumps and the controller, just [follow the instructions here](https://librehub.github.io/syringe-pumps-and-controller/).
 
 This project is documented with GitBuilding - an OpenSource project for documenting hardware projects. For more information on the GitBuilding project, or how
 to install GitBuilding please see the [GitBuilding website](http://gitbuilding.io)
@@ -46,7 +46,7 @@ documentation. More detail on the documentation is available on the
 
 ## Contribute
 
-Enjoy building and using your improved Open-Source Syringe Pump! We look forward to hearing about your experiences and any further improvements you might have. Make a pull-request or [open an issue](https://github.com/LIBREhub/3d-printed-syringe-pumps/issues/new).
+Enjoy building and using your improved Open-Source Syringe Pump! We look forward to hearing about your experiences and any further improvements you might have. Make a pull-request or [open an issue](https://github.com/LIBREhub/syringe-pumps-and-controller/issues/new).
 For interactions in our team and with the community applies the [GOSH Code of Conduct](https://openhardware.science/gosh-2017/gosh-code-of-conduct/).
 
 ## License
