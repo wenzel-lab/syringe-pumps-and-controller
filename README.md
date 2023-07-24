@@ -2,6 +2,8 @@
 
 This project is free and open-source design of a versatile lab equipment - syringe pumps and a dual controller, here detailed for microfluidic droplet generation - a modification from this [Open-Source Syringe Pump design](https://doi.org/10.1134/S1061934820030156).
 
+Find about more about this platform and other open-source hardware for bioimaging on the [LIBRE hub website](https://librehub.github.io/). Follow us! [#twitter](https://twitter.com/WenzelLab) [#YouTube](https://www.youtube.com/@librehub) [#LinkedIn](https://www.linkedin.com/company/92802424) [#instagram](https://www.instagram.com/wenzellab/) [#Printables](https://www.printables.com/@WenzelLab), [IIBM website](https://ingenieriabiologicaymedica.uc.cl/en/people/faculty/821-tobias-wenzel)
+
 ## Background
 
 A syringe pump is a device that delivers precise and accurate amounts of fluid over a broad range of flow rates. These devices find versatile use across various fields like healthcare, research, and development, playing a crucial role in scenarios such as controlled drug delivery in hospitals, chemical reaction control in labs, and more.
