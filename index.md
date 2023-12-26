@@ -1,6 +1,7 @@
 # Open-Source Syringe Pumps
 
-The open-source syringe pump has been specifically designed for use in microfluidics. Within the realm of open-source syringe pumps, numerous designs have been developed. However, in this particular creation, we have meticulously combined the finest features available. The major breakthrough achieved in this development lies in its remarkable capability to operate seamlessly with extraordinarily low flow rates, distinguishing it from its counterparts. As a result, it has been able to excel in the field of microfluidics
+
+The open-source syringe pump is a standard research instrument for use in microfluidics and several other laboratory workflows. There are numerous designs available in the realm of open-source syringe pumps and we have combined some of the best features available based on a pre-existing versatile design to generate low flow rates. 
 
 >i **Please Note:** This site is under construction.
 
