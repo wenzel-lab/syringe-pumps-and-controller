@@ -100,7 +100,7 @@ String lcdInput = "";
 int led = 0;
 
 // Pumping calculations
-float stepsPerMm = 0.89109589;
+float stepsPerMm = 0.89109589; // of one motor step - not considering microstepping.
 int microSteps = 256;  // Microstep settings for TMC2209 and TMC2226 (8, 16, 32, 64, 256 supported)
 
 // Setup function
@@ -352,13 +352,14 @@ void showPump(Pump &pump){
     }
 }
 
-// Function to calculate the time for each step based on flow rate and diameter
+// Function to calculate the time between steps of a stepper motor that controls a syringe pump, based on a desired flow rate and the diameter of the syringe.
 int calculateStepTime(int flow, float diameter) {
-    // Calculation logic for step timing
-    float a = 3.1415*pow(diameter/2,2);
-    float speed = ((((float)flow/(float)3600)/(float)a)/(float)1000000)*(float)stepsPerMm;  //en mm3/ms
-    int t = (float)1/speed;
-    t = t/microSteps;
+    // Calculation logic for step timing VERY STRANGE CALCULATION HERE - NEEDS FIXING AND VARIABLE RENAMING
+    float a = 3.1415*pow(diameter/2,2); //Area calculation A=πr^2, where r is the radius of the syringe. The radius is half the diameter, hence diameter/2.
+    float speed = ((((float)flow/(float)3600)/(float)a);  // mm/s Speed calcualtion: Input flowrates are in uL/h, they are converted into uL/s. 1uL (water) corresponds to 1mm^3. It is then divided by the area of the syringe (in mm^2) to obtain a distance in mm. Result in mm/s
+    speed *= (float)stepsPerMm / (float)1000000); //conversion of units to mm/ms and incorporate stepp distance (to actually just get 1/ms)
+    int t = (float)1/speed; // convert 1/ms to ms
+    t = t/microSteps; // shorten step time depending on microstep usage
     return t;
 }
 
