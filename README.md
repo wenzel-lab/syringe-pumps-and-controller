@@ -51,4 +51,4 @@ For interactions in our team and with the community applies the [GOSH Code of Co
 
 ## License
 
-[CC BY‑SA 4.0](LICENSE) by Tomás Astudillo, Matías Hurtado, Tobias Wenzel, and the [original design team](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/). This project is Open Source Hardware - please acknowledge us when using the hardware or sharing modifications.
+[CC BY‑SA 4.0](LICENSE) by Tomás Astudillo, Matías Hurtado, Pierre Padilla-Huamantinco, Tobias Wenzel, and the [original design team](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/). This project is Open Source Hardware - please acknowledge us when using the hardware or sharing modifications.
