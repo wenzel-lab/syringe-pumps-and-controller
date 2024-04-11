@@ -54,23 +54,61 @@
         Build syringe pump
     </a>
     </li>
-<li class="not-active">
-    <a class="not-active" href="./3_control-interface.html">
+<li class="active">
+    <a class="active" href="./3_control-interface.html">
         Build control interface
     </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./ci_interaction_panel.html">
+                Assemble the Front Panel
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_electronics.html">
+                Assemble the Main Electronics
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_close.html">
+                Assemble everything together
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./ci_software.html">
+                Firmware Installation
+            </a>
+        </li>
+            </ul>
     </li>
 
                 </ul>
             </nav>
         </div>
         <div class="wrapper">
-    <p>The open-source syringe pump is a standard research instrument for use in microfluidics and several other laboratory workflows. There are numerous designs available in the realm of open-source syringe pumps, and we have combined some of the best features available based on a pre-existing versatile design to generate low flow rates. </p>
-<p><img alt="" src="images/os-syringe-pumps.png" title="" /></p>
-<p>This instrument consists of two parts:</p>
+    <h1 id="firmware-installation">Firmware Installation</h1>
+<h2 class="page-step" id="download-firmware-and-libraries">Step 1: Download firmware and libraries</h2>
 <ul>
-<li><a href="2_syringe-pump.html" title="">Syringe Pump</a></li>
-<li><a href="3_control-interface.html" title="">Control Interface</a></li>
+<li>Click here to download the <a href="">zip file</a>, which contains firmware and libraries for programming the controller of the syringe pumps.</li>
 </ul>
+<h2 class="page-step" id="set-up-arduino-ide">Step 2: Set up Arduino IDE</h2>
+<ul>
+<li>In Arduino IDE, you must add Raspberry Pi Pico board. Go to File &gt; Preferences and enter the following URL into the “Additional Boards Manager URLs” field: <code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json</code> Then, click the “OK” button.</li>
+<li>Open the Boards Manager. Go to <strong>Tools</strong> &gt; <strong>Board</strong> &gt; <strong>Boards Manager.</strong> Search for “<strong>pico</strong>” and install the Raspberry Pi Pico/RP2040 boards</li>
+</ul>
+<h2 class="page-step" id="program-the-raspberry-pi-pico">Step 3: Program the Raspberry Pi Pico</h2>
+<ul>
+<li>Connect the Raspberry Pi Pico to your computer.</li>
+<li>Go to Arduino IDE and select your COM port in <strong>Tools</strong> &gt; <strong>Port</strong>.</li>
+<li>Go to <strong>Tools</strong> &gt; <strong>Board</strong> and select the Raspberry Pi Pico model you’re using - <strong>Pico</strong> or <strong>Pico W</strong> (wireless support).</li>
+<li>Uncompress the zip file to load the firmware and install the libraries.</li>
+<li>Go to <strong>File</strong> &gt; <strong>Open</strong> and load the firmwareV1.ino file located in the uncompressed folder.</li>
+<li>Go to <strong>Sketch</strong> &gt; <strong>Include Library</strong> &gt; <strong>Add .ZIP Library</strong> and select the zip files of the libraries <strong>LiquidCrystal_I2C</strong> and <strong>TMCStepper.</strong></li>
+<li>Click on <strong>Verify</strong> to compile the firmware and confirm the configuration is ok.</li>
+<li>If you get a success message, click on <strong>Upload</strong> to transfer the firmware to the board.</li>
+</ul>
+<hr />
+<p><a href="ci_close.html">Previous page</a></p>
     </div>
 </div>
 <footer class="site-footer">

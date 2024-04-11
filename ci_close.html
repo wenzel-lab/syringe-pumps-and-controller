@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  .nav-list a:hover:not(.active), .sub-nav-list a:hover:not(.active) {
+    background-color: #555555 !important;
+  }
+</style>
+    
+</head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Tobias Wenzel, Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, and Matías Hurtado Labarca</p>
+    <p class="affiliation">Latin American Hub for Bioimaging Through Open Hardware (LIBRE hub)</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./1_printing.html">
+        Print the plastic parts
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./2_syringe-pump.html">
+        Build syringe pump
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./3_control-interface.html">
+        Build control interface
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./ci_interaction_panel.html">
+                Assemble the Front Panel
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_electronics.html">
+                Assemble the Main Electronics
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./ci_close.html">
+                Assemble everything together
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_software.html">
+                Firmware Installation
+            </a>
+        </li>
+            </ul>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="assemble-everything-together">Assemble everything together</h1>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="part">Parts</h3>
+<ul>
+<li>1 <a Class="bom" href="ci_interaction_panel.html">Assembled Front Panel</a> </li>
+<li>1 <a Class="bom" href="ci_electronics.html">Assembled Interface Base</a> </li>
+</ul>
+<h3 id="elect">Electronic Components</h3>
+<h3 id="mech">Mechanical Components</h3>
+<ul>
+<li>2 <a Class="bom" href="parts/mech/M3-10mm-screw.html">M3 10mm screw</a> </li>
+<li>2 <a Class="bom" href="parts/mech/M3-15mm-screw.html">M3 15mm screw</a> </li>
+<li>4 <a Class="bom" href="parts/mech/M3-nut.html">M3 nut</a> </li>
+</ul>
+</div>
+<h2 class="page-step" id="connect-the-lcd-screen-to-the-raspberry-pi-pico">Step 1: Connect the LCD Screen to the Raspberry Pi Pico</h2>
+<ul>
+<li>Take the <a href="ci_interaction_panel.html">Assembled Front Panel</a> and locate the 4 <a href="parts/elect/20cm-f-f-jumper.html">20 cm female-female jumpers</a> coming out of the <a href="parts/elect/lcd-screen.html">LCD screen</a>.</li>
+<li>Connect these jumpers to the corresponding pins of the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a> in the <a href="ci_electronics.html">Assembled Interface Base</a>, following the wiring diagram.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/assembled-front-panel.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/assembled-front-panel_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/assembled-front-panel_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/assembled-front-panel_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show0" src="images/control-interface/assembled-front-panel.jpg" alt=""/></div>
+<h2 class="page-step" id="connect-the-membrane-keypad-to-the-raspberry-pi-pico">Step 2: Connect the Membrane Keypad to the Raspberry Pi Pico</h2>
+<ul>
+<li>Locate the 8 <a href="parts/elect/10cm-m-f-jumper.html">10 cm male-female jumpers</a> coming out of the <a href="parts/elect/4x4-keypad.html">Membrane 4x4 keypad</a>.</li>
+<li>Connect these jumpers to the respective pins of the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a> in the <a href="ci_electronics.html" title="">Assembled Interface Base</a>, following the wiring diagram.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/control-interface/keypad-rpi-pico.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/control-interface/keypad-rpi-pico_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/control-interface/keypad-rpi-pico_2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show1" src="images/control-interface/keypad-rpi-pico.jpg" alt=""/></div>
+<h2 class="page-step" id="fix-the-front-panel-in-place">Step 3: Fix the Front Panel in Place</h2>
+<ul>
+<li>Take 4 <a href="parts/mech/M3-nut.html">M3 nut</a> and slide them onto the 4 sockets of the <a href="ci_electronics.html" title="">Assembled Interface Base</a>.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/control-interface/fix-front-panel.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/control-interface/fix-front-panel_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show2" src="images/control-interface/fix-front-panel.jpg" alt=""/></div>
+<ul>
+<li>Use 2 <a href="parts/mech/M3-10mm-screw.html">M3 10mm screw</a> to secure the <a href="ci_interaction_panel.html" title="">Assembled Front Panel</a> to the <a href="ci_electronics.html" title="">Assembled Interface Base</a> in the 2 bottom holes.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/control-interface/fix-front-panel_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/control-interface/fix-front-panel_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show3" src="images/control-interface/fix-front-panel_2.jpg" alt=""/></div>
+<ul>
+<li>Use 2 <a href="parts/mech/M3-15mm-screw.html">M3 15mm screw</a> to secure the <a href="ci_interaction_panel.html" title="">Assembled Front Panel</a> to the <a href="ci_electronics.html" title="">Assembled Interface Base</a> in the 2 middle top holes.</li>
+</ul>
+<p><img alt="" src="images/control-interface/fix-front-panel_4.jpg" title="" /></p>
+<hr />
+<p><a href="ci_electronics.html">Previous page</a> | <a href="ci_software.html">Next page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2024 Tobias Wenzel, Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, and Matías Hurtado Labarca</p>
+    <p class="email">Contact: <a href="mailto:librehub@uc.cl">librehub@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>
