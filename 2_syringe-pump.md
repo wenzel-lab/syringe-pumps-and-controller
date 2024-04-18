@@ -62,12 +62,12 @@ Insert the lead screw though the back support and align the motor holes with the
 
 ![](images/syringe-pump/carriage-mech-components.jpg)
 
-Grab the [carriage][Carriage]{Qty:1, Cat: printedparts} and take the [linear bearing][Linear bearing]{Qty:2} and insert them into the side of the carriage. Then, take two [M3 nut]{Qty: 2} and insert them on the carriage and push then in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the carriage. Take two [M3 10mm][M3 10mm screw]{Qty: 2} and a M3 hex key to tighten the linear bearings.
+Grab the [carriage][Carriage]{Qty:1, Cat: printedparts} and take the [linear bearing][Linear bearing]{Qty:2} and insert them into the side of the carriage. Then, take two [M3 nut]{Qty: 2} and insert them on the carriage and push then in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the carriage. Take two [M3 10mm][M3 16mm screw]{Qty: 2} and a M3 hex key to tighten the linear bearings.
 
 ![](images/syringe-pump/carriage-exploded-view.jpg)
 ![](images/syringe-pump/carriage-linearbearings.jpg)
 
-Insert the [lead screw nut][Lead screw nut]{Qty: 1} into the carriage and tighten it to the carriage using two [M3 16mm][M3 16mm screw]{Qty: 2} and two [M3 nut]{Qty: 2}. Insert the screws in opposite side to hold the lead screw nut properly.
+Insert the [lead screw nut][Lead screw nut]{Qty: 1} into the carriage and tighten it to the carriage using two [M3 16mm][M3 10mm screw]{Qty: 2} and two [M3 nut]{Qty: 2}. Insert the screws in opposite side to hold the lead screw nut properly.
 
 ![](images/syringe-pump/carriage-exploded-view_1.jpg)
 ![](images/syringe-pump/lead-screw-nut.jpg)
