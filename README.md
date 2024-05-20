@@ -1,4 +1,4 @@
-# 3D printable syringe pumps and dual controller  [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+# 3D printable syringe pumps and controller  [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 This project is a free and open-source design of versatile lab equipment - syringe pumps and a dual controller, here detailed for microfluidic droplet generation - a modification from this [Open-Source Syringe Pump design](https://doi.org/10.1134/S1061934820030156).
 
