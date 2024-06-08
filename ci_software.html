@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  .nav-list a:hover:not(.active), .sub-nav-list a:hover:not(.active) {
+    background-color: #555555 !important;
+  }
+</style>
+    
+</head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Latin American Hub for Bioimaging Through Open Hardware (LIBRE hub)</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./1_printing.html">
+        Print the plastic parts
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./2_syringe-pump.html">
+        Build syringe pump
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./3_control-interface.html">
+        Build control interface
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./ci_interaction_panel.html">
+                Assemble the Front Panel
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_electronics.html">
+                Assemble the Main Electronics
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_close.html">
+                Assemble everything together
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./ci_software.html">
+                Firmware Installation
+            </a>
+        </li>
+            </ul>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="firmware-installation">Firmware Installation</h1>
+<h2 class="page-step" id="download-firmware-and-libraries">Step 1: Download firmware and libraries</h2>
+<ul>
+<li>Click here to download the <a href="">zip file</a>, which contains firmware and libraries for programming the controller of the syringe pumps.</li>
+</ul>
+<h2 class="page-step" id="set-up-arduino-ide">Step 2: Set up Arduino IDE</h2>
+<ul>
+<li>In Arduino IDE, you must add Raspberry Pi Pico board. Go to File &gt; Preferences and enter the following URL into the “Additional Boards Manager URLs” field: <code>https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json</code> Then, click the “OK” button.</li>
+<li>Open the Boards Manager. Go to <strong>Tools</strong> &gt; <strong>Board</strong> &gt; <strong>Boards Manager.</strong> Search for “<strong>pico</strong>” and install the Raspberry Pi Pico/RP2040 boards</li>
+</ul>
+<h2 class="page-step" id="program-the-raspberry-pi-pico">Step 3: Program the Raspberry Pi Pico</h2>
+<ul>
+<li>Connect the Raspberry Pi Pico to your computer.</li>
+<li>Go to Arduino IDE and select your COM port in <strong>Tools</strong> &gt; <strong>Port</strong>.</li>
+<li>Go to <strong>Tools</strong> &gt; <strong>Board</strong> and select the Raspberry Pi Pico model you’re using - <strong>Pico</strong> or <strong>Pico W</strong> (wireless support).</li>
+<li>Uncompress the zip file to load the firmware and install the libraries.</li>
+<li>Go to <strong>File</strong> &gt; <strong>Open</strong> and load the firmwareV1.ino file located in the uncompressed folder.</li>
+<li>Go to <strong>Sketch</strong> &gt; <strong>Include Library</strong> &gt; <strong>Add .ZIP Library</strong> and select the zip files of the libraries <strong>LiquidCrystal_I2C</strong> and <strong>TMCStepper.</strong></li>
+<li>Click on <strong>Verify</strong> to compile the firmware and confirm the configuration is ok.</li>
+<li>If you get a success message, click on <strong>Upload</strong> to transfer the firmware to the board.</li>
+</ul>
+<hr />
+<p><a href="ci_close.html">Previous page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2024 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:librehub@uc.cl">librehub@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>

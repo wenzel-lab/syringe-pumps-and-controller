@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  .nav-list a:hover:not(.active), .sub-nav-list a:hover:not(.active) {
+    background-color: #555555 !important;
+  }
+</style>
+    
+</head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Latin American Hub for Bioimaging Through Open Hardware (LIBRE hub)</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li class="active">
+    <a class="active" href="./1_printing.html">
+        Print the plastic parts
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./2_syringe-pump.html">
+        Build syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./3_control-interface.html">
+        Build control interface
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="print-the-plastic-parts">Print the plastic parts</h1>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="tool">Tools</h3>
+<ul>
+<li>1 <a Class="bom" href="parts/tools/precision-wire-cutters.html">Precision wire cutter</a> </li>
+<li>1 <a Class="bom" href="parts/tools/rep-rap.html">RepRap-style printer</a> </li>
+<li>1 <a Class="bom" href="parts/tools/utility-knife.html">Utility knife</a>    - Not a scalpel!</li>
+</ul>
+<h3 id="material">Materials</h3>
+<ul>
+<li>205 g of <a Class="bom" href="parts/materials/pla_filament.html">PLA filament</a>    - Of any colour you want</li>
+</ul>
+</div>
+<h2 class="page-step" id="set-your-printer-settings">Step 1: Set your printer settings</h2>
+<p>Almost all station parts can be printed out of <a href="parts/materials/pla_filament.html">PLA filament</a> on most <a href="parts/tools/rep-rap.html">RepRap-style printers</a>.</p>
+<p>We recommend the following printer settings:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Material</td>
+<td>PLA</td>
+</tr>
+<tr>
+<td>Material Temperature</td>
+<td>Recommended by the PLA brand</td>
+</tr>
+<tr>
+<td>Layer height</td>
+<td>0.2mm or less</td>
+</tr>
+<tr>
+<td>Infill</td>
+<td>Printer default or more</td>
+</tr>
+<tr>
+<td>Brim</td>
+<td>Recommended for all parts</td>
+</tr>
+<tr>
+<td>Slice gap closing radius</td>
+<td>0.001mm</td>
+</tr>
+</tbody>
+</table>
+<p>Test whether your printer can print the pieces for this station or other open-source designs. Download and print the <a href="models/leg_test.html">leg test</a> file. This will only use about <a href="parts/materials/pla_filament.html">5 grams of PLA</a>.</p>
+<p>The result should look like this (this has been printed with a brim):</p>
+<p><img alt="" src="images/just_leg_test.jpg" title="" /></p>
+<p>As a general rule, strength is more important than surface finish, so very thin layers (less than 0.15mm or so) are unlikely to result in a station that performs any better, though it may approve the appearance.</p>
+<h2 class="page-step" id="printing">Step 2: Printing</h2>
+<p>Now you have tested your <a href="parts/tools/rep-rap.html">3D printer</a> and <a href="parts/materials/pla_filament.html">filament</a> you can print the following parts:</p>
+<h3 id="syringe-pump">Syringe Pump</h3>
+<ul>
+<li><a name="output__back-support---a"></a>Back support - A: <a href="models/back-support-gearbox-A.html" title="">back-support-gearbox-A.stl</a></li>
+<li><a name="output__back-support---b"></a>Back support - B: <a href="models/back-support-gearbox-B.html" title="">back-support-gearbox-B.stl</a></li>
+<li><a name="output__carriage"></a>Carriage: <a href="models/carriage.html" title="">carriage.stl</a></li>
+<li><a name="output__front-support"></a>Front support: <a href="models/front-support.html" title="">front-support.stl</a></li>
+<li><a name="output__syringe-holder"></a>Syringe holder: <a href="models/syringe-holders.html" title="">syringe-holders.stl</a></li>
+<li><a name="output__hand-knob"></a>Hand knob: <a href="models/hand-knob.html" title="">hand-knob.stl</a></li>
+</ul>
+<div class="info-block">
+<p>If a gearbox is not used in the syringe pump, a single <a href="models/back-support.html" title="">back support</a> must be printed instead of the two parts listed above.</p>
+</div>
+<h3 id="control-interface">Control Interface</h3>
+<ul>
+<li><a name="output__interface-panel"></a>Interface panel: <a href="models/interface-panel.html" title="">interface-panel.stl</a></li>
+<li><a name="output__lcd-adapter"></a>LCD adapter: <a href="models/lcd-adapter.html" title="">lcd-adapter.stl</a></li>
+<li><a name="output__interface-base"></a>Interface base: <a href="models/interface-base.html" title="">interface-base.stl</a></li>
+<li><a name="output__electronics-holder"></a>Electronics holder: <a href="models/electronics-holder.html" title="">electronics-holder.stl</a></li>
+<li><a name="output__back-cover"></a>Back cover: <a href="models/interface-back-cover.html" title="">interface-back-cover.stl</a></li>
+</ul>
+<h2 class="page-step" id="clean-up-of-printed-parts">Step 3: Clean-up of printed parts</h2>
+<div class="warning-block">
+<p><strong>Be careful when removing brim:</strong> To avoid injury, first remove the bulk of the brim without a knife. Remove the remaining brim with a peeling action as described below.</p>
+</div>
+<p>Carefully remove the printing brim from all parts. To remove brim:</p>
+<ol>
+<li>Use <a href="parts/tools/precision-wire-cutters.html">precision wire cutters</a> to remove most of the brim from the part.</li>
+<li>Clean up the remaining brim with a <a href="parts/tools/utility-knife.html">utility knife</a>:<ul>
+<li>Hold the knife in your dominant hand with 4 fingers curled around the handle, leaving your thumb free.</li>
+<li>Hold the part in your other hand, as far away from the surface, to be cut as possible.</li>
+<li>Support the part with the thumb of your dominant hand.</li>
+<li>Place the blade on the surface to be cut, and carefully close your dominant hand, moving the blade, under control, towards your thumb.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="" src="images/BrimRemoval.jpg" title="" /></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2024 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:librehub@uc.cl">librehub@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>
