@@ -2,7 +2,7 @@
 
 ## Download firmware and libraries {pagestep}
 
-- Click here to download the [zip file](), which contains firmware and libraries for programming the controller of the syringe pumps.
+- Click here to download the [zip file](https://github.com/LIBREhub/syringe-pumps-and-controller/blob/eeff69e64310cca7eb77dbcb7cd3ff97310e89c5/software/firmware_ci_V2.rar), which contains firmware and libraries for programming the controller of the syringe pumps.
 
 ## Set up Arduino IDE {pagestep}
 
