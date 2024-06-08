@@ -1,7 +1,0 @@
-{
-    "cpu": {
-      "fqbn":"rp2040:rp2040:rpipico",
-      "port":"serial://COM10"
-    }
-  }
-  
