@@ -37,11 +37,14 @@ Now you have tested your [3D printer][RepRap-style printer] and [filament][PLA f
 
 ### Syringe Pump
 
-* [Back support]{output,qty:1}: [back-support.stl](models/back-support.stl){previewpage}
+* [Back support - A]{output,qty:1}: [back-support-gearbox-A.stl](models/back-support-gearbox-A.stl){previewpage}
+* [Back support - B]{output,qty:1}: [back-support-gearbox-B.stl](models/back-support-gearbox-B.stl){previewpage}
 * [Carriage]{output,qty:1}: [carriage.stl](models/carriage.stl){previewpage}
 * [Front support]{output,qty:1}: [front-support.stl](models/front-support.stl){previewpage}
 * [Syringe holder]{output,qty:1}: [syringe-holders.stl](models/syringe-holders.stl){previewpage}
 * [Hand knob]{output,qty:2}: [hand-knob.stl](models/hand-knob.stl){previewpage}
+
+>i If a gearbox is not used in the syringe pump, a single [back support](models/back-support.stl){previewpage} must be printed instead of the two parts listed above.
 
 ### Control Interface
 
