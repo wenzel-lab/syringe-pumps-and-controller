@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  .nav-list a:hover:not(.active), .sub-nav-list a:hover:not(.active) {
+    background-color: #555555 !important;
+  }
+</style>
+    
+</head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Latin American Hub for Bioimaging Through Open Hardware (LIBRE hub)</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./1_printing.html">
+        Print the plastic parts
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./2_syringe-pump.html">
+        Build syringe pump
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./3_control-interface.html">
+        Build control interface
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./ci_interaction_panel.html">
+                Assemble the Front Panel
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./ci_electronics.html">
+                Assemble the Main Electronics
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_close.html">
+                Assemble everything together
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./ci_software.html">
+                Firmware Installation
+            </a>
+        </li>
+            </ul>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="assemble-the-main-electronics">Assemble the Main Electronics</h1>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="elect">Electronic Components</h3>
+<ul>
+<li>7 <a Class="bom" href="parts/elect/10cm-f-f-jumper.html">10 cm female-female jumper</a> </li>
+<li>8 <a Class="bom" href="parts/elect/20cm-f-f-jumper.html">20 cm female-female jumper</a> </li>
+<li>1 <a Class="bom" href="parts/elect/40-pin-header.html">40 pin header</a> </li>
+<li>1 <a Class="bom" href="parts/elect/5.5mm-f-jack-connector.html">5.5mm female jack connector</a> </li>
+<li>1 <a Class="bom" href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a> </li>
+<li>2 <a Class="bom" href="parts/elect/TMC2209-driver.html">TMC2209 driver</a> </li>
+<li>1 <a Class="bom" href="parts/elect/voltage-regulator.html">Voltage regulator</a> </li>
+</ul>
+<h3 id="mech">Mechanical Components</h3>
+<ul>
+<li>6 <a Class="bom" href="parts/mech/M3-10mm-screw.html">M3 10mm screw</a> </li>
+<li>1 <a Class="bom" href="parts/mech/M3-25mm-screw.html">M3 25mm screw</a> </li>
+<li>8 <a Class="bom" href="parts/mech/M3-nut.html">M3 nut</a> </li>
+</ul>
+<h3 id="printedparts">Printed Parts</h3>
+<ul>
+<li>1 <a Class="bom" href="models/interface-back-cover.html">Back cover</a> </li>
+<li>1 <a Class="bom" href="models/electronics-holder.html">Electronics holder</a> </li>
+<li>1 <a Class="bom" href="models/interface-base.html">Interface base</a> </li>
+</ul>
+</div>
+<h2 class="page-step" id="prepare-the-voltage-regulator-circuit">Step 1: Prepare the Voltage Regulator Circuit</h2>
+<ul>
+<li>Take 4 <a href="parts/elect/20cm-f-f-jumper.html">20 cm Female-Female Jumpers</a> and cut them in half.</li>
+<li>Also, cut the Dupont female end of 1 pair. </li>
+<li>Strip the ends of all wires.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/jumpers-vg.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/jumpers-vg_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/jumpers-vg_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/control-interface/jumpers-vg_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show0" src="images/control-interface/jumpers-vg.jpg" alt=""/></div>
+<ul>
+<li>Take the <a href="parts/elect/voltage-regulator.html">voltage regulator</a> and the <a href="parts/elect/5.5mm-f-jack-connector.html">5.5mm female jack connector</a>.</li>
+<li>Connect them according to the wiring diagram.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/control-interface/5.5mm-f-jack-connector.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/control-interface/5.5mm-f-jack-connector_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show1" src="images/control-interface/5.5mm-f-jack-connector.jpg" alt=""/></div>
+<h2 class="page-step" id="fix-the-voltage-regulator-pcb-on-the-base">Step 2: Fix the Voltage Regulator PCB on the Base</h2>
+<ul>
+<li>Use 4 <a href="parts/mech/M3-10mm-screw.html">M3 10mm screws</a> and <a href="parts/mech/M3-nut.html">M3 nut</a> to secure the already wired voltage regulator.</li>
+<li>Attach it to the <a href="models/interface-base.html">interface base</a>, making sure to place the <a href="parts/mech/M3-nut.html">M3 nut</a> on the back side.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/control-interface/base-vr.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/control-interface/base-vr_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show2" src="images/control-interface/base-vr.jpg" alt=""/></div>
+<h2 class="page-step" id="install-the-55mm-female-jack-connector">Step 3: Install the 5.5mm Female Jack Connector</h2>
+<ul>
+<li>With the voltage regulator in place, position the 5.5mm female jack connector in the top left corner of the base.</li>
+<li>Apply moderate force to ensure a tight fit.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/control-interface/base-jack-connector.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/control-interface/base-jack-connector_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/control-interface/base-jack-connector_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/control-interface/base-jack-connector_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show3" src="images/control-interface/base-jack-connector.jpg" alt=""/></div>
+<h2 class="page-step" id="install-the-raspberry-pi-pico">Step 4: Install the Raspberry Pi Pico</h2>
+<ul>
+<li>Take the <a href="parts/elect/40-pin-header.html">40 pin header</a> and cut them in half.</li>
+<li>Solder them onto the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a></li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/control-interface/rpi-pico.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/control-interface/rpi-pico_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show4" src="images/control-interface/rpi-pico.jpg" alt=""/></div>
+<ul>
+<li>Place the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a> upside down, aligning the holes with the pins on the base.</li>
+<li>Ensure that the USB port aligns with the respective hole.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/control-interface/base-rpi-pico.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/control-interface/base-rpi-pico_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/control-interface/base-rpi-pico_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/control-interface/base-rpi-pico_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show5" src="images/control-interface/base-rpi-pico.jpg" alt=""/></div>
+<h2 class="page-step" id="wiring-the-pico-and-voltage-circuit">Step 5: Wiring the Pico and Voltage Circuit</h2>
+<ul>
+<li>Take the two cables that come out of the voltage regulator.</li>
+<li>Connect the positive cable to the 40th pin of the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a>.</li>
+<li>Connect the negative cable to the 3rd pin of the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a>.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/control-interface/vr-jumpers.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/control-interface/vr-jumpers-rpi-pico.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show6" src="images/control-interface/vr-jumpers.jpg" alt=""/></div>
+<h2 class="page-step" id="install-the-motor-drivers">Step 6: Install the Motor Drivers</h2>
+<ul>
+<li>Take 2 <a href="parts/elect/TMC2209-driver.html">TMC2209 driver</a> and attach the heatsinks.</li>
+<li>Make sure to attach them in the positions shown below.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/control-interface/TMC2209-driver.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/control-interface/TMC2209-driver_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show7" src="images/control-interface/TMC2209-driver.jpg" alt=""/></div>
+<ul>
+<li>Take 7 <a href="parts/elect/10cm-f-f-jumper.html">10 cm female-female jumper</a> and connect them to the following pins of the TMC2209 Driver.</li>
+<li>Repeat the process for the other TMC2209 Driver motor driver.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/control-interface/TMC2209-driver-jumpers.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/control-interface/TMC2209-driver-jumpers_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/control-interface/TMC2209-driver-jumpers_2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show8" src="images/control-interface/TMC2209-driver-jumpers.jpg" alt=""/></div>
+<ul>
+<li>Connect the two TMC2209 Driver to the <a href="parts/elect/rpi-pico.html">Raspberry Pi Pico</a> pins. </li>
+<li>Follow the diagram and the images below.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/control-interface/TMC2209-driver-jumpers_3.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/control-interface/TMC2209-driver-jumpers_4.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show9" src="images/control-interface/TMC2209-driver-jumpers_3.jpg" alt=""/></div>
+<ul>
+<li>Insert the TMC2209 Driver into the corresponding holes.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/control-interface/TMC2209-driver-base.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/control-interface/TMC2209-driver-base_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show10" src="images/control-interface/TMC2209-driver-base.jpg" alt=""/></div>
+<h2 class="page-step" id="fix-the-electronics-holder">Step 7: Fix the Electronics Holder</h2>
+<ul>
+<li>Take 1 <a href="parts/mech/M3-25mm-screw.html">M3 25mm screw</a> and <a href="parts/mech/M3-nut.html">M3 nut</a>.</li>
+<li>Use them to secure the <a href="models/electronics-holder.html">electronics holder</a> in place.</li>
+<li>The electronics holder should keep the electronic components securely in place.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show11').src=this.src" src="images/control-interface/electronic-holder.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show11').src=this.src" src="images/control-interface/electronic-holder_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show11').src=this.src" src="images/control-interface/electronic-holder_2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show11" src="images/control-interface/electronic-holder.jpg" alt=""/></div>
+<h2 class="page-step" id="rear-cables">Step 8: Rear Cables</h2>
+<ul>
+<li>Take 4 <a href="parts/elect/20cm-f-f-jumper.html">20 cm female-female jumpers</a> and connect them to the 4 pins shown below on one of the TMC2209 Driver.</li>
+<li>Thread the 20 cm female-female jumpers through the holes.</li>
+<li>Repeat the process for the other TMC2209 Driver. </li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show12').src=this.src" src="images/control-interface/TMC2209-driver-jumpers_4.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show12').src=this.src" src="images/control-interface/TMC2209-driver-jumpers_5.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show12" src="images/control-interface/TMC2209-driver-jumpers_4.jpg" alt=""/></div>
+<ul>
+<li>Take 2 <a href="parts/mech/M3-10mm-screw.html">M3 10mm screws</a> and 2 <a href="parts/mech/M3-nut.html">M3 nut</a>.</li>
+<li>Secure the 20 cm female-female jumpers with the <a href="models/interface-back-cover.html">back cover</a>.</li>
+<li>Ensure that the 20 cm female-female jumpers are arranged neatly. The lid should press firmly without cutting them.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show13').src=this.src" src="images/control-interface/back-cover.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show13').src=this.src" src="images/control-interface/back-cover_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show13" src="images/control-interface/back-cover.jpg" alt=""/></div>
+<p>The <a name="output__assembled-interface-base"></a>Assembled Interface Base is now ready.</p>
+<hr />
+<p><a href="ci_interaction_panel.html">Previous page</a> | <a href="ci_close.html">Next page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2024 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:librehub@uc.cl">librehub@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>
