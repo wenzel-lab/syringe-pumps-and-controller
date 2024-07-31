@@ -46,7 +46,7 @@ documentation. More detail on the documentation is available on the
 
 ## Contribute
 
-Enjoy building and using your improved Open-Source Syringe Pump! We look forward to hearing about your experiences and any further improvements you might have. Make a pull request or [open an issue](https://github.com/LIBREhub/syringe-pumps-and-controller/issues/new).
+Enjoy building and using your improved Open-Source Syringe Pump! We look forward to hearing about your experiences and any further improvements you might have. Make a pull request or [open an issue](https://github.com/wenzel-lab/syringe-pumps-and-controller/issues/new).
 For interactions in our team and with the community, apply the [GOSH Code of Conduct](https://openhardware.science/gosh-2017/gosh-code-of-conduct/).
 
 ## License
