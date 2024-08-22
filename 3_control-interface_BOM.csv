@@ -1,0 +1,20 @@
+Name in documentation	Category	Qty	Full Name	Notes
+10 cm female-female jumper	elect	7		
+10 cm male-female jumper	elect	8		
+20 cm female-female jumper	elect	12		
+40 pin header	elect	1		
+5.5mm female jack connector	elect	1		
+Back cover	printedparts	1		
+Electronics holder	printedparts	1		
+Interface base	printedparts	1		
+Interface panel	printedparts	1		
+LCD adapter	printedparts	1		
+LCD screen	elect	1	LCD Screen	
+M3 10mm screw	mech	8	Screw	
+M3 16mm screw	mech	4	Screw	
+M3 25mm screw	mech	1	Screw	
+M3 nut	mech	14		
+Membrane 4x4 keypad	elect	1		
+Raspberry Pi Pico	elect	1		
+TMC2209 driver	elect	2	Silent Driver + Heatsink	
+Voltage regulator	elect	1		

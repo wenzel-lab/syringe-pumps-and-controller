@@ -66,13 +66,14 @@
         <div class="wrapper">
     <h1 id="build-syringe-pump">Build syringe pump</h1>
 <p><em>This design is based on the <a href="https://www.mass-spec.ru/projects/diy/syringe_pump/eng/" target="_blank" title="">Open-Source Syringe Pump</a> developed by Andrey Samokhin</em></p>
+<p>Before you start building the station, you will need to source all the components listed in our <a href="2_syringe-pump_BOM.html" title="HTML">bill of materials</a> (<a href="2_syringe-pump_BOM.html"><img alt="HTML" class="smallicon" src="static/Icons/html.png" title="HTML Bill of Materials" /></a>, <a href="2_syringe-pump_BOM.csv"><img alt="CSV" class="smallicon" src="static/Icons/csv.png" title="CSV Bill of Materials" /></a>), which is given on the next page.</p>
 <div class="pagebom">
 <h2 id="for-this-section-you-will-need">For this section you will need:</h2>
 <h3 id="tool">Tools</h3>
 <ul>
-<li>1 <a Class="bom" href="parts/tools/M2.5-hex-key.html">M2.5 hex key</a> </li>
-<li>1 <a Class="bom" href="parts/tools/M3-hex-key.html">M3 hex key</a> </li>
-<li>1 <a Class="bom" href="parts/tools/M4-hex-key.html">M4 hex key</a> </li>
+<li>1 <a Class="bom" href="parts/tools/2mmBallEndAllenKey.html">M2.5 hex key</a> </li>
+<li>1 <a Class="bom" href="parts/tools/2.5mmBallEndAllenKey.html">M3 hex key</a> </li>
+<li>1 <a Class="bom" href="parts/tools/3mmBallEndAllenKey.html">M4 hex key</a> </li>
 <li>1 <a Class="bom" href="parts/tools/soldering-iron.html">Soldering iron</a> </li>
 </ul>
 <h3 id="elect">Electronic Components</h3>
@@ -85,14 +86,14 @@
 <li>1 <a Class="bom" href="parts/mech/lead-screw.html">Lead screw</a> </li>
 <li>1 <a Class="bom" href="parts/mech/lead-screw-nut.html">Lead screw nut</a> </li>
 <li>2 <a Class="bom" href="parts/mech/linear-bearing.html">Linear bearing</a> </li>
-<li>2 <a Class="bom" href="parts/mech/linear-motion-rod-100mm.html">Linear motion rod 100mm</a> </li>
-<li>2 <a Class="bom" href="parts/mech/M3-10mm-screw.html">M3 10mm screw</a> </li>
-<li>2 <a Class="bom" href="parts/mech/M3-12mm-screw.html">M3 12mm screw</a> </li>
-<li>8 <a Class="bom" href="parts/mech/M3-16mm-screw.html">M3 16mm screw</a> </li>
-<li>2 <a Class="bom" href="parts/mech/M3-20mm-screw.html">M3 20mm screw</a> </li>
-<li>4 <a Class="bom" href="parts/mech/M3-8mm-screw.html">M3 8mm screw</a> </li>
-<li>9 <a Class="bom" href="parts/mech/M3-nut.html">M3 nut</a> </li>
-<li>4 <a Class="bom" href="parts/mech/M4-10mm-screw.html">M4 10mm screw</a> </li>
+<li>2 <a Class="bom" href="parts/mech/linear-motion-rods-200mm.html">Linear motion rods</a> </li>
+<li>2 <a Class="bom" href="parts/mech/M3-10.html">M3 10mm screw</a> </li>
+<li>2 <a Class="bom" href="parts/mech/M3-12.html">M3 12mm screw</a> </li>
+<li>8 <a Class="bom" href="parts/mech/M3-16.html">M3 16mm screw</a> </li>
+<li>2 <a Class="bom" href="parts/mech/M3-20.html">M3 20mm screw</a> </li>
+<li>4 <a Class="bom" href="parts/mech/M3-8.html">M3 8mm screw</a> </li>
+<li>9 <a Class="bom" href="parts/mech/nuts.html">M3 nut</a> </li>
+<li>4 <a Class="bom" href="parts/mech/M4-10.html">M4 10mm screw</a> </li>
 <li>1 <a Class="bom" href="parts/mech/motor-coupling.html">Motor coupling</a> </li>
 <li>1 <a Class="bom" href="parts/mech/planetary-gearbox-100-1.html">Planetary gearbox 100:1</a> </li>
 </ul>
@@ -110,7 +111,7 @@
 <p><strong>You should build two syringe pumps for droplet microfluidic assays</strong></p>
 </div>
 <h2 class="page-step" id="assemble-the-stepper-motor-and-gearbox">Step 1: Assemble the stepper motor and gearbox</h2>
-<p>Insert the motor shaft of the <a href="parts/elect/NEMA-17-motor.html">NEMA 17 motor</a> to the <a href="parts/mech/planetary-gearbox-100-1.html">gearbox</a> and attach it to the housing by using four <a href="parts/mech/M3-8mm-screw.html">M3 8mm</a>. Use a <a href="parts/tools/M3-hex-key.html">M3 hex key</a> to tighten them.</p>
+<p>Insert the motor shaft of the <a href="parts/elect/NEMA-17-motor.html">NEMA 17 motor</a> to the <a href="parts/mech/planetary-gearbox-100-1.html">gearbox</a> and attach it to the housing by using four <a href="parts/mech/M3-8.html">M3 8mm</a>. Use a <a href="parts/tools/2.5mmBallEndAllenKey.html">M3 hex key</a> to tighten them.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/syringe-pump/motor-gearbox.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/syringe-pump/motor-gearbox_1.jpg" alt="" />
@@ -126,15 +127,15 @@
     <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/syringe-pump/backsup-A-heat-inserts_1.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show1" src="images/syringe-pump/backsup-A-heat-inserts.jpg" alt=""/></div>
-<p>Take four <a href="parts/mech/M4-10mm-screw.html">M4 10mm</a> and a <a href="parts/tools/M4-hex-key.html">M4 hex key</a> key to tighten the <a href="models/back-support-gearbox-A.html">back support - A</a> to the gearbox. Make sure the piece orientation is correct. The indicated screw must be opposite to the electrical connector of the stepper motor.</p>
+<p>Take four <a href="parts/mech/M4-10.html">M4 10mm</a> and a <a href="parts/tools/3mmBallEndAllenKey.html">M4 hex key</a> key to tighten the <a href="models/back-support-gearbox-A.html">back support - A</a> to the gearbox. Make sure the piece orientation is correct. The indicated screw must be opposite to the electrical connector of the stepper motor.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/syringe-pump/backsup-A-gearbox.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/syringe-pump/backsup-A-gearbox_1.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show2" src="images/syringe-pump/backsup-A-gearbox.jpg" alt=""/></div>
-<p>Insert the shaft of the <a href="parts/mech/planetary-gearbox-100-1.html">gearbox</a> halfway into the <a href="parts/mech/motor-coupling.html">motor coupling</a> and then tighten down to it. Use a <a href="parts/tools/M2.5-hex-key.html">M2.5 hex key</a> to tighten the motor coupling. </p>
+<p>Insert the shaft of the <a href="parts/mech/planetary-gearbox-100-1.html">gearbox</a> halfway into the <a href="parts/mech/motor-coupling.html">motor coupling</a> and then tighten down to it. Use a <a href="parts/tools/2mmBallEndAllenKey.html">M2.5 hex key</a> to tighten the motor coupling. </p>
 <p><img alt="" src="images/syringe-pump/gearbox-coupling.jpg" title="" /></p>
-<p>Take four <a href="parts/mech/M3-16mm-screw.html">M3 16mm</a> to tighten the <a href="models/back-support-gearbox-B.html">back support - B</a> to the part A. Make sure the screw holes on the back support B are aligned to the heat inserts.</p>
+<p>Take four <a href="parts/mech/M3-16.html">M3 16mm</a> to tighten the <a href="models/back-support-gearbox-B.html">back support - B</a> to the part A. Make sure the screw holes on the back support B are aligned to the heat inserts.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/syringe-pump/backsup-A-B.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/syringe-pump/backsup-A-B_1.jpg" alt="" />
@@ -142,21 +143,21 @@
 <div class="gallery-show"><img id="gallery-show3" src="images/syringe-pump/backsup-A-B.jpg" alt=""/></div>
 <p>Take the <a href="parts/mech/lead-screw.html">lead screw</a>, and insert it into the motor coupling. Then, tighten the motor coupling down on the lead screw.</p>
 <p><img alt="" src="images/syringe-pump/lead-screw-coupling.jpg" title="" /></p>
-<p>Take two <a href="parts/mech/M3-nut.html">M3 nut</a>, insert them on the <a href="models/back-support-gearbox-B.html">back support - B</a> and push then in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the back support. Then, take two <a href="parts/mech/M3-10mm-screw.html">M3 10mm</a> and screw them just to hold the nuts. Use a <a href="parts/tools/M3-hex-key.html">M3 hex key</a>.</p>
+<p>Take two <a href="parts/mech/nuts.html">M3 nut</a>, insert them on the <a href="models/back-support-gearbox-B.html">back support - B</a> and push them in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the back support. Then, take two <a href="parts/mech/M3-10.html">M3 10mm</a> and screw them just to hold the nuts. Use a <a href="parts/tools/2.5mmBallEndAllenKey.html">M3 hex key</a>.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/syringe-pump/backsup-B-nut.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/syringe-pump/backsup-B-screw.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show4" src="images/syringe-pump/backsup-B-nut.jpg" alt=""/></div>
 <h2 class="page-step" id="assemble-and-mount-the-carriage">Step 3: Assemble and mount the carriage</h2>
-<p>Insert the <a href="parts/mech/lead-screw-nut.html">lead screw nut</a> into the <a href="models/carriage.html">carriage</a> and tighten it to the carriage using two <a href="parts/mech/M3-16mm-screw.html">M3 16mm</a> and two <a href="parts/mech/M3-nut.html">M3 nut</a>. Insert the screws in opposite side to hold the lead screw nut properly.</p>
+<p>Insert the <a href="parts/mech/lead-screw-nut.html">lead screw nut</a> into the <a href="models/carriage.html">carriage</a> and tighten it to the carriage using two <a href="parts/mech/M3-16.html">M3 16mm</a> and two <a href="parts/mech/nuts.html">M3 nut</a>. Insert the screws in opposite side to hold the lead screw nut properly.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/syringe-pump/carriage-lead-screw-nut.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/syringe-pump/carriage-lead-screw-nut_1.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/syringe-pump/carriage-lead-screw-nut_2.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show5" src="images/syringe-pump/carriage-lead-screw-nut.jpg" alt=""/></div>
-<p>Grab the <a href="models/carriage.html">carriage</a> and take the <a href="parts/mech/linear-bearing.html">linear bearing</a> and insert them into the side of the carriage. Then, take two <a href="parts/mech/M3-nut.html">M3 nut</a> and insert them on the carriage and push then in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the carriage. Take two <a href="parts/mech/M3-12mm-screw.html">M3 12mm</a> and a M3 hex key to tighten the linear bearings.</p>
+<p>Grab the <a href="models/carriage.html">carriage</a> and take the <a href="parts/mech/linear-bearing.html">linear bearing</a> and insert them into the side of the carriage. Then, take two <a href="parts/mech/nuts.html">M3 nut</a> and insert them on the carriage and push then in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the carriage. Take two <a href="parts/mech/M3-12.html">M3 12mm</a> and a M3 hex key to tighten the linear bearings.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/syringe-pump/carriage-linear-bearings.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/syringe-pump/carriage-nut.jpg" alt="" />
@@ -165,7 +166,7 @@
 <div class="gallery-show"><img id="gallery-show6" src="images/syringe-pump/carriage-linear-bearings.jpg" alt=""/></div>
 <p>Insert the lead screw into the nut. Then, manually thread it up to the middle of the lead screw as shown below.</p>
 <p><img alt="" src="images/syringe-pump/carriage-mounted.jpg" title="" /></p>
-<p>Push the <a href="parts/mech/linear-motion-rod-100mm.html">linear rails</a> into the linear bearings in the <a href="models/carriage.html">carriage</a> and insert them in the <a href="models/back-support-gearbox-B.html">back support - B</a>, one into the left side and one to the right side. Make sure they insert into the holes properly and then push them through. Tighten the linear rails down on the back support - B.</p>
+<p>Push the <a href="parts/mech/linear-motion-rods-200mm.html">linear rails</a> into the linear bearings in the <a href="models/carriage.html">carriage</a> and insert them in the <a href="models/back-support-gearbox-B.html">back support - B</a>, one into the left side and one to the right side. Make sure they are inserted into the holes properly and then push them through. Tighten the linear rails down on the back support - B.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/syringe-pump/carriage-mounted_1.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/syringe-pump/carriage-mounted_2.jpg" alt="" />
@@ -178,18 +179,20 @@
     <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/syringe-pump/front-support.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show8" src="images/syringe-pump/heat-set_insert.gif" alt=""/></div>
-<p>Insert <a href="parts/mech/M3-nut.html">M3 nuts</a> into the nut traps of the front support. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the front support. Take <a href="parts/mech/M3-16mm-screw.html">M3 16mm</a> and thread them enough to hold the nuts.</p>
+<p>Insert <a href="parts/mech/nuts.html">M3 nuts</a> into the nut traps of the front support. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the front support. Take <a href="parts/mech/M3-16.html">M3 16mm</a> and thread them enough to hold the nuts.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/syringe-pump/frontsup-nut.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show9').src=this.src" src="images/syringe-pump/frontsup-screw.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show9" src="images/syringe-pump/frontsup-nut.jpg" alt=""/></div>
-<p>Insert a <a href="parts/mech/M3-nut.html">M3 nut</a> into the nut trap of the <a href="models/hand-knob.html">hand knob</a>. Take a <a href="parts/mech/M3-20mm-screw.html">M3 20mm</a> and thread it all. Repeat this step with the second knob.</p>
+<p>Insert a <a href="parts/mech/nuts.html">M3 nut</a> into the nut trap of the <a href="models/hand-knob.html">hand knob</a>. Take a <a href="parts/mech/M3-20.html">M3 20mm</a> and thread it all. Repeat this step with the second knob.</p>
 <div class="gallery-thumb">
     <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/syringe-pump/hand-knob.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/syringe-pump/Close-up-knob.jpg" alt="" />
     <img onmouseover="getElementById('gallery-show10').src=this.src" src="images/syringe-pump/hand-knob_1.jpg" alt="" />
 </div>
 <div class="gallery-show"><img id="gallery-show10" src="images/syringe-pump/hand-knob.jpg" alt=""/></div>
+
 <h2 class="page-step" id="assemble-the-front-support-and-the-linear-rails">Step 5: Assemble the front support and the linear rails</h2>
 <p>Align the linear rails with the front support to make it sure that they insert into the holes properly, and then push them through. Tighten the linear rails down on the front support.</p>
 <div class="gallery-thumb">
