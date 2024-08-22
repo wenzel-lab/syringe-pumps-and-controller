@@ -4,8 +4,8 @@
 
 [LCD adapter]: models/lcd-adapter.stl "{previewpage}"
 [LCD screen]: parts/elect/lcd-screen.md "{cat:elect}"
-[M3 15mm screw]: parts/mech/M3-15mm-screw.md "{cat:mech}"
-[M3 nut]: parts/mech/M3-nut.md "{cat:mech}"
+[M3 16mm screw]: parts/mech/M3-16.md "{cat:mech}"
+[M3 nut]: parts/mech/nuts.md "{cat:mech}"
 [LCD adapter]: models/lcd-adapter.stl "{previewpage}"
 [Interface panel]: models/interface-panel.stl "{previewpage}"
 [Membrane 4x4 keypad]: parts/elect/4x4-keypad.md "{cat:elect}"
@@ -22,7 +22,7 @@
 
 ## Attach to the Front Panel {pagestep}
 
-* Secure the screen with two [M3 15mm screws][M3 15mm screw]{qty:2} and [M3 nuts][M3 nut]{qty:2} in the top two holes of the [front panel][Interface panel]{qty:1, cat:printedparts}.
+* Secure the screen with two [M3 16mm screws][M3 16mm screw]{qty:2} and [M3 nuts][M3 nut]{qty:2} in the top two holes of the [front panel][Interface panel]{qty:1, cat:printedparts}.
 
 ![](images/control-interface/front-panel.jpg)
 ![](images/control-interface/front-panel_1.jpg)

@@ -7,9 +7,9 @@
 [Raspberry Pi Pico]: parts/elect/rpi-pico.md "{cat:elect}"
 [10 cm male-female jumper]: parts/elect/10cm-m-f-jumper.md "{cat:elect}"
 [Membrane 4x4 keypad]: parts/elect/4x4-keypad.md "{cat:elect}"
-[M3 nut]: parts/mech/M3-nut.md "{cat:mech}"
-[M3 10mm screw]: parts/mech/M3-10mm-screw.md "{cat:mech}"
-[M3 15mm screw]: parts/mech/M3-15mm-screw.md "{cat:mech}"
+[M3 nut]: parts/mech/nuts.md "{cat:mech}"
+[M3 10mm screw]: parts/mech/M3-10.md "{cat:mech}"
+[M3 16mm screw]: parts/mech/M3-16.md "{cat:mech}"
 
 ## Connect the LCD Screen to the Raspberry Pi Pico {pagestep}
 
@@ -42,6 +42,6 @@
 ![](images/control-interface/fix-front-panel_2.jpg)
 ![](images/control-interface/fix-front-panel_3.jpg)
 
-* Use 2 [M3 15mm screw]{qty:2} to secure the [Assembled Front Panel](fromstep) to the [Assembled Interface Base](fromstep) in the 2 middle top holes.
+* Use 2 [M3 16mm screw]{qty:2} to secure the [Assembled Front Panel](fromstep) to the [Assembled Interface Base](fromstep) in the 2 middle top holes.
 
 ![](images/control-interface/fix-front-panel_4.jpg)

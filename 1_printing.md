@@ -56,7 +56,7 @@ Now you have tested your [3D printer][RepRap-style printer] and [filament][PLA f
 
 ## Clean-up of printed parts {pagestep}
 
->!! **Be careful when removing brim:** To avoid injury, first remove the bulk of the brim without a knife. Remove the remaining brim with a peeling action as described below.
+>!! **Be careful when removing the brim:** To avoid injury, first remove the bulk of the brim without a knife. Remove the remaining brim with a peeling action as described below.
 
 Carefully remove the printing brim from all parts. To remove brim:
 

@@ -2,7 +2,8 @@
 
 ![](images/control-interface/final.jpg)
 
-Before you start building the control interface, you will need to source all the components listed in our bill of materials:
+Before you start building the station, you will need to source all the components listed in our [bill of materials]{BOM}, which is given on the next page.
+
 
 {{BOM}}
 

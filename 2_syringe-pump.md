@@ -3,33 +3,41 @@
 
 *This design is based on the [Open-Source Syringe Pump](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/) developed by Andrey Samokhin*
 
+Before you start building the station, you will need to source all the components listed in our [bill of materials]{BOM}, which is given on the next page.
+
 {{BOM}}
 
-[Planetary gearbox 100:1]: parts/mech/planetary-gearbox-100-1.md "{cat:mech}"
-[M3 8mm screw]: parts/mech/M3-8mm-screw.md "{cat:mech}"
-[M3 12mm screw]: parts/mech/M3-12mm-screw.md "{cat:mech}"
-[M4 10mm screw]: parts/mech/M4-10mm-screw.md "{cat:mech}"
+[M2.5 hex key]: parts/tools/2mmBallEndAllenKey.md "{cat:tool}"
+[M3 hex key]: parts/tools/2.5mmBallEndAllenKey.md "{cat:tool}"
+[M4 hex key]: parts/tools/3mmBallEndAllenKey.md "{cat:tool}"
+[Soldering iron]: parts/tools/soldering-iron.md "{cat:tool}"
+
 [NEMA 17 motor]: parts/elect/NEMA-17-motor.md "{cat:elect}"
-[Motor coupling]: parts/mech/motor-coupling.md "{cat:mech}"
-[M2.5 hex key]: parts/tools/M2.5-hex-key.md "{cat:tool}"
+
+[Heat insert]: parts/mech/heat-insert.md "{cat:mech}"
 [Lead screw]: parts/mech/lead-screw.md "{cat:mech}"
-[M3 nut]: parts/mech/M3-nut.md "{cat:mech}"
+[Lead screw nut]: parts/mech/lead-screw-nut.md "{cat:mech}"
+[Linear bearing]: parts/mech/linear-bearing.md "{cat:mech}"
+[Linear motion rods]: parts/mech/linear-motion-rods-200mm.md "{cat:mech}"
+
+[M3 8mm screw]: parts/mech/M3-8.md "{cat:mech}"
+[M3 10mm screw]: parts/mech/M3-10.md "{cat:mech}"
+[M3 12mm screw]: parts/mech/M3-12.md "{cat:mech}"
+[M3 16mm screw]: parts/mech/M3-16.md "{cat:mech}"
+[M3 20mm screw]: parts/mech/M3-20.md "{cat:mech}"
+[M4 10mm screw]: parts/mech/M4-10.md "{cat:mech}"
+[M3 nut]: parts/mech/nuts.md "{cat:mech}"
+[Motor coupling]: parts/mech/motor-coupling.md "{cat:mech}"
+[Planetary gearbox 100:1]: parts/mech/planetary-gearbox-100-1.md "{cat:mech}"
+
 [Back support - A]: models/back-support-gearbox-A.stl "{previewpage}"
 [Back support - B]: models/back-support-gearbox-B.stl "{previewpage}"
-[M3 16mm screw]: parts/mech/M3-16mm-screw.md "{cat:mech}"
-[M3 hex key]: parts/tools/M3-hex-key.md "{cat:tool}"
-[M4 hex key]: parts/tools/M4-hex-key.md "{cat:tool}"
-[Linear motion rod 100mm]: parts/mech/linear-motion-rod-100mm.md "{cat:mech}"
-[M3 20mm screw]: parts/mech/M3-20mm-screw.md "{cat:mech}"
 [Carriage]: models/carriage.stl "{previewpage}"
-[Linear bearing]: parts/mech/linear-bearing.md "{cat:mech}"
-[M3 10mm screw]: parts/mech/M3-10mm-screw.md "{cat:mech}"
-[Lead screw nut]: parts/mech/lead-screw-nut.md "{cat:mech}"
 [Front support]: models/front-support.stl "{previewpage}"
-[Heat insert]: parts/mech/heat-insert.md "{cat:mech}"
-[Soldering iron]: parts/tools/soldering-iron.md "{cat:tool}"
 [Hand knob]: models/hand-knob.stl "{previewpage}"
 [Syringe holder]: models/syringe-holders.stl "{previewpage}"
+
+
 
 >i **You should build two syringe pumps for droplet microfluidic assays**
 
@@ -70,7 +78,7 @@ Take the [lead screw][Lead screw]{Qty: 1}, and insert it into the motor coupling
 
 ![](images/syringe-pump/lead-screw-coupling.jpg)
 
-Take two [M3 nut]{Qty: 2}, insert them on the [back support - B][Back support - B] and push then in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the back support. Then, take two [M3 10mm][M3 10mm screw]{Qty: 2} and screw them just to hold the nuts. Use a [M3 hex key].
+Take two [M3 nut]{Qty: 2}, insert them on the [back support - B][Back support - B] and push them in. Feel free to grab whatever tools you need to push them in. Make sure they align with the screw holes on the back support. Then, take two [M3 10mm][M3 10mm screw]{Qty: 2} and screw them just to hold the nuts. Use a [M3 hex key].
 
 ![](images/syringe-pump/backsup-B-nut.jpg)
 ![](images/syringe-pump/backsup-B-screw.jpg)
@@ -93,7 +101,7 @@ Insert the lead screw into the nut. Then, manually thread it up to the middle of
 
 ![](images/syringe-pump/carriage-mounted.jpg)
 
-Push the [linear rails][Linear motion rod 100mm]{Qty: 2} into the linear bearings in the [carriage] and insert them in the [back support - B][Back support - B], one into the left side and one to the right side. Make sure they insert into the holes properly and then push them through. Tighten the linear rails down on the back support - B.
+Push the [linear rails][Linear motion rods]{Qty: 2} into the linear bearings in the [carriage] and insert them in the [back support - B][Back support - B], one into the left side and one to the right side. Make sure they are inserted into the holes properly and then push them through. Tighten the linear rails down on the back support - B.
 
 ![](images/syringe-pump/carriage-mounted_1.jpg)
 ![](images/syringe-pump/carriage-mounted_2.jpg)
@@ -113,7 +121,9 @@ Insert [M3 nuts][M3 nut]{Qty: 2} into the nut traps of the front support. Feel f
 Insert a [M3 nut]{Qty: 1} into the nut trap of the [hand knob][Hand knob]{Qty:2, Cat: printedparts}. Take a [M3 20mm][M3 20mm screw]{Qty: 2} and thread it all. Repeat this step with the second knob.
 
 ![](images/syringe-pump/hand-knob.jpg)
+![](images/syringe-pump/Close-up-knob.jpg)
 ![](images/syringe-pump/hand-knob_1.jpg)
+
 
 ## Assemble the front support and the linear rails {pagestep}
 
