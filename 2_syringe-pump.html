@@ -7,15 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="./assets/favicon.ico" />
 
-    <link href="./static/style.css" rel="stylesheet">
+    <link href="./static/base-style.css" rel="stylesheet">
+    <link href="./static/site-style.css" rel="stylesheet">
                 <link href="./assets/style.css" rel="stylesheet">
             <style>
-  .nav-list a:hover:not(.active), .sub-nav-list a:hover:not(.active) {
-    background-color: #555555 !important;
-  }
+  :root {
+    --hover-color: #555555;
+}
 </style>
     
-</head>
+        <script type="text/javascript" src="./static/search.js" defer=""></script>
+    </head>
 <body>
 <header class="site-header">
     <div class="wrapper header-wrapper" >
@@ -44,6 +46,34 @@
         Open-Source Syringe Pumps
     </a>
 </li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('./')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`./${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
 <li class="not-active">
     <a class="not-active" href="./1_printing.html">
         Print the plastic parts
@@ -66,21 +96,21 @@
         <div class="wrapper">
     <h1 id="build-syringe-pump">Build syringe pump</h1>
 <p><em>This design is based on the <a href="https://www.mass-spec.ru/projects/diy/syringe_pump/eng/" target="_blank" title="">Open-Source Syringe Pump</a> developed by Andrey Samokhin</em></p>
-<p>Before you start building the station, you will need to source all the components listed in our <a href="2_syringe-pump_BOM.html" title="HTML">bill of materials</a> (<a href="2_syringe-pump_BOM.html"><img alt="HTML" class="smallicon" src="static/Icons/html.png" title="HTML Bill of Materials" /></a>, <a href="2_syringe-pump_BOM.csv"><img alt="CSV" class="smallicon" src="static/Icons/csv.png" title="CSV Bill of Materials" /></a>), which is given on the next page.</p>
+<p>Before you start building the station, you will need to source all the components listed in our <a href="2_syringe-pump_BOM.html">bill of materials</a> (<a href="2_syringe-pump_BOM.html"><img alt="HTML" class="smallicon" src="static/Icons/html.png" title="HTML Bill of Materials" /></a>, <a href="2_syringe-pump_BOM.csv"><img alt="CSV" class="smallicon" src="static/Icons/csv.png" title="CSV Bill of Materials" /></a>), which is given on the next page.</p>
 <div class="pagebom">
 <h2 id="for-this-section-you-will-need">For this section you will need:</h2>
-<h3 id="tool">Tools</h3>
+<h3 id="tools">Tools</h3>
 <ul>
 <li>1 <a Class="bom" href="parts/tools/2mmBallEndAllenKey.html">M2.5 hex key</a> </li>
 <li>1 <a Class="bom" href="parts/tools/2.5mmBallEndAllenKey.html">M3 hex key</a> </li>
 <li>1 <a Class="bom" href="parts/tools/3mmBallEndAllenKey.html">M4 hex key</a> </li>
 <li>1 <a Class="bom" href="parts/tools/soldering-iron.html">Soldering iron</a> </li>
 </ul>
-<h3 id="elect">Electronic Components</h3>
+<h3 id="electronic-components">Electronic Components</h3>
 <ul>
 <li>1 <a Class="bom" href="parts/elect/NEMA-17-motor.html">NEMA 17 motor</a> </li>
 </ul>
-<h3 id="mech">Mechanical Components</h3>
+<h3 id="mechanical-components">Mechanical Components</h3>
 <ul>
 <li>6 <a Class="bom" href="parts/mech/heat-insert.html">Heat insert</a> </li>
 <li>1 <a Class="bom" href="parts/mech/lead-screw.html">Lead screw</a> </li>
@@ -97,7 +127,7 @@
 <li>1 <a Class="bom" href="parts/mech/motor-coupling.html">Motor coupling</a> </li>
 <li>1 <a Class="bom" href="parts/mech/planetary-gearbox-100-1.html">Planetary gearbox 100:1</a> </li>
 </ul>
-<h3 id="printedparts">Printed Parts</h3>
+<h3 id="printed-parts">Printed Parts</h3>
 <ul>
 <li>1 <a Class="bom" href="models/back-support-gearbox-A.html">Back support - A</a> </li>
 <li>1 <a Class="bom" href="models/back-support-gearbox-B.html">Back support - B</a> </li>
@@ -214,7 +244,7 @@
     <div class="wrapper">
         <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
     <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
-    <span class="info">Documentation powered by GitBuilding</span>
+    <span class="doc-info">Documentation powered by GitBuilding</span>
 </a>
     <p class="author">©2025 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
     <p class="email">Contact: <a href="mailto:librehub@uc.cl">librehub@uc.cl</a></p>
