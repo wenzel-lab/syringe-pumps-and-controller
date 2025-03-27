@@ -26,7 +26,7 @@
     <h1 class="site-title">Open-Source Syringe Pumps</h1>
    
     <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
-    <p class="affiliation">Latin American Hub for Bioimaging Through Open Hardware (LIBRE hub)</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
 </div>
             </div>
 </header>
@@ -89,12 +89,55 @@
         Build control interface
     </a>
     </li>
+<li class="active">
+    <a class="active" href="./4_usage.html">
+        Usage
+    </a>
+    </li>
 
                 </ul>
             </nav>
         </div>
         <div class="wrapper">
-    
+    <h1 id="using-the-syringe-pumps">Using the Syringe Pumps</h1>
+<h2 class="page-step" id="selecting-the-pump">Step 1: Selecting the pump</h2>
+<ul>
+<li>To <strong>select or deselect</strong> Pump A or B, press the corresponding letter (A or B) in red.</li>
+<li>When selected, a star (*) will appear on the left of the letter. </li>
+<li>When deselected, the star (*) will disappear.</li>
+</ul>
+<h2 class="page-step" id="adjusting-pump-parameters">Step 2: Adjusting pump parameters</h2>
+<ul>
+<li>Press the <strong>enter (#) key</strong> to choose a parameter:<ul>
+<li><code>F</code> represents Flow Rate (in microliters per hour, <strong>uL/h</strong>).</li>
+<li><code>D</code> represents Syringe Diameter (in millimeters, <strong>mm</strong>).</li>
+</ul>
+</li>
+<li>Select the pump (A or B) by pressing its letter in red:<ul>
+<li>A star (*) will appear on the left of the letter, indicating it is ready for modification.</li>
+</ul>
+</li>
+<li>Enter the new value:<ul>
+<li>Press the <strong>D key</strong> to insert a decimal point (.) if needed.</li>
+</ul>
+</li>
+<li>Press <strong>enter (#) key</strong> to save the value.<ul>
+<li>The letter will return to its original state, showing the new value.</li>
+</ul>
+</li>
+</ul>
+<h2 class="page-step" id="running-the-pump">Step 3: Running the pump</h2>
+<ul>
+<li>To <strong>start the pump</strong>, select it and press the star (*) button.</li>
+<li>A greater-than symbol (&gt;) will appear on the right of the letter, indicating that the pump is running.</li>
+<li>To <strong>stop the pump</strong>, select it and press the star (*) button again. The letter should return to its original state (without any symbol next to it).</li>
+</ul>
+<h2 class="page-step" id="modifying-parameters-while-the-pump-is-running">Step 4: Modifying parameters while the pump is running</h2>
+<ul>
+<li>When a pump is running (<code>&gt;</code> symbol is displayed), you can still adjust the parameters.</li>
+<li>Press <strong>(#)</strong> to select the parameter (F or D), then select the pump, enter the new value, and press <strong>enter (#)</strong> to confirm.</li>
+<li>The pump will adjust its speed accordingly.</li>
+</ul>
     </div>
 </div>
 <footer class="site-footer">
@@ -104,7 +147,7 @@
     <span class="doc-info">Documentation powered by GitBuilding</span>
 </a>
     <p class="author">©2025 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
-    <p class="email">Contact: <a href="mailto:librehub@uc.cl">librehub@uc.cl</a></p>
+    <p class="email">Contact: <a href="mailto:tobias.wenzel@uc.cl">tobias.wenzel@uc.cl</a></p>
     <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
 
     </div>
