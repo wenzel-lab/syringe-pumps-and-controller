@@ -1,4 +1,4 @@
-Affiliation: Latin American Hub for Bioimaging Through Open Hardware (LIBRE hub)
+Affiliation: Institute for Biological and Medical Engineering
 Authors:
   - Pierre Padilla-Huamantinco
   - Tomás Astudillo Inostroza
@@ -26,7 +26,7 @@ CustomCategories:
   printedparts:
     DisplayName: Printed Parts
     Reuse: false
-Email: librehub@uc.cl
+Email: tobias.wenzel@uc.cl
 HoverColor: '#555555'
 License: CERN-OHL-1.2
 Navigation:
@@ -36,6 +36,8 @@ Navigation:
     Title: Build syringe pump
   - Link: 3_control-interface.md
     Title: Build control interface
+  - Link: 4_usage.md
+    Title: Usage
 PageBOMTitle: '## For this section you will need:'
 hoverColor: '#555555'
 primaryColor: '#f1502f'
