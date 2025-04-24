@@ -37,21 +37,24 @@ Azul   B-
 #define MOTOR_D 3
 
 #define GEAR_BOX_1_1 	1
-#define GEAR_BOX_1_25 	2
-#define GEAR_BOX_1_100 	3
+#define GEAR_BOX_1_25 	25
+#define GEAR_BOX_1_100 	100
 
-#define ROD_1_STAR 	1
-#define ROD_4_STAR 	2
+#define ROD_1_STAR 	2.5 //mm
+#define ROD_4_STAR 	8   //mm
 
-#define MICRO_STEP_1_8 		1
-#define MICRO_STEP_1_16 	2
-#define MICRO_STEP_1_32 	3
-#define MICRO_STEP_1_64 	4
+#define MICRO_STEP_1_8 		200
+#define MICRO_STEP_1_16 	400
+#define MICRO_STEP_1_32 	800
+#define MICRO_STEP_1_64 	1600
 
-#define UNIT_UL_HR 	1
-#define UNIT_ML_HR 	2
-#define UNIT_UL_MIN	3
-#define UNIT_ML_MIN 4
+#define UNIT_UL_HR 	1000
+#define UNIT_ML_HR 	1
+#define UNIT_UL_MIN	16.67
+#define UNIT_ML_MIN 0.01667
+
+#define LEAD 2.5 // mm/rev
+#define STEP_PER_REV 200 //(200 step/revolution)
 
 #define IDLE 0
 #define SETTINGS 1
@@ -613,6 +616,8 @@ void calculateNewStep()
 	int _rod = motors[actual_motor].rod_type;
 	int _microstep = motors[actual_motor].microstep_type;
 	int _unit = motors[actual_motor].unit_type;
+
+	int motor_rpm = 4*(_flow * _gearbox)/(_rod*3.1415*_diameter*_diameter);
 
  	int _step = int(_flow *_diameter*_gearbox*_rod*_microstep*_unit);
 	motors[actual_motor].steps = _step;

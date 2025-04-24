@@ -60,7 +60,7 @@
 
 
 #define ID "SPC-01"
-#define VERSION "SP-v0.1"
+#define VERSION "SP-v1.1"
 #define RESPONSE_OK     		"OK"
 #define RESPONSE_ERROR  		"ERROR"
 #define RESPONSE_ERROR_JSON  	"ERROR_INPUT_JSON"
