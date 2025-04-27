@@ -1,0 +1,25 @@
+V3: State Machine and Usability as provided by Wenzel Labs
+Codename: surgery_pump.cpp
+	V3.1
+		- Implementation of the flowchart state machine with all the features provided by the Wenzel Labs team.
+		- Implementation of the graphical user interface (GUI).
+	V3.2
+		- Multi-core structure for a clean asynchronous process.
+	V3.4
+		- Preset functions for loading and saving presets to permanent memory.
+		- Stepper motor control via RPM.
+
+V4 Internet control.
+Codename: "syringe_pump_mqtt.cpp".
+
+	V4.1
+		- Wi-Fi and MQTT connections.
+		- Thread functions and connection handlers for MQTT.
+		- Function to implement the process of proccesCmd commands and functionality for setting parameters.
+		- Addition of remote control for turn off/on pumps.
+
+	V4.2
+		- Startup message.
+		- Fixed fill and refill options in the GUI.
+		- Display of the current pump in the main screen.
+		- Added the option to select the pump for flow and startup stop.
