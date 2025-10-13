@@ -1,6 +1,5 @@
 /*
- Author: WAC@LibreHub
- Contributor: Pierre Padilla @ LibreHub
+ Author: WAC @ LibreHub & Pierre Padilla @ LibreHub
 
  Version of code: V4.3
 
@@ -710,7 +709,7 @@ void processKey(char _key)
 // -------------------- printScreen() ----------------------
 void printScreen()
 {
-	Serial.println("-------------------------");
+	Serial.println("-------------------------");/home/wac/Documents/repo/iowlabs/EEG/firmware/sketch_aug7a_copy_20240821150535/sketch_aug7a_copy_20240821150535.ino
 
 	if(current_state == 0)
 	{
