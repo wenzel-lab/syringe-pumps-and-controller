@@ -709,8 +709,8 @@ void processKey(char _key)
 // -------------------- printScreen() ----------------------
 void printScreen()
 {
-	Serial.println("-------------------------");/home/wac/Documents/repo/iowlabs/EEG/firmware/sketch_aug7a_copy_20240821150535/sketch_aug7a_copy_20240821150535.ino
-
+	Serial.println("-------------------------");
+	
 	if(current_state == 0)
 	{
 		lcd.setCursor(0,0);  lcd.print("                ");
