@@ -1,6 +1,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
-#define FIRMWARE_VERSION "4.5.3"
+#define FIRMWARE_VERSION "4.5.4"
 
 #include <Arduino.h>
 #include <Wire.h>
@@ -8,9 +8,10 @@
 #include <LiquidCrystal_I2C.h>
 #include <I2CKeyPad.h>
 #include "clsPCA9555.h"
+#include <TMCStepper.h>
 #include <ContinuousStepper.h>
 #include <Preferences.h>
-
+#include <HardwareSerial.h>
 
 // Forward declarations
 class LiquidCrystal_I2C;
@@ -47,6 +48,13 @@ enum MicrostepIndex {
 #define GPIO_ADDR 0x20  // PCA9555 I/O Expander
 #define LCD_ADDR 0x27   // LCD I2C Address
 #define KEYPAD_ADDR 0x24 // Keypad I2C Address
+
+#define DRIVER_ADDR_A 0b00 // TCM2209 Address
+#define DRIVER_ADDR_B 0b01 // TCM2209 Address
+#define DRIVER_ADDR_C 0b10 // TCM2209 Address
+#define DRIVER_ADDR_D 0b11 // TCM2209 Address
+
+
 
 // Pin Configuration - defined in config.cpp
 extern const int EN_PINS[4];     // Enable pins for motors A-D
