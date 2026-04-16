@@ -10,12 +10,10 @@ const int DIR_PINS[] = {23, 5, 25, 32};  // Direction pins for motors A-D
 const int MS1_PINS[] = {14, 10, 6, 2};   // MS1 pins for motors A-D
 const int MS2_PINS[] = {13, 9, 5, 1};    // MS2 pins for motors A-D
 const char MOTORS_NAMES[] = {'A', 'B', 'C', 'D'};  // Motor identifiers
-const char MOTORS_PDN_ADDRESS[] = {0x00,0x01,0x02,0x03}
+const char MOTORS_PDN_ADDRESS[] = {0x00,0x01,0x02,0x03};
 
 
-//HArdware serial to PDN command controll on driver TCM2209
-#define RXD2 17
-#define TXD2 16
+
 
 // Microstep configurations for TMC2209 drivers
 const MicrostepConfig MICROSTEP_CONFIGS[] = {

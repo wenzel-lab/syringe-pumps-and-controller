@@ -53,7 +53,7 @@ A syringe pump controller with USB serial interface and physical keypad control.
 	- `LiquidCrystal I2C` 	@ 1.1.2 / Author: Frank de Brabander #LCD I2C display
 	- `ContinuousStepper` 	@ 3.1.0 / Author: Benoit Blanchon	 # Control of stepper motors by rpm
 	- `Preferences` (built-in with ESP32 core)
-
+    - `TMCStepper`  @ 0.7.3 / Author : teemuatlut  # uart commands handler fr drivers 
 2. Open `syringe_pump_v4.5.3.ino` in Arduino IDE.
 
 3. Select your ESP32 board and port.

@@ -54,7 +54,10 @@ enum MicrostepIndex {
 #define DRIVER_ADDR_C 0b10 // TCM2209 Address
 #define DRIVER_ADDR_D 0b11 // TCM2209 Address
 
-
+//HArdware serial to PDN command controll on driver TCM2209
+#define RXD2 17
+#define TXD2 16
+#define R_SENSE 0.11f
 
 // Pin Configuration - defined in config.cpp
 extern const int EN_PINS[4];     // Enable pins for motors A-D

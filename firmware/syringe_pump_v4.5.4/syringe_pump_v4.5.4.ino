@@ -109,7 +109,7 @@ void setMicrostepping(int motor_index, int microstep_value) {
         case 1: { driver_b.microsteps(microstep_value);delay(50);break;}
         case 2: { driver_c.microsteps(microstep_value);delay(50);break;}
         case 3: { driver_d.microsteps(microstep_value);delay(50);break;}
-        default: config_index = MS_EIGHTH_STEP; break;
+        default: delay(50); break;
     }
     
     #if DEBUG_SERIAL
