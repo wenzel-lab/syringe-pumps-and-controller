@@ -264,21 +264,25 @@ void initMotorHardware() {
               
     }
 
-    //SET ADDRES for driver motors
+    //SET UART ADDRESS for each driver
 
-    ioport.pinMode(MS1_PINS[0], LOW);
-    ioport.pinMode(MS2_PINS[0], LOW);
+    ioport.digitalWrite(MS1_PINS[0], LOW);  ioport.digitalWrite(MS2_PINS[0], LOW);   // 0b00
+    ioport.digitalWrite(MS1_PINS[1], HIGH); ioport.digitalWrite(MS2_PINS[1], LOW);   // 0b01
+    ioport.digitalWrite(MS1_PINS[2], LOW);  ioport.digitalWrite(MS2_PINS[2], HIGH);  // 0b10
+    ioport.digitalWrite(MS1_PINS[3], HIGH); ioport.digitalWrite(MS2_PINS[3], HIGH);  // 0b11
 
-    ioport.pinMode(MS1_PINS[1], HIGH);
-    ioport.pinMode(MS2_PINS[1], LOW);
 
-    ioport.pinMode(MS1_PINS[2], LOW);
-    ioport.pinMode(MS2_PINS[2], HIGH);
+    //ioport.pinMode(MS1_PINS[0], LOW);
+    //ioport.pinMode(MS2_PINS[0], LOW);
+
+    //ioport.pinMode(MS1_PINS[1], HIGH);
+    //ioport.pinMode(MS2_PINS[1], LOW);
+
+    //ioport.pinMode(MS1_PINS[2], LOW);
+    //ioport.pinMode(MS2_PINS[2], HIGH);
     
-    ioport.pinMode(MS1_PINS[3], HIGH);
-    ioport.pinMode(MS2_PINS[3], HIGH);
-
-  
+    //ioport.pinMode(MS1_PINS[3], HIGH);
+    //ioport.pinMode(MS2_PINS[3], HIGH);
     
 }
 
@@ -543,6 +547,12 @@ void calculateNewStep(int motor_idx)
 
     // 9) Persist the settings to EEPROM (if desired) and print debug info:
     saveMotorPreset(motor_idx);
+
+    // --- NEW ---
+    if (motors[motor_idx].state == RUN) {
+        controlStepperMotor(motor_idx, motors[motor_idx].rpm);
+    }
+    // ---
 
     #if DEBUG_SERIAL
         Serial.println("\n--- Motion Parameters ---");
