@@ -8,13 +8,13 @@ CustomCategories:
   Consumable:
     DisplayName: Consumables
     Reuse: false
-  Elect:
+  Electronics:
     DisplayName: Electronic Components
     Reuse: false
   Material:
     DisplayName: Materials
     Reuse: false
-  Mech:
+  Mechanics:
     DisplayName: Mechanical Components
     Reuse: false
   PrintedTool:
@@ -26,17 +26,17 @@ CustomCategories:
   printedparts:
     DisplayName: Printed Parts
     Reuse: false
-Email: tobias.wenzel@uc.cl
+Email: pgpdilla@uc.cl
 HoverColor: '#555555'
 License: CERN-OHL-1.2
 Navigation:
-  - Link: 1_printing.md
-    Title: Print the plastic parts
-  - Link: 2_syringe-pump.md
-    Title: Build syringe pump
-  - Link: 3_control-interface.md
-    Title: Build control interface
-  - Link: 4_usage.md
+  - Link: os-pump.md
+    Title: Build low-cost syringe pump
+  - Link: os-pump-gearbox.md
+    Title: Build high-torque syringe pump
+  - Link: controller-esp32.md
+    Title: Build pump controller
+  - Link: esp32-usage.md
     Title: Usage
 PageBOMTitle: '## For this section you will need:'
 hoverColor: '#555555'

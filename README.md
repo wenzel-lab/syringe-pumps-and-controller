@@ -17,6 +17,10 @@ Our goal with this modification and enhancement is to make this open-source syri
 ### Instructions
 This Repository provides documentation on how to build the pumps and the controller. Just [follow the instructions here](https://wenzel-lab.github.io/syringe-pumps-and-controller/)
 
+### Controller Options
+- **ESP32 Controller** (Recommended): Advanced controller with ESP32-WROOM-32D, custom PCB, LCD display, and keypad. Supports up to 4 pumps with USB serial and physical control. Firmware version v4.5.5 includes enhanced microstepping (1/8 to 1/256) and safety features.
+- **Raspberry Pi Pico Controller**: Alternative controller using Raspberry Pi Pico for users who prefer this platform.
+
 This project is documented with GitBuilding - an Open Source project for documenting hardware projects. For more information on the GitBuilding project or how
 to install GitBuilding, please see the [GitBuilding website](http://gitbuilding.io)
 
@@ -26,7 +30,8 @@ to install GitBuilding, please see the [GitBuilding website](http://gitbuilding.
     * [Link to OnShape CAD files of printable syringe pump parts](https://cad.onshape.com/documents/20c077b452e92115525d4fed/w/71118f46b0924c1bb22b1150/e/9d30ca00efa721d242d78d3f?renderMode=0&uiState=64bd5f2a8bef574246b008b9)
     * [Link to OnShape CAD files of the printable controller enclosure](https://cad.onshape.com/documents/24a5022fafc4edd0c24874dd/w/35c6569cda7c2fa4439727d4/e/9dbcdcaba091e21e6a91c62c?renderMode=0&uiState=64bd5f3f0aa451311c1bb6ad)
 * Software source code
-    * [Code to upload onto the Raspberry Pi Pico controller](https://github.com/wenzel-lab/syringe-pumps-and-controller/blob/docu-v1/software/firmwareV1.ino)
+    * [ESP32 Controller Firmware v4.5.5](firmware/controller-esp32/syringe_pump_v4.5.5/) - Latest firmware with enhanced microstepping and safety features
+    * [Raspberry Pi Pico Controller Firmware](firmware/controller-rpi/) - Alternative controller firmware
 
 ### How do I edit the documentation?
 
@@ -51,4 +56,4 @@ For interactions in our team and with the community, apply the [GOSH Code of Con
 
 ## License
 
-[GNU General Public License v3.0](LICENSE) by Tomás Astudillo, Matías Hurtado, Pierre Padilla-Huamantinco, Tobias Wenzel, and the [original design team](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/). This project is Open Source Hardware - please acknowledge us when using the hardware or sharing modifications.
+[GNU General Public License v3.0](LICENSE) by Pierre Padilla-Huamantinco, Matias Hurtado, Tomas Astudillo, Tobias Wenzel, and the [original design team](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/). This project is Open Source Hardware - please acknowledge us when using the hardware or sharing modifications.
