@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/base-style.css" rel="stylesheet">
+    <link href="./static/site-style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  :root {
+    --hover-color: #555555;
+}
+</style>
+    
+        <script type="text/javascript" src="./static/search.js" defer=""></script>
+    </head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('./')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`./${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump.html">
+        Build low-cost syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump-gearbox.html">
+        Build high-torque syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./controller-esp32.html">
+        Build pump controller
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./esp32-usage.html">
+        Usage
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="assemble-everything-together">Assemble everything together</h1>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="parts">Parts</h3>
+<ul>
+<li>1 <a Class="bom" href="rpi-panel.html">assembled front panel</a> </li>
+<li>1 <a Class="bom" href="rpi-electronics.html">assembled interface base</a> </li>
+</ul>
+<h3 id="mechanical-components">Mechanical Components</h3>
+<ul>
+<li>2 <a Class="bom" href="parts/mech/M3-10.html">M3 10mm screw</a> </li>
+<li>2 <a Class="bom" href="parts/mech/M3-16.html">M3 16mm screw</a> </li>
+<li>4 <a Class="bom" href="parts/mech/nuts.html">M3 nut</a> </li>
+</ul>
+</div>
+<h2 class="page-step" id="connect-the-lcd-screen-to-the-raspberry-pi-pico">Step 1: Connect the LCD Screen to the Raspberry Pi Pico</h2>
+<ul>
+<li>Take the <a href="rpi-panel.html">assembled front panel</a> and locate the 4 20 cm female-female jumpers coming out of the LCD screen.</li>
+<li>Connect these jumpers to the corresponding pins of the Raspberry Pi Pico in the <a href="rpi-electronics.html">assembled interface base</a>, following the wiring diagram.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-rpi/assembled-front-panel.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-rpi/assembled-front-panel_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-rpi/assembled-front-panel_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-rpi/assembled-front-panel_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show0" src="images/controller-rpi/assembled-front-panel.jpg" alt=""/></div>
+<h2 class="page-step" id="connect-the-membrane-keypad-to-the-raspberry-pi-pico">Step 2: Connect the Membrane Keypad to the Raspberry Pi Pico</h2>
+<ul>
+<li>Locate the 8 10 cm male-female jumpers coming out of the membrane 4x4 keypad.</li>
+<li>Connect these jumpers to the respective pins of the Raspberry Pi Pico in the <a href="rpi-electronics.html" title="">assembled interface base</a>, following the wiring diagram.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-rpi/keypad-rpi-pico.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-rpi/keypad-rpi-pico_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-rpi/keypad-rpi-pico_2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show1" src="images/controller-rpi/keypad-rpi-pico.jpg" alt=""/></div>
+<h2 class="page-step" id="fix-the-front-panel-in-place">Step 3: Fix the Front Panel in Place</h2>
+<ul>
+<li>Take 4 <a href="parts/mech/nuts.html">M3 nut</a> and slide them onto the 4 sockets of the <a href="rpi-electronics.html" title="">assembled interface base</a>.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/controller-rpi/fix-front-panel.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/controller-rpi/fix-front-panel_1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show2" src="images/controller-rpi/fix-front-panel.jpg" alt=""/></div>
+<ul>
+<li>Use 2 <a href="parts/mech/M3-10.html">M3 10mm screw</a> to secure the <a href="rpi-panel.html" title="">assembled front panel</a> to the <a href="rpi-electronics.html" title="">assembled interface base</a> in the 2 bottom holes.</li>
+</ul>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/controller-rpi/fix-front-panel_2.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/controller-rpi/fix-front-panel_3.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show3" src="images/controller-rpi/fix-front-panel_2.jpg" alt=""/></div>
+<ul>
+<li>Use 2 <a href="parts/mech/M3-16.html">M3 16mm screw</a> to secure the <a href="rpi-panel.html" title="">assembled front panel</a> to the <a href="rpi-electronics.html" title="">assembled interface base</a> in the 2 middle top holes.</li>
+</ul>
+<p><img alt="" src="images/controller-rpi/fix-front-panel_4.jpg" title="" /></p>
+<!-- GitBuilding Nav -->
+<hr />
+<p><a href="rpi-electronics.html">Previous page</a> | <a href="rpi-firmware.html">Next page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="doc-info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>

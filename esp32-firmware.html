@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/base-style.css" rel="stylesheet">
+    <link href="./static/site-style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  :root {
+    --hover-color: #555555;
+}
+</style>
+    
+        <script type="text/javascript" src="./static/search.js" defer=""></script>
+    </head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('./')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`./${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump.html">
+        Build low-cost syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump-gearbox.html">
+        Build high-torque syringe pump
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./controller-esp32.html">
+        Build pump controller
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./controller-esp32_BOM.html">
+                Bill of Materials
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./printing-controller-esp32.html">
+                Print the plastic parts
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./esp32-controller-assembly.html">
+                ESP32 controller assembly
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./esp32-firmware.html">
+                Firmware installation
+            </a>
+        </li>
+            </ul>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./esp32-usage.html">
+        Usage
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="firmware-installation">Firmware installation</h1>
+<div class="info-block">
+<p><strong>Current Firmware Version:</strong> v4.5.5 - Includes enhanced microstepping (1/8 to 1/256) and improved safety features.</p>
+</div>
+<h2 class="page-step" id="download-firmware-and-libraries">Step 1: Download firmware and libraries</h2>
+<p>Download the <a href="firmware/controller-esp32/syringe_pump_v4.5.5.zip" title="">zip file</a>, which contains firmware and libraries for programming the controller of the syringe pumps.</p>
+<h2 class="page-step" id="set-up-arduino-ide">Step 2: Set up Arduino IDE</h2>
+<p>In Arduino IDE, you must add ESP32 Dev board. Go to Tools &gt; Boards &gt; Boards Manager and search for "ESP32" and install the ESP32 board package by Espressif Systems.</p>
+<h2 class="page-step" id="program-the-esp32">Step 3: Program the ESP32</h2>
+<ol>
+<li>Connect the ESP32 to your computer.</li>
+<li>Go to Arduino IDE and select your COM port in <strong>Tools</strong> &gt; <strong>Port</strong>.</li>
+<li>Go to <strong>Tools</strong> &gt; <strong>Board</strong> and select the ESP32 Dev model.</li>
+<li>Extract the zip file to load the firmware and install the libraries.</li>
+<li>Go to <strong>File</strong> &gt; <strong>Open</strong> and load <code>syringe_pump_v4.5.5.ino</code> file located in the <code>firmware/controller-esp32/syringe_pump_v4.5.5/</code> directory.</li>
+<li>Install the required libraries. The zip file includes three libraries that should be installed via <strong>Sketch</strong> &gt; <strong>Include Library</strong> &gt; <strong>Add .ZIP Library</strong>:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Version</th>
+<th>Author</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCA9555</td>
+<td>-</td>
+<td>Nico Verduin</td>
+</tr>
+<tr>
+<td>LiquidCrystal I2C</td>
+<td>1.1.2</td>
+<td>Frank de Brabander</td>
+</tr>
+<tr>
+<td>TMCStepper</td>
+<td>0.7.3</td>
+<td>teemuatlut</td>
+</tr>
+</tbody>
+</table>
+<p>Install the remaining libraries via <strong>Tools</strong> &gt; <strong>Manage Libraries</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Version</th>
+<th>Author</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCF8574</td>
+<td>2.3.7</td>
+<td>Renzo Mischianti</td>
+</tr>
+<tr>
+<td>I2CKeyPad</td>
+<td>0.5.0</td>
+<td>Rob Tillaart</td>
+</tr>
+<tr>
+<td>ContinuousStepper</td>
+<td>3.1.0</td>
+<td>Benoit Blanchon</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> <code>Preferences</code> is built-in with the ESP32 core and does not require installation.</p>
+<ol start="7">
+<li>Click on <strong>Verify</strong> to compile the firmware and confirm the configuration is correct.</li>
+<li>When compilation succeeds, click <strong>Upload</strong> to transfer the firmware to the board.</li>
+</ol>
+<!-- GitBuilding Nav -->
+<hr />
+<p><a href="esp32-controller-assembly.html">Previous page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="doc-info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>

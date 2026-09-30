@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/base-style.css" rel="stylesheet">
+    <link href="./static/site-style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  :root {
+    --hover-color: #555555;
+}
+</style>
+    
+        <script type="text/javascript" src="./static/search.js" defer=""></script>
+    </head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('./')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`./${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
+<li class="active">
+    <a class="active" href="./os-pump.html">
+        Build low-cost syringe pump
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="active" href="./os-pump_BOM.html">
+                Bill of Materials
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./os-pump/printing-pump.html">
+                Print the plastic parts
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./os-pump-assembly.html">
+                Assemble the low-cost syringe pump 
+            </a>
+        </li>
+            </ul>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump-gearbox.html">
+        Build high-torque syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./controller-esp32.html">
+        Build pump controller
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./esp32-usage.html">
+        Usage
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="bill-of-materials">Bill of Materials</h1>
+<p>Download this as a <a href="os-pump_BOM.csv">CSV file</a></p>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>1 <a Class="bom" href="parts/tools/M2.5-hex-key.html">M2.5 hex key</a> </li>
+<li>1 <a Class="bom" href="parts/tools/M3-hex-key.html">M3 hex key</a> </li>
+<li>1 <a Class="bom" href="parts/tools/precision-wire-cutters.html">Precision wire cutter</a> </li>
+<li>1 <a Class="bom" href="parts/tools/rep-rap.html">RepRap-style printer</a> </li>
+<li>1 <a Class="bom" href="parts/tools/soldering-iron.html">Soldering iron</a> </li>
+<li>1 <a Class="bom" href="parts/tools/utility-knife.html">Utility knife</a>    - Not a scalpel!</li>
+</ul>
+<h3 id="electronic-components">Electronic Components</h3>
+<ul>
+<li>1 <a Class="bom" href="parts/elect/NEMA-17-motor.html">NEMA 17 motor</a> </li>
+</ul>
+<h3 id="materials">Materials</h3>
+<ul>
+<li>205 g of <a Class="bom" href="parts/materials/pla_filament.html">PLA filament</a>    - Of any colour you want</li>
+</ul>
+<h3 id="mechanical-components">Mechanical Components</h3>
+<ul>
+<li>2 <a Class="bom" href="parts/mech/heat-insert.html">Heat insert</a> </li>
+<li>1 <a Class="bom" href="parts/mech/lead-screw.html">Lead screw</a> </li>
+<li>1 <a Class="bom" href="parts/mech/lead-screw-nut.html">Lead screw nut</a> </li>
+<li>2 <a Class="bom" href="parts/mech/linear-bearing.html">Linear bearing</a> </li>
+<li>2 <a Class="bom" href="parts/mech/linear-motion-rod-100mm.html">Linear motion rod 100mm</a> </li>
+<li>2 <a Class="bom" href="parts/mech/M3-10mm-screw.html">M3 10mm screw</a> </li>
+<li>6 <a Class="bom" href="parts/mech/M3-16mm-screw.html">M3 16mm screw</a> </li>
+<li>6 <a Class="bom" href="parts/mech/M3-20mm-screw.html">M3 20mm screw</a> </li>
+<li>9 <a Class="bom" href="parts/mech/M3-nut.html">M3 nut</a> </li>
+<li>1 <a Class="bom" href="parts/mech/motor-coupling.html">Motor coupling</a> </li>
+</ul>
+<!-- GitBuilding Nav -->
+<hr />
+<p><a href="os-pump.html">Previous page</a> | <a href="os-pump/printing-pump.html">Next page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="doc-info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>

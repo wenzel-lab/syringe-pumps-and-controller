@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/base-style.css" rel="stylesheet">
+    <link href="./static/site-style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  :root {
+    --hover-color: #555555;
+}
+</style>
+    
+        <script type="text/javascript" src="./static/search.js" defer=""></script>
+    </head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('./')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`./${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump.html">
+        Build low-cost syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump-gearbox.html">
+        Build high-torque syringe pump
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./controller-esp32.html">
+        Build pump controller
+    </a>
+        <ul class="sub-nav-list">
+                <li>
+            <a class="not-active" href="./controller-esp32_BOM.html">
+                Bill of Materials
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./printing-controller-esp32.html">
+                Print the plastic parts
+            </a>
+        </li>
+                <li>
+            <a class="active" href="./esp32-controller-assembly.html">
+                ESP32 controller assembly
+            </a>
+        </li>
+                <li>
+            <a class="not-active" href="./esp32-firmware.html">
+                Firmware installation
+            </a>
+        </li>
+            </ul>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./esp32-usage.html">
+        Usage
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="esp32-controller-assembly">ESP32 controller assembly</h1>
+<div class="pagebom">
+<h2 id="for-this-section-you-will-need">For this section you will need:</h2>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>1 <a Class="bom" href="parts/tools/multimeter.html">Multimeter</a> </li>
+<li>1 <a Class="bom" href="parts/tools/screwdriver.html">Screwdriver</a> </li>
+<li>1 <a Class="bom" href="parts/tools/soldering-iron.html">Soldering iron</a> </li>
+</ul>
+<h3 id="electronic-components">Electronic Components</h3>
+<ul>
+<li>4 <a Class="bom" href="parts/elect/10cm-f-f-jumper.html">10 cm female-female jumper</a> </li>
+<li>1 <a Class="bom" href="parts/elect/alligator-clip-wire.html">Alligator clip wire</a> </li>
+<li>1 <a Class="bom" href="parts/elect/esp32.html">ESP32-WROOM-32D</a> </li>
+<li>1 <a Class="bom" href="parts/elect/lcd-screen.html">LCD screen</a> </li>
+<li>1 <a Class="bom" href="parts/elect/4x4-keypad.html">Membrane 4x4 keypad</a> </li>
+<li>1 <a Class="bom" href="parts/elect/PCB-controller.html">PCB controller</a> </li>
+<li>1 <a Class="bom" href="parts/elect/power-supply-12v-6a.html">Power supply 12V 6A</a> </li>
+<li>2 <a Class="bom" href="parts/elect/TMC2226-driver.html">TMC2226 driver</a> </li>
+</ul>
+<h3 id="mechanical-components">Mechanical Components</h3>
+<ul>
+<li>10 <a Class="bom" href="parts/mech/heat-insert.html">Heat insert</a> </li>
+<li>10 <a Class="bom" href="parts/mech/M3-10.html">M3 10mm screw</a> </li>
+</ul>
+<h3 id="printed-parts">Printed Parts</h3>
+<ul>
+<li>1 <a Class="bom" href="models/controller-base.html">Base</a> </li>
+<li>1 <a Class="bom" href="models/controller-lcd-spacer.html">LCD spacer</a> </li>
+<li>1 <a Class="bom" href="models/controller-lid.html">Lid</a> </li>
+</ul>
+</div>
+<h2 class="page-step" id="prepare-the-base-of-the-controller">Step 1: Prepare the base of the controller</h2>
+<p>Grab the <a href="models/controller-base.html">base</a>, take ten <a href="parts/mech/heat-insert.html">heat insert</a> and position them in each hole of this printed part. Apply heat to each insert (using a <a href="parts/tools/soldering-iron.html">soldering iron</a>) and use gentle force to push it into position, as described in the <a href="https://hackaday.com/2019/02/28/threading-3d-printed-parts-how-to-use-heat-set-inserts/">guide to use heat-set inserts</a>.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/syringe-pump/heat-set_insert.gif" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-esp32/case.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-esp32/case-1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show0').src=this.src" src="images/controller-esp32/case-2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show0" src="images/syringe-pump/heat-set_insert.gif" alt=""/></div>
+<h2 class="page-step" id="mount-and-configure-the-motor-drivers">Step 2: Mount and configure the motor drivers</h2>
+<p>Before mounting the drivers, verify the PCB configuration is compatible with your driver model. Take a <a href="parts/elect/TMC2226-driver.html">TMC2226 driver</a> and mount it to the driver port on the back of the <a href="parts/elect/PCB-controller.html">PCB controller</a>.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-esp32/PCB.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-esp32/TMC-driver.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-esp32/PCB-1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show1').src=this.src" src="images/controller-esp32/PCB-driver.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show1" src="images/controller-esp32/PCB.jpg" alt=""/></div>
+<p>Then, configure the voltage reference (Vref) of your driver to supply the appropriate current to your motor model. Check the datasheet of your motor to determine the appropriate current rating.</p>
+<p>Connect a 12V/6A <a href="parts/elect/power-supply-12v-6a.html">power supply</a> to the power port of the PCB controller. As shown in this <a href="https://www.youtube.com/watch?v=zIiZ_gSi77Y">tutorial</a>, take a <a href="parts/tools/multimeter.html">multimeter</a>, a <a href="parts/tools/screwdriver.html">precision screwdriver</a>, and an <a href="parts/elect/alligator-clip-wire.html">alligator clip wire</a> to measure and set the voltage across the Vref pin of the driver. This value will determine the maximum current that the driver can supply to the motor.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/controller-esp32/PCB-driver-1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show2').src=this.src" src="images/controller-esp32/PCB-drivers.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show2" src="images/controller-esp32/PCB-driver-1.jpg" alt=""/></div>
+<p>Repeat this step for every driver you will mount in your controller.</p>
+<h2 class="page-step" id="mount-esp32-microcontroller-and-pcb">Step 3: Mount ESP32 microcontroller and PCB</h2>
+<p>Take the <a href="parts/elect/esp32.html">ESP32 microcontroller</a> and mount it to the PCB controller.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/controller-esp32/esp32.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show3').src=this.src" src="images/controller-esp32/esp32-PCB.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show3" src="images/controller-esp32/esp32.jpg" alt=""/></div>
+<p>Place the PCB controller on the base and mount it by using four <a href="parts/mech/M3-10.html">M3 10mm screws</a>.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/controller-esp32/case-PCB-placed.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/controller-esp32/case-PCB-assembled.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show4').src=this.src" src="images/controller-esp32/case-PCB-assembled-2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show4" src="images/controller-esp32/case-PCB-placed.jpg" alt=""/></div>
+<h2 class="page-step" id="connect-the-lcd-and-keypad">Step 4: Connect the LCD and keypad</h2>
+<p>Take the <a href="parts/elect/lcd-screen.html">LCD</a> and connect four <a href="parts/elect/10cm-f-f-jumper.html">female-female wires</a> to its pins. Then, connect the wires to LCD pins on the PCB controller, verifying they match with the pins from the LCD.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/controller-esp32/LCD.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/controller-esp32/LCD-pins.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/controller-esp32/LCD-cables.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/controller-esp32/PCB-keypad-pins.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show5').src=this.src" src="images/controller-esp32/PCB-LCD-cables-1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show5" src="images/controller-esp32/LCD.jpg" alt=""/></div>
+<p>Take the <a href="parts/elect/4x4-keypad.html">membrane 4x4 keypad</a> and peel off the backing, ensuring that all the paper is removed.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/controller-rpi/keypad.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/controller-rpi/keypad_1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show6').src=this.src" src="images/controller-rpi/keypad_2.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show6" src="images/controller-rpi/keypad.jpg" alt=""/></div>
+<p>Pass the cables through the hole on the <a href="models/controller-lid.html">lid</a> and securely attach the <a href="parts/elect/4x4-keypad.html">membrane 4x4 keypad</a> in place. Then, connect the front panel to the keypad pins on the PCB.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/controller-esp32/front-panel.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/controller-esp32/PCB-front-panel-connected.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show7').src=this.src" src="images/controller-esp32/PCB-front-panel-connected-1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show7" src="images/controller-esp32/front-panel.jpg" alt=""/></div>
+<h2 class="page-step" id="place-the-lcd-and-front-panel-on-the-base">Step 5: Place the LCD and front panel on the base</h2>
+<p>Now, place the LCD and front panel on the base to close the controller. Place first the <a href="models/controller-lcd-spacer.html">spacer</a> on the LCD, then place the LCD on the base and align its holes with the base holes. Take the front panel and place it on top of the LCD, aligning its holes with the LCD holes and the base holes. Secure the front panel to the base using six <a href="parts/mech/M3-10.html">M3 10mm screws</a>. Start by tightening the screws partially in a cross-diagonal pattern, then fully tighten them.</p>
+<div class="gallery-thumb">
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/controller-esp32/LCD-assembled.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/controller-esp32/LCD-assembled-1.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/controller-esp32/front-panel-assembled.jpg" alt="" />
+    <img onmouseover="getElementById('gallery-show8').src=this.src" src="images/controller-esp32/front-panel-assembled-1.jpg" alt="" />
+</div>
+<div class="gallery-show"><img id="gallery-show8" src="images/controller-esp32/LCD-assembled.jpg" alt=""/></div>
+<p>Well done! The controller is now assembled. It's time to <a href="esp32-firmware.html" title="">flash the firmware</a>.</p>
+<p><img alt="" src="images/controller-esp32/controller-assembled.jpg" title="" /></p>
+<!-- GitBuilding Nav -->
+<hr />
+<p><a href="printing-controller-esp32.html">Previous page</a> | <a href="esp32-firmware.html">Next page</a></p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="doc-info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>

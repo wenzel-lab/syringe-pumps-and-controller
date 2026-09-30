@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+
+    <link href="./static/base-style.css" rel="stylesheet">
+    <link href="./static/site-style.css" rel="stylesheet">
+                <link href="./assets/style.css" rel="stylesheet">
+            <style>
+  :root {
+    --hover-color: #555555;
+}
+</style>
+    
+        <script type="text/javascript" src="./static/search.js" defer=""></script>
+    </head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="./">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('./')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`./${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump.html">
+        Build low-cost syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./os-pump-gearbox.html">
+        Build high-torque syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="./controller-esp32.html">
+        Build pump controller
+    </a>
+    </li>
+<li class="active">
+    <a class="active" href="./esp32-usage.html">
+        Usage
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="using-the-syringe-pumps">Using the syringe pumps</h1>
+<div class="info-block">
+<p>These instructions describe the usage of the ESP32-based controller</p>
+</div>
+<h2 class="page-step" id="main-screen--navigation">Step 1: Main Screen &amp; Navigation</h2>
+<p><strong>Select Pump:</strong> Press the 'C' key to cycle through pumps A, B, C, and D.</p>
+<p><strong>Active Indicator:</strong> The currently selected pump is marked with a greater-than symbol (&gt;) on the left (e.g., &gt;A).</p>
+<p><strong>Status Display:</strong> The bottom line shows the current flow rate and the pump state (RUN or STOP).</p>
+<h2 class="page-step" id="basic-operation-flow--direction">Step 2: Basic Operation (Flow &amp; Direction)</h2>
+<p><strong>Set Flow Rate:</strong></p>
+<ol>
+<li>Press the 'A' key.</li>
+<li>Enter the value (Numeric keys).</li>
+<li>Press '#' to save.</li>
+</ol>
+<p><strong>Change Direction:</strong></p>
+<ol>
+<li>Press the 'B' key to toggle between Infuse and Withdraw.</li>
+<li>Press '#' to confirm.</li>
+</ol>
+<p><strong>Start/Stop:</strong> Press the star (*) key to toggle the motor.</p>
+<div class="info-block">
+<p><strong>Note:</strong> Flow must be between 1 and 6000 µL/h. If you enter a value outside this range, you can press '*' to clear the input and retry immediately.</p>
+</div>
+<h2 class="page-step" id="advanced-settings-menu">Step 3: Advanced Settings Menu</h2>
+<p>Press the '#' key from the main screen to enter the hardware configuration menu.</p>
+<p>Use '2' (Up) and '8' (Down) to navigate and '#' to select.</p>
+<table>
+<thead>
+<tr>
+<th>Menu Category</th>
+<th>Options Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diameter</td>
+<td>Set syringe ID in mm (supports decimals via 'D' key).</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>µL/min, µL/h, mL/min, mL/h</td>
+</tr>
+<tr>
+<td>Gearbox</td>
+<td>1:1, 25:1, 100:1</td>
+</tr>
+<tr>
+<td>Microstep</td>
+<td>1/8, 1/16, 1/32, 1/64, 1/256</td>
+</tr>
+<tr>
+<td>Thread Rod</td>
+<td>1-start, 4-start (Lead screw type)</td>
+</tr>
+</tbody>
+</table>
+<p><em>An asterisk (*) next to an option indicates the current active setting for that motor.</em></p>
+<h2 class="page-step" id="setting-syringe-diameter">Step 4: Setting Syringe Diameter</h2>
+<p>For accurate delivery, the diameter must be set according to the specific syringe used.</p>
+<ol>
+<li>In the Settings Menu, select Diameter.</li>
+<li>Enter the value in millimeters (mm). Press the 'D' key to insert a decimal point. (1 mL Syringe: 4.78 mm and 3 mL Syringe: 8.66 mm)</li>
+<li>Press '#' to confirm.</li>
+</ol>
+<div class="info-block">
+<p><strong>Note:</strong> These values are only references. Diameter must be between 1 and 50 mm. If you enter a value outside this range, you can press '*' to clear the input and retry immediately.</p>
+</div>
+<h2 class="page-step" id="correcting-mistakes--errors">Step 5: Correcting Mistakes &amp; Errors</h2>
+<p><strong>Clear Entry:</strong> Press the star (*) key while entering a value for Flow or Diameter to erase the input and reset to 0.</p>
+<p><strong>Out of Range:</strong> If a value exceeds safety limits (e.g., a diameter &gt; 50 mm), the screen will display "Out of range!". The input will auto-clear, allowing you to re-type the value immediately.</p>
+<p><strong>Decimal Points:</strong> Use the 'D' key to insert a decimal. Only one decimal point is permitted per entry.</p>
+<h2 class="page-step" id="priming-and-experiments">Step 6: Priming and Experiments</h2>
+<p><strong>Priming:</strong></p>
+<ul>
+<li>Fill the syringes with the appropriate liquids and position them upright on the pump.</li>
+<li>Set the flow rate to a high safe value (3000 µL/h) and run until liquid reaches the end of the tubing.</li>
+<li>If you are manipulating multi-phase liquids, repeat these steps for both the oil phase and the aqueous phase.</li>
+</ul>
+<p><strong>Instant Updates:</strong> You can adjust the flow rate while the pump is running. The motor speed will update immediately upon pressing '#'.</p>
+<p><strong>Memory:</strong> The controller saves all operation and hardware settings to internal memory. These persist even after the device is powered off.</p>
+<div class="info-block">
+<p><strong>Note:</strong> Priming can be done manually if the pump design allows you to do so (if it does not have a gearbox).</p>
+</div>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="doc-info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>

@@ -75,22 +75,22 @@
     </div>
 </li>
 <li class="not-active">
-    <a class="not-active" href="./1_printing.html">
-        Print the plastic parts
+    <a class="not-active" href="./os-pump.html">
+        Build low-cost syringe pump
     </a>
     </li>
 <li class="not-active">
-    <a class="not-active" href="./2_syringe-pump.html">
-        Build syringe pump
+    <a class="not-active" href="./os-pump-gearbox.html">
+        Build high-torque syringe pump
     </a>
     </li>
 <li class="not-active">
-    <a class="not-active" href="./3_control-interface.html">
-        Build control interface
+    <a class="not-active" href="./controller-esp32.html">
+        Build pump controller
     </a>
     </li>
 <li class="not-active">
-    <a class="not-active" href="./4_usage.html">
+    <a class="not-active" href="./esp32-usage.html">
         Usage
     </a>
     </li>
@@ -100,18 +100,31 @@
         </div>
         <div class="wrapper">
     <p>The open-source syringe pump is a standard research instrument for use in microfluidics and several other laboratory workflows. There are numerous designs available in the realm of open-source syringe pumps, and we have combined some of the best features available based on a pre-existing versatile design to generate low flow rates. </p>
-<hr />
-<h3 id="this-instrument-consists-of-two-parts">This instrument consists of two parts:</h3>
-<ul>
-<li>
-<p><a href="2_syringe-pump.html" title=""><strong>Syringe Pump:</strong></a></p>
-<p><a href="2_syringe-pump.html" title=""><img alt="" src="images/syringe-pump/syringe-pump.jpg" title="" /></a></p>
-</li>
-<li>
-<p><a href="3_control-interface.html" title=""><strong>Control Interface:</strong></a></p>
-<p><a href="3_control-interface.html" title=""><img alt="" src="images/control-interface/final.jpg" title="" /></a></p>
-</li>
-</ul>
+<p><img alt="" src="images/syringe-pumps-kit.png" title="" /></p>
+<div class="info-block">
+<p>This project is inspired on the <a href="https://mass-spec.ru/projects/diy/syringe_pump/eng/" target="_blank" title="">syringe pump design</a> of the Mass Spectrometry Research Group, Department of Chemistry, Lomonosov Moscow State University</p>
+</div>
+<p>These instructions will take you through how to assemble various configurations.</p>
+<h2 id="syringe-pump-configurations">Syringe pump configurations:</h2>
+<p><a href="os-pump.html" title=""><strong>Low-cost syringe pump:</strong></a></p>
+<p><img alt="" src="images/syringe-pump/syringe-pump.jpg" title="" /></p>
+<div class="help-block">
+<p><strong>Choose this pump</strong> if you usually work at high flow rates or under high hydrodynamic resistance.
+It can also be the lowest cost option and it is a great tool for education and a great introduction to building your own scientific equipment.</p>
+</div>
+<p>This configuration is a 3D-printed pump system that utilizes a NEMA 17 stepper motor and a standard one-start T8 lead screw (direct drive). This syringe pump have similar technical features to the majority of 3D printed syringe pump designs.</p>
+<p><a href="os-pump-gearbox.html" title=""><strong>High-torque syringe pump:</strong></a></p>
+<p><img alt="" src="images/syringe-pump/syringe-pump-gearbox.jpg" title="" /></p>
+<div class="help-block">
+<p><strong>Choose this pump</strong> if you require pulse-less flow delivery, especially at flow rates below 500 uL/h.</p>
+</div>
+<p>This configuration couples a NEMA 17 stepper motor with a 100:1 planetary gearbox to increase effective torque and angular resolution, which is critical for precise flow control in advanced applications.</p>
+<p><a href="controller-esp32.html" title=""><strong>Pump Controller</strong></a></p>
+<p><img alt="" src="images/controller-esp32/pump-controller-esp32.png" title="" /></p>
+<div class="help-block">
+<p><strong>Use this controller</strong> for any syringe pump design. The controller menu allows to configure the infusion/withdraw  independently for the connected pumps.</p>
+</div>
+<p>The pump controller is based on an ESP32-WROOM-32D configuration that includes a custom-printed circuit board. The physical interface was implemented using an LCD display and a 4 × 4 keypad, and motor control is achieved using Trinamic motor drivers. This controller supports up to four pumps for multiphase control.</p>
     </div>
 </div>
 <footer class="site-footer">
@@ -120,8 +133,8 @@
     <img class="icon" src="./static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
     <span class="doc-info">Documentation powered by GitBuilding</span>
 </a>
-    <p class="author">©2025 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
-    <p class="email">Contact: <a href="mailto:tobias.wenzel@uc.cl">tobias.wenzel@uc.cl</a></p>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
     <p class="license">Open-Source Syringe Pumps is released under <a href="license.html">CERN-OHL-1.2</a>.</p>
 
     </div>
