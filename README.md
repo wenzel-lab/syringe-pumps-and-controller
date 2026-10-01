@@ -51,4 +51,10 @@ For interactions in our team and with the community, apply the [GOSH Code of Con
 
 ## License
 
-[GNU General Public License v3.0](LICENSE) by Tomás Astudillo, Matías Hurtado, Pierre Padilla-Huamantinco, Tobias Wenzel, and the [original design team](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/). This project is Open Source Hardware - please acknowledge us when using the hardware or sharing modifications.
+Hardware design and documentation:
+[CERN OHL 2W](LICENSE) by Tomás Astudillo, Matías Hurtado, Pierre Padilla-Huamantinco, Tobias Wenzel, and the [original design team](https://www.mass-spec.ru/projects/diy/syringe_pump/eng/). This project is Open Source Hardware - please acknowledge us when using the hardware or sharing modifications.
+
+Software:
+[GNU General Public License v3.0](LICENSE). 
+
+This is an open source project - please acknowledge us when using the hardware or sharing modifications.
