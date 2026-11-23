@@ -43,17 +43,22 @@ The calculator `calibrate.py` does the math — you just type the numbers you me
 1. Fill the syringe, **purge all air** (a single bubble ruins a run). Mount it in the pump.
 2. Program the **nominal diameter D₀** (caliper the inner bore, or use the syringe spec) and
    the target flow **Q_set**.
-3. Let the pump drip to waste until flow is **steady** — allow **~5 min**; the first minutes
-   clear residual bubbles and let the mechanics settle.
+3. Let the pump drip into **any waste tube** until the flow is **steady** — **we use 5 min**;
+   the first minutes clear residual bubbles and let the mechanics settle.
 
 ## Step 2 — Collect the output, weighed (timed collection)
 
-Close the empty tube, seal the top with **parafilm**, and pierce a **small hole** in the
-parafilm with the **sharp tip of scissors** — just big enough for the capillary (this keeps
-evaporation low while collecting). Stand the tube on a **small, very light base** — we cut one from the foam used to pack boxes, so it adds negligible mass and keeps the round-bottom tube upright on the balance pan. **Weigh the tube in this final state** (tube + parafilm + hole + foam base) → `m_empty`, or tare it to zero. Put the capillary through the hole and
-collect for an **exactly timed interval `t`** (use a stopwatch — `t` goes straight into the
-result). Remove the capillary, press the parafilm closed over the hole, and weigh immediately
-(`m_full`). Δm = m_full − m_empty.
+**Prepare the collection tube first:** close the empty Eppendorf, seal the top with
+**parafilm**, pierce a **small hole** with the **sharp tip of scissors** (just big enough for the
+capillary — keeps evaporation low), and stand it on a **small, very light base** (we cut one from
+the foam used to pack boxes — negligible mass, keeps the round-bottom tube upright on the pan).
+**Weigh it in this final state** (tube + parafilm + hole + foam base) → `m_empty`, or tare to zero.
+
+**Then collect, without stopping the flow:** with the flow already steady (Step 1), move the
+capillary from the waste tube into the collection tube through the parafilm hole, and **start the
+stopwatch at that instant**. Collect for an **exactly timed interval `t`** (`t` goes straight into
+the result). Move the capillary out, press the parafilm closed over the hole, and weigh immediately
+→ `m_full`. Δm = m_full − m_empty.
 
 <table>
 <tr>
