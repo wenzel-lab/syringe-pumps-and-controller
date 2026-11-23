@@ -38,7 +38,11 @@ Navigation:
     Title: Build control interface
   - Link: 4_usage.md
     Title: Usage
+  - Link: calibration.md
+    Title: Calibrate the flow (gravimetric)
 PageBOMTitle: '## For this section you will need:'
 hoverColor: '#555555'
 primaryColor: '#f1502f'
 secondaryColor: '#cccccc'
+ForceOutput:
+  - software/calibration/calibrate.py
