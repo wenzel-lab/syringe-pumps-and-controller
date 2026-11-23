@@ -140,14 +140,13 @@ the pump → increase the diameter. Enter <code>D_real</code> and the pump deliv
 <li>Let the pump drip to waste until flow is <strong>steady</strong> — allow <strong>~5 min</strong>; the first minutes
    clear residual bubbles and let the mechanics settle.</li>
 </ol>
-<h2 id="step-2-collect-weighed">Step 2 — Collect, weighed</h2>
-<p>Two ways; use B if the balance is far from the pump.</p>
-<p><strong>A — continuous (most precise):</strong> tube on the balance, capillary dripping in (held by a
-clamp, not resting on the tube), tube sealed with parafilm (capillary through a hole). Tare,
-read mass <code>m0</code>, run a measured time <code>t</code>, read <code>m1</code>. Δm = m1 − m0.</p>
-<p><strong>B — timed collection:</strong> weigh the empty, parafilm-capped tube (<code>m_empty</code>). Drip into it for
-an exactly timed interval <code>t</code> (use a stopwatch — <code>t</code> goes straight into the result). Cap with
-parafilm immediately, weigh (<code>m_full</code>). Δm = m_full − m_empty.</p>
+<h2 id="step-2-collect-the-output-weighed-timed-collection">Step 2 — Collect the output, weighed (timed collection)</h2>
+<p>Close the empty tube, seal the top with <strong>parafilm</strong>, and pierce a <strong>small hole</strong> in the
+parafilm with the <strong>sharp tip of scissors</strong> — just big enough for the capillary (this keeps
+evaporation low while collecting). Weigh it (<code>m_empty</code>). Put the capillary through the hole and
+collect for an <strong>exactly timed interval <code>t</code></strong> (use a stopwatch — <code>t</code> goes straight into the
+result). Remove the capillary, press the parafilm closed over the hole, and weigh immediately
+(<code>m_full</code>). Δm = m_full − m_empty.</p>
 <p>Aim for <strong>Δm ≥ 100 mg</strong> (e.g. 10 min at 1000 µL/h ≈ 167 mg → &lt;1 % uncertainty at 1 mg).</p>
 <h2 id="step-3-compute-and-correct">Step 3 — Compute and correct</h2>
 <div class="codehilite"><pre><span></span><code>python3<span class="w"> </span>calibrate.py<span class="w"> </span>--d0<span class="w"> </span><span class="m">8</span>.94<span class="w"> </span>--qset<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--mass<span class="w"> </span><span class="m">170</span>.5<span class="w"> </span>--minutes<span class="w"> </span><span class="m">10</span><span class="w"> </span>--temp<span class="w"> </span><span class="m">20</span>
