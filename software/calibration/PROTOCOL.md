@@ -46,17 +46,14 @@ The calculator `calibrate.py` does the math — you just type the numbers you me
 3. Let the pump drip to waste until flow is **steady** — allow **~5 min**; the first minutes
    clear residual bubbles and let the mechanics settle.
 
-## Step 2 — Collect, weighed
+## Step 2 — Collect the output, weighed (timed collection)
 
-Two ways; use B if the balance is far from the pump.
-
-**A — continuous (most precise):** tube on the balance, capillary dripping in (held by a
-clamp, not resting on the tube), tube sealed with parafilm (capillary through a hole). Tare,
-read mass `m0`, run a measured time `t`, read `m1`. Δm = m1 − m0.
-
-**B — timed collection:** weigh the empty, parafilm-capped tube (`m_empty`). Drip into it for
-an exactly timed interval `t` (use a stopwatch — `t` goes straight into the result). Cap with
-parafilm immediately, weigh (`m_full`). Δm = m_full − m_empty.
+Close the empty tube, seal the top with **parafilm**, and pierce a **small hole** in the
+parafilm with the **sharp tip of scissors** — just big enough for the capillary (this keeps
+evaporation low while collecting). Weigh it (`m_empty`). Put the capillary through the hole and
+collect for an **exactly timed interval `t`** (use a stopwatch — `t` goes straight into the
+result). Remove the capillary, press the parafilm closed over the hole, and weigh immediately
+(`m_full`). Δm = m_full − m_empty.
 
 Aim for **Δm ≥ 100 mg** (e.g. 10 min at 1000 µL/h ≈ 167 mg → <1 % uncertainty at 1 mg).
 
