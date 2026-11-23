@@ -69,7 +69,7 @@ def main():
     p.add_argument("--syringe", choices=list(SYRINGES))
     p.add_argument("--d0", type=float, help="nominal inner diameter (mm) if not in the list")
     p.add_argument("--qset", type=float, help="flow programmed on the pump (uL/h)")
-    p.add_argument("--mass", type=float, help="dispensed mass (mg)")
+    p.add_argument("--mass", type=float, help="dispensed mass = collected water, full − empty (mg)")
     p.add_argument("--minutes", type=float, help="dispense duration (min)")
     p.add_argument("--qreal", type=float, help="measured real flow (uL/h) — alternative to mass+minutes")
     p.add_argument("--temp", type=float, default=20.0, help="water temperature (C)")
@@ -99,7 +99,7 @@ def main():
     if a.qreal is not None:
         qreal, mass, minutes = a.qreal, None, None
     else:
-        mass = a.mass if a.mass is not None else ask("Dispensed mass on the balance (mg)")
+        mass = a.mass if a.mass is not None else ask("Dispensed mass on the balance (collected water, full − empty) (mg)")
         minutes = a.minutes if a.minutes is not None else ask("Dispense duration (min)")
         qreal = (mass / rho_water(temp)) / (minutes / 60.0)   # uL/h
 
