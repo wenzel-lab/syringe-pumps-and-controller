@@ -46,3 +46,4 @@ primaryColor: '#f1502f'
 secondaryColor: '#cccccc'
 ForceOutput:
   - software/calibration/calibrate.py
+  - software/calibration/calculator.html

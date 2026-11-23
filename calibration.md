@@ -19,6 +19,8 @@ the pump → increase the diameter. Enter `D_real` and the pump delivers true fl
 
 The calculator `calibrate.py` does the math — you just type the numbers you measured.
 
+> 💧 **No install needed:** open the [**web calculator**](software/calibration/calculator.html) in any browser (PC, phone), type the weighed values, and it returns the corrected diameter. The `calibrate.py` script below does the same from the command line.
+
 ---
 
 ## Equipment
