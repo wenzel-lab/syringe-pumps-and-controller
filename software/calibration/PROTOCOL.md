@@ -50,15 +50,19 @@ The calculator `calibrate.py` does the math — you just type the numbers you me
 
 Close the empty tube, seal the top with **parafilm**, and pierce a **small hole** in the
 parafilm with the **sharp tip of scissors** — just big enough for the capillary (this keeps
-evaporation low while collecting). Weigh it (`m_empty`). Put the capillary through the hole and
+evaporation low while collecting). Stand the tube on a **small, very light base** — we cut one from the foam used to pack boxes, so it adds negligible mass and keeps the round-bottom tube upright on the balance pan. **Weigh the tube in this final state** (tube + parafilm + hole + foam base) → `m_empty`, or tare it to zero. Put the capillary through the hole and
 collect for an **exactly timed interval `t`** (use a stopwatch — `t` goes straight into the
 result). Remove the capillary, press the parafilm closed over the hole, and weigh immediately
 (`m_full`). Δm = m_full − m_empty.
 
-<img width="300" alt="IMG_5294" src="https://github.com/user-attachments/assets/76a64963-dd73-4e40-815d-11dcb9445f08" />
-<img width="300" alt="IMG_5298" src="https://github.com/user-attachments/assets/36ad7822-de1d-44a0-88d6-b6ef6476418c" />
-<img width="300" alt="IMG_5299" src="https://github.com/user-attachments/assets/1dcda40d-8cfe-4803-887a-38633ac9baae" />
-<img width="300" alt="IMG_5297" src="https://github.com/user-attachments/assets/a4ea4f2d-0760-4617-b317-4fd9e5fd26e1" />
+<table>
+<tr>
+<td align="center" width="25%"><img width="200" alt="step 1" src="https://github.com/user-attachments/assets/76a64963-dd73-4e40-815d-11dcb9445f08" /><br><sub>1 — Caliper the bore to get the nominal diameter D₀</sub></td>
+<td align="center" width="25%"><img width="200" alt="step 2" src="https://github.com/user-attachments/assets/36ad7822-de1d-44a0-88d6-b6ef6476418c" /><br><sub>2 — Seal the tube top with parafilm</sub></td>
+<td align="center" width="25%"><img width="200" alt="step 3" src="https://github.com/user-attachments/assets/1dcda40d-8cfe-4803-887a-38633ac9baae" /><br><sub>3 — Pierce a small hole with a scissor tip</sub></td>
+<td align="center" width="25%"><img width="200" alt="step 4" src="https://github.com/user-attachments/assets/a4ea4f2d-0760-4617-b317-4fd9e5fd26e1" /><br><sub>4 — Insert the capillary through the hole</sub></td>
+</tr>
+</table>
 
 Aim for **Δm ≥ 100 mg** (e.g. 10 min at 1000 µL/h ≈ 167 mg → <1 % uncertainty at 1 mg).
 
