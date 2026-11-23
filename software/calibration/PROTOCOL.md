@@ -55,10 +55,10 @@ collect for an **exactly timed interval `t`** (use a stopwatch — `t` goes stra
 result). Remove the capillary, press the parafilm closed over the hole, and weigh immediately
 (`m_full`). Δm = m_full − m_empty.
 
-<img width="3024" height="4032" alt="IMG_5294" src="https://github.com/user-attachments/assets/76a64963-dd73-4e40-815d-11dcb9445f08" />
-<img width="3024" height="4032" alt="IMG_5298" src="https://github.com/user-attachments/assets/36ad7822-de1d-44a0-88d6-b6ef6476418c" />
-<img width="3024" height="4032" alt="IMG_5299" src="https://github.com/user-attachments/assets/1dcda40d-8cfe-4803-887a-38633ac9baae" />
-<img width="3024" height="4032" alt="IMG_5297" src="https://github.com/user-attachments/assets/a4ea4f2d-0760-4617-b317-4fd9e5fd26e1" />
+<img width="300" alt="IMG_5294" src="https://github.com/user-attachments/assets/76a64963-dd73-4e40-815d-11dcb9445f08" />
+<img width="300" alt="IMG_5298" src="https://github.com/user-attachments/assets/36ad7822-de1d-44a0-88d6-b6ef6476418c" />
+<img width="300" alt="IMG_5299" src="https://github.com/user-attachments/assets/1dcda40d-8cfe-4803-887a-38633ac9baae" />
+<img width="300" alt="IMG_5297" src="https://github.com/user-attachments/assets/a4ea4f2d-0760-4617-b317-4fd9e5fd26e1" />
 
 Aim for **Δm ≥ 100 mg** (e.g. 10 min at 1000 µL/h ≈ 167 mg → <1 % uncertainty at 1 mg).
 
