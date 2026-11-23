@@ -1,0 +1,102 @@
+# Calibrating a syringe pump by gravimetry
+
+A syringe pump computes plunger speed from the **syringe inner diameter** you program. Real
+syringes — 3D-printed or commercial — have diameter tolerance, so the **delivered flow can be
+off by several percent** even though the pump is mechanically accurate. In our tests a "3 mL"
+syringe with a nominal 8.94 mm bore actually delivered **+2.5 %**; the corrected diameter was
+9.05 mm.
+
+This gravimetric calibration needs **only an analytical balance** — no flow sensor. Water
+weighs ~1 g/mL, so **1 mg ≈ 1 µL**: the balance gives real dispensed volume directly.
+
+```
+Q_real = mass / (ρ_water · time)
+D_real = D₀ · √(Q_real / Q_set)
+```
+
+If the balance reads **more** flow than programmed → the syringe is **wider** than you told
+the pump → increase the diameter. Enter `D_real` and the pump delivers true flow.
+
+The calculator `calibrate.py` does the math — you just type the numbers you measured.
+
+---
+
+## Equipment
+
+- **Analytical balance, 1 mg** (0.001 g); 0.1 mg is even better.
+- Syringe under test, filled with **bubble-free** distilled water.
+- **Parafilm** + a small receiving tube (e.g. Eppendorf).
+- Tweezers/tongs for handling calibration weights (skin oil weighs enough to matter).
+- The syringe pump (this project).
+
+## Step 0 — Calibrate the balance (once)
+
+1. Place it on a stable, **level** table (centre the bubble with the feet); no drafts, sun or
+   vibration. **Warm it up for ≥ 1 hour** powered on.
+2. Empty pan, reading `0.0`. Enter external calibration (on CGOLDENWALL/JoanLab HZ-type
+   balances: `Set` → menu → **`e-cal`**; it requests a standard weight, e.g. `cal-200` = 200 g).
+3. Place the exact standard weight **with tongs**, wait, remove when prompted → returns to `0.0`.
+4. **Verify**: place a known weight (e.g. 100 g) and check it reads correctly.
+
+## Step 1 — Prepare the run
+
+1. Fill the syringe, **purge all air** (a single bubble ruins a run). Mount it in the pump.
+2. Program the **nominal diameter D₀** (caliper the inner bore, or use the syringe spec) and
+   the target flow **Q_set**.
+3. Let the pump drip to waste until flow is **steady** — allow **~5 min**; the first minutes
+   clear residual bubbles and let the mechanics settle.
+
+## Step 2 — Collect, weighed
+
+Two ways; use B if the balance is far from the pump.
+
+**A — continuous (most precise):** tube on the balance, capillary dripping in (held by a
+clamp, not resting on the tube), tube sealed with parafilm (capillary through a hole). Tare,
+read mass `m0`, run a measured time `t`, read `m1`. Δm = m1 − m0.
+
+**B — timed collection:** weigh the empty, parafilm-capped tube (`m_empty`). Drip into it for
+an exactly timed interval `t` (use a stopwatch — `t` goes straight into the result). Cap with
+parafilm immediately, weigh (`m_full`). Δm = m_full − m_empty.
+
+Aim for **Δm ≥ 100 mg** (e.g. 10 min at 1000 µL/h ≈ 167 mg → <1 % uncertainty at 1 mg).
+
+## Step 3 — Compute and correct
+
+```bash
+python3 calibrate.py --d0 8.94 --qset 1000 --mass 170.5 --minutes 10 --temp 20
+#   flow real (balance): 1024.8 uL/h  (+2.5 %)
+#   CORRECTED DIAMETER : 9.05 mm   <- enter this on the pump
+```
+
+Enter `D_real` on the pump. Repeat **one point** to confirm Q_real ≈ Q_set.
+
+## Step 4 — Verify linearity
+
+Repeat at **2–3 flows** (e.g. 500 / 1000 / 2000 µL/h) with the corrected diameter. If they all
+give the same `D_real`, the calibration is solid and flow-independent.
+
+## Practical tips (what ruins a run)
+
+- **Evaporation**: at 1000 µL/h an open tube loses ~1 mg/min — always parafilm, and weigh
+  immediately after capping.
+- **Weights with tongs**, never fingers.
+- **Exclude the first ~5 min** of each run (stabilization + bubble clearing).
+- **Record water temperature**; the tool adjusts density (20 °C → 0.99821 g/mL). ±2 °C is
+  negligible (<0.1 %).
+- **Bubbles**: purge before, and if the output suddenly spikes/dips erratically, there is air
+  in the line — stop and purge.
+
+---
+
+## Optional: cross-check with a flow sensor (higher precision)
+
+The balance fixes the diameter. If you also have an **in-line flow sensor**, the same runs
+let you check — and calibrate — the sensor against the balance (ground truth), and then use
+the sensor as a **continuous** flow reference without weighing every time. `calibrate.py`
+reports the sensor factor if you pass `--sensor-ulh <reading>`.
+
+For the flow-sensor hardware, firmware and high-rate acquisition, see the Rio controller:
+➡️ **[wenzel-lab/rio-controller](https://github.com/wenzel-lab/rio-controller)** (pressure/flow module).
+
+---
+*Tool: `calibrate.py` · rev 2026-11-19*
