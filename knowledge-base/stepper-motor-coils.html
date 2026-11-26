@@ -106,45 +106,12 @@
         <div class="wrapper">
     <h1 id="stepper-motor-coil-identification-methods">Stepper Motor Coil Identification Methods</h1>
 <p>Most NEMA 17 bipolar stepper motors have four wires corresponding to two independent electromagnetic coils.</p>
-<p>The objective is to identify:</p>
-<ul>
-<li>
-<p>Coil A (A+ and A-)</p>
-</li>
-<li>
-<p>Coil B (B+ and B-)</p>
-</li>
-</ul>
+<p>The objective is to identify: <strong>Coil A</strong> (A+ and A-) and <strong>Coil B</strong> (B+ and B-)</p>
+<div class="info-block">
 <p>If you have access to the motor's datasheet, you can find the coil specifications there.</p>
-<p>In our case, we are using a Usongshine Stepping Motor (Model: 17HS4401). Because the datasheet from the manufacturer is not available, we will use another one as a reference from the same motor model to identify the coils. The datasheet can be found <a href="17HS4401_Datasheet.pdf" title="">here</a>.</p>
-<p>According to the datasheet, the coil resistance is <strong>1.5 Ω</strong> and the maximum current is <strong>1.7 A</strong>. The wire color coding is as follows:</p>
-<table>
-<thead>
-<tr>
-<th>Wiring</th>
-<th>Coil terminal</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Black</td>
-<td>Coil A+</td>
-</tr>
-<tr>
-<td>Green</td>
-<td>Coil A-</td>
-</tr>
-<tr>
-<td>Red</td>
-<td>Coil B+</td>
-</tr>
-<tr>
-<td>Blue</td>
-<td>Coil B-</td>
-</tr>
-</tbody>
-</table>
-<p>To verify the coil connections, the following three methods shown in the video can be used to identify the motor coils. Instructions for each method are provided below:</p>
+</div>
+<p>In our case, we use NEMA 17 motors (model: 17HS4401) from two different brands and the datasheet from these manufacturers are not available.</p>
+<p>To identify the coil connections, the following three methods shown in the video can help us:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bx5XrROhr-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <hr />
@@ -161,10 +128,11 @@
 <li>Repeat the measurement with different wire combinations.</li>
 <li>Identify the two pairs that show a measurable resistance.</li>
 </ol>
-<h3 id="expected-results">Expected results</h3>
+<h3 id="results">Results</h3>
 <table>
 <thead>
 <tr>
+<th>Brand</th>
 <th>Wire combination</th>
 <th>Measurement</th>
 <th>Result</th>
@@ -172,21 +140,55 @@
 </thead>
 <tbody>
 <tr>
+<td>Usongshine</td>
 <td>Black – Green</td>
-<td>1.5 Ω</td>
-<td>Coil A</td>
+<td>3.3 Ω</td>
+<td>Coil A (to confirm)</td>
 </tr>
 <tr>
+<td>Usongshine</td>
 <td>Red – Blue</td>
-<td>1.5 Ω</td>
-<td>Coil B</td>
+<td>3.3 Ω</td>
+<td>Coil B (to confirm)</td>
 </tr>
 <tr>
+<td>Usongshine</td>
 <td>Red – Green</td>
 <td>0 Ω</td>
 <td>Different coils</td>
 </tr>
 <tr>
+<td>Usongshine</td>
+<td>Red – Black</td>
+<td>0 Ω</td>
+<td>Different coils</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td></td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>Black – Blue</td>
+<td>2.5 Ω</td>
+<td>Coil A (to confirm)</td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>Red – Green</td>
+<td>2.5 Ω</td>
+<td>Coil B (to confirm)</td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>Red – Blue</td>
+<td>0 Ω</td>
+<td>Different coils</td>
+</tr>
+<tr>
+<td>R3M1717</td>
 <td>Red – Black</td>
 <td>0 Ω</td>
 <td>Different coils</td>
@@ -197,7 +199,7 @@
 <ul>
 <li>Two wires with measurable resistance belong to the same coil.</li>
 <li>Two wires from different coils should show an open circuit (0 Ω).</li>
-<li>Typical winding resistance depends on the motor model.</li>
+<li>Typical winding resistance depends on the motor model or brand.</li>
 </ul>
 <div class="info-block">
 <p><strong>Note:</strong> The wire color coding may vary depending on the manufacturer and the supplied cable. Always verify the wiring before connecting to the driver.</p>
@@ -216,9 +218,10 @@
 <li>Observe whether the LED flashes.</li>
 <li>Repeat with different wire combinations.</li>
 </ol>
-<h3 id="expected-results_1">Expected results</h3>
+<h3 id="results_1">Results</h3>
 <p>When the selected wires belong to the same coil, manually rotating the shaft generates a voltage in the winding.</p>
 <p>This voltage can illuminate or flash the LED.</p>
+<p>In our case, the LED flashes for the wire combinations that have measurable resistance (see previous table), confirming that they belong to the same coil in each brand.</p>
 <p><strong>Advantages:</strong></p>
 <ul>
 <li>Does not require a multimeter.</li>
@@ -227,7 +230,6 @@
 </ul>
 <p><strong>Limitations:</strong></p>
 <ul>
-<li>Less reliable than the multimeter method.</li>
 <li>LED illumination depends on rotation speed and generated voltage.</li>
 <li>Some LEDs may not light up due to polarity or low voltage.</li>
 </ul>
@@ -246,10 +248,11 @@
 <li>Compare the resistance to rotation.</li>
 <li>Repeat with other wire combinations.</li>
 </ol>
-<h3 id="expected-results_2">Expected results</h3>
+<h3 id="results_2">Results</h3>
 <p>When two wires belonging to the same coil are shorted together, the motor generates current as the shaft rotates.</p>
 <p>This produces electromagnetic braking, making the shaft noticeably harder to turn.</p>
 <p>When wires from different coils are shorted together, this effect should not occur in the same way.</p>
+<p>For our case, we notice a significant difference in rotational resistance between the wire combinations with measurable resistance, also confirming that they belong to the same coil in each brand.</p>
 <p><strong>Advantages:</strong></p>
 <ul>
 <li>No additional equipment required.</li>
@@ -264,44 +267,6 @@
 <hr />
 <h2 id="coil-polarity-identification-and-driver-connection">Coil Polarity Identification and Driver Connection</h2>
 <p>Once both coil pairs have been identified, they can be connected to a stepper motor driver.</p>
-<h3 id="example-a4988-drv8825-or-tmc2209">Example: A4988, DRV8825 or TMC2209</h3>
-<table>
-<thead>
-<tr>
-<th>Driver terminal</th>
-<th>Motor connection</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1A</td>
-<td>Coil A wire 1</td>
-</tr>
-<tr>
-<td>1B</td>
-<td>Coil A wire 2</td>
-</tr>
-<tr>
-<td>2A</td>
-<td>Coil B wire 1</td>
-</tr>
-<tr>
-<td>2B</td>
-<td>Coil B wire 2</td>
-</tr>
-</tbody>
-</table>
-<h3 id="determining-polarity">Determining polarity</h3>
-<p>The two wires belonging to each coil can initially be connected in either order.</p>
-<p>For example:</p>
-<ul>
-<li>Coil A: Red → 1A, Blue → 1B</li>
-<li>Coil B: Green → 2A, Black → 2B</li>
-</ul>
-<div class="info-block">
-<p><strong>Important:</strong> The relative polarity of the windings determines the motor's rotation direction.</p>
-</div>
-<p>If the motor rotates in the opposite direction than expected, reverse the order of one coil or invert the direction signal in software.</p>
 <div class="caution-block">
 <p><strong>Safety Precautions</strong></p>
 <ul>
@@ -312,6 +277,108 @@
 <li>Do not exceed the motor or driver current ratings.</li>
 </ul>
 </div>
+<h3 id="example-tmc2226">Example: TMC2226</h3>
+<p><img alt="TMC2226" src="TMC2226-wiring-diagram.png" title="" /></p>
+<table>
+<thead>
+<tr>
+<th>Driver terminal</th>
+<th>Motor connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1A</td>
+<td>Coil A+ wire 1</td>
+</tr>
+<tr>
+<td>1B</td>
+<td>Coil A- wire 2</td>
+</tr>
+<tr>
+<td>2A</td>
+<td>Coil B+ wire 1</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>Coil B- wire 2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="determining-polarity">Determining polarity</h3>
+<p>The two wires belonging to each coil can initially be connected in either order.</p>
+<p><strong>For example:</strong></p>
+<p>Brand 1:</p>
+<ul>
+<li>Coil A: Black → 1A, Green → 1B</li>
+<li>Coil B: Red → 2A, Blue → 2B</li>
+</ul>
+<p>Brand 2:</p>
+<ul>
+<li>Coil A: Black → 1A, Blue → 1B</li>
+<li>Coil B: Red → 2A, Green → 2B</li>
+</ul>
+<div class="info-block">
+<p><strong>Important:</strong> The relative polarity of the windings determines the motor's rotation direction.</p>
+</div>
+<p>By using a control circuit or the pump controller, we can verify the rotation direction. If the motor rotates in the opposite direction than expected, reverse the order of one coil or invert the direction signal in software.</p>
+<p>In our case, we used the pump controller to verify the rotation direction, having the final configuration as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Brand</th>
+<th>Driver terminal</th>
+<th>Motor connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usongshine</td>
+<td>1A</td>
+<td>Red → Coil A+</td>
+</tr>
+<tr>
+<td>Usongshine</td>
+<td>1B</td>
+<td>Blue → Coil A-</td>
+</tr>
+<tr>
+<td>Usongshine</td>
+<td>2A</td>
+<td>Black → Coil B+</td>
+</tr>
+<tr>
+<td>Usongshine</td>
+<td>2B</td>
+<td>Green → Coil B-</td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>1A</td>
+<td>Red → Coil A+</td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>1B</td>
+<td>Green → Coil A-</td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>2A</td>
+<td>Black → Coil B+</td>
+</tr>
+<tr>
+<td>R3M1717</td>
+<td>2B</td>
+<td>Blue → Coil B-</td>
+</tr>
+</tbody>
+</table>
 <h2 id="final-recommendation">Final Recommendation</h2>
 <p>The <strong>multimeter resistance test</strong> (Method 1) is the recommended approach for identifying NEMA 17 motor coils.</p>
 <p>The other two methods can be used as complementary tests when a multimeter is unavailable or when additional confirmation is desired.</p>
