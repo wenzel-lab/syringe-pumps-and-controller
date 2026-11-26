@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pump mechanics calibration (plunger travel)</title>
+<style>
+  :root{
+    --bg:#f4f7f9; --card:#ffffff; --ink:#15232b; --ink2:#5a6b75; --line:#dde6ea;
+    --accent:#065a82; --accent-soft:#e7f0f5; --warn:#eb6834; --good:#1b9e77; --field:#fbfdfe;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#10171c; --card:#19232a; --ink:#e9f0f3; --ink2:#9fb2bc; --line:#2a3942;
+      --accent:#4da6cf; --accent-soft:#17303c; --warn:#f0814e; --good:#2bbf93; --field:#121b21; color-scheme:dark;}
+  }
+  :root[data-theme="dark"]{--bg:#10171c; --card:#19232a; --ink:#e9f0f3; --ink2:#9fb2bc; --line:#2a3942;
+    --accent:#4da6cf; --accent-soft:#17303c; --warn:#f0814e; --good:#2bbf93; --field:#121b21; color-scheme:dark;}
+  :root[data-theme="light"]{--bg:#f4f7f9; --card:#ffffff; --ink:#15232b; --ink2:#5a6b75; --line:#dde6ea;
+    --accent:#065a82; --accent-soft:#e7f0f5; --warn:#eb6834; --good:#1b9e77; --field:#fbfdfe; color-scheme:light;}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:560px;margin:0 auto;padding:1.6rem 1.1rem 3rem;}
+  header h1{font-size:1.35rem;margin:0 0 .2rem;text-wrap:balance;letter-spacing:-.01em;}
+  header p{margin:0 0 1.4rem;color:var(--ink2);font-size:.92rem;}
+  header p a{color:var(--accent);font-weight:600;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem;margin-bottom:1.3rem;}
+  .card h2{font-size:1.05rem;margin:0 0 1rem;letter-spacing:-.01em;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+  .field{display:flex;flex-direction:column;gap:.3rem;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);font-weight:600;}
+  label .hint{text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink2);opacity:.85;}
+  input,select{font:inherit;color:var(--ink);background:var(--field);border:1px solid var(--line);
+    border-radius:8px;padding:.5rem .6rem;width:100%;font-variant-numeric:tabular-nums;}
+  input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent);}
+  .divider{height:1px;background:var(--line);margin:1.2rem 0;}
+  .result{display:flex;flex-direction:column;gap:.15rem;align-items:center;text-align:center;
+    background:var(--accent-soft);border-radius:10px;padding:1.1rem;}
+  .result .lab{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2);font-weight:600;}
+  .result .big{font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.05;font-variant-numeric:tabular-nums;}
+  .result .sub{font-size:.9rem;color:var(--ink2);}
+  .rows{display:flex;flex-direction:column;gap:.55rem;margin-top:1rem;}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.95rem;}
+  .row .k{color:var(--ink2);}
+  .row .v{font-weight:600;font-variant-numeric:tabular-nums;}
+  .pill{font-size:.78rem;font-weight:600;padding:.1rem .5rem;border-radius:999px;}
+  .pill.ok{color:var(--good);background:color-mix(in srgb,var(--good) 15%,transparent);}
+  .pill.hi{color:var(--warn);background:color-mix(in srgb,var(--warn) 15%,transparent);}
+  .note{font-size:.8rem;color:var(--ink2);margin-top:1rem;line-height:1.45;}
+  .formula{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.8rem;
+    color:var(--ink2);background:var(--field);border:1px solid var(--line);border-radius:8px;
+    padding:.5rem .6rem;margin-top:.9rem;overflow-x:auto;white-space:nowrap;}
+  .muted{color:var(--ink2);}
+  @media (max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pump mechanics — plunger travel</h1>
+    <p><strong>Step 1</strong> (do this first): does the drive head move the distance it should?
+      Need the syringe step instead? → <a href="calculator.html">Syringe diameter (gravimetric)</a>.</p>
+  </header>
+
+  <div class="card">
+    <h2>Measured travel → lead-screw correction</h2>
+    <div class="grid">
+      <div class="field">
+        <label for="mq">Flow Q <span class="hint">(µL/h)</span></label>
+        <input id="mq" type="number" step="1" inputmode="decimal" value="3000">
+      </div>
+      <div class="field">
+        <label for="mt">Run time <span class="hint">(min — longer = less error)</span></label>
+        <input id="mt" type="number" step="0.1" inputmode="decimal" value="15">
+      </div>
+      <div class="field">
+        <label for="md">Syringe diameter D <span class="hint">(mm, programmed)</span></label>
+        <input id="md" type="number" step="0.01" inputmode="decimal" value="9.05">
+      </div>
+      <div class="field">
+        <label for="mrod">Lead-screw pitch <span class="hint">(mm, current THREADROD)</span></label>
+        <input id="mrod" type="number" step="0.1" inputmode="decimal" value="2.0">
+      </div>
+      <div class="field">
+        <label for="mstart">Start reading <span class="hint">(mm, caliper, before)</span></label>
+        <input id="mstart" type="number" step="0.01" inputmode="decimal" placeholder="e.g. 18.99">
+      </div>
+      <div class="field">
+        <label for="mend">End reading <span class="hint">(mm, caliper, after)</span></label>
+        <input id="mend" type="number" step="0.01" inputmode="decimal" placeholder="after the run">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="result">
+      <div class="lab">Expected travel (what the pump should move)</div>
+      <div class="big" id="lset">— mm</div>
+      <div class="sub" id="lsetsub">set Q, time and diameter above</div>
+    </div>
+
+    <div class="rows">
+      <div class="row" id="realrow" style="display:none"><span class="k">Measured travel (end − start)</span><span class="v" id="realv">—</span></div>
+      <div class="row"><span class="k">Mechanical error vs expected</span><span class="v"><span class="pill" id="merrpill">—</span></span></div>
+      <div class="row" id="rodrow" style="display:none"><span class="k">Corrected lead-screw pitch → set on the pump</span><span class="v" id="rodv">—</span></div>
+    </div>
+
+    <div class="formula">L_set = Q·t / (π·(D/2)²) &nbsp;·&nbsp; L_real = |end − start| &nbsp;·&nbsp; THREADROD_corr = THREADROD·(L_real / L_set)</div>
+    <p class="note" id="mnote">Run ≥ 15 min (the longer it runs, the smaller the % reading error). L_real = |end − start|.</p>
+  </div>
+
+  <p class="note muted">Mechanics = EURAMET CG-27 §4.3.3 displacement method (dial indicator / caliper).
+    Before measuring, set <strong>gearbox · rod · microstep</strong> to match this pump. This lab's pumps
+    use a T8 lead screw, 2.0&nbsp;mm pitch (firmware stores it in tenths, so THREADROD = 20); ungeared →
+    gearbox 1:1, geared → 100:1.</p>
+</div>
+
+<script>
+  const $=id=>document.getElementById(id);
+  function fmtPct(p){return (p>=0?"+":"")+p.toFixed(1)+" %";}
+  function area(d){return Math.PI*(d/2)*(d/2);}  // mm²
+  function nearestFactor(r){            // r ≥ 1 — map a clean off-factor to the likely wrong setting
+    const c=[{f:2,why:"microstep"},{f:4,why:"rod (1-star 2 mm vs 4-star 8 mm), or microstep"},
+      {f:8,why:"microstep"},{f:25,why:"gearbox"},{f:100,why:"gearbox"}];
+    let best=null,bd=1e9; c.forEach(x=>{const d=Math.abs(r-x.f)/x.f; if(d<bd){bd=d;best=x;}});
+    return bd<0.15?best:null;
+  }
+  function mech(){
+    const q=parseFloat($("mq").value), t=parseFloat($("mt").value),
+      d=parseFloat($("md").value), rod=parseFloat($("mrod").value),
+      s=parseFloat($("mstart").value), e=parseFloat($("mend").value);
+    const ok=[q,t,d].every(x=>isFinite(x)&&x>0);
+    const dflt="Run ≥ 15 min (the longer it runs, the smaller the % reading error). L_real = |end − start|.";
+    if(!ok){$("lset").textContent="— mm";$("lsetsub").textContent="set Q, time and diameter above";
+      $("realrow").style.display="none";$("merrpill").textContent="—";$("merrpill").className="pill";
+      $("rodrow").style.display="none";$("mnote").textContent=dflt;return;}
+    const lset=(q*(t/60))/area(d);               // µL / mm² = mm  (1 µL = 1 mm³)
+    $("lset").textContent=lset.toFixed(2)+" mm";
+    $("lsetsub").textContent="at "+q+" µL/h · "+t+" min · Ø"+d.toFixed(2)+" mm";
+    const real=(isFinite(s)&&isFinite(e))?Math.abs(e-s):NaN;   // L_real = |end − start|
+    if(!(isFinite(real)&&real>0)){
+      $("realrow").style.display="none";$("merrpill").textContent="—";$("merrpill").className="pill";
+      $("rodrow").style.display="none";$("mnote").textContent=dflt;return;}
+    $("realrow").style.display="flex";$("realv").textContent=real.toFixed(2)+" mm";
+    const err=100*(real/lset-1), a=Math.abs(err);
+    const ep=$("merrpill");ep.textContent=fmtPct(err);ep.className="pill "+(a<=2?"ok":"hi");
+    if(isFinite(rod)&&rod>0){
+      const rodc=rod*(real/lset);
+      $("rodrow").style.display="flex";
+      $("rodv").innerHTML=rodc.toFixed(3)+' mm <span class="muted">(was '+rod.toFixed(2)+")</span>";
+    }else{$("rodrow").style.display="none";}
+    let msg;
+    if(a<=2){msg="✓ Mechanics OK — leave THREADROD as is. The diameter from the gravimetric step is then the real bore.";}
+    else if(a<=10){msg="Borderline — repeat 2–3× and average; if it persists, set the corrected THREADROD above.";}
+    else{const rr=real>lset?real/lset:lset/real, nf=nearestFactor(rr);
+      msg="⚠ Off by ~"+rr.toFixed(1)+"× — a setting is likely wrong"+(nf?": check "+nf.why+".":": check gearbox, rod and microstep.");}
+    $("mnote").textContent=msg;
+  }
+  ["mq","mt","md","mrod","mstart","mend"].forEach(id=>$(id).addEventListener("input",mech));
+  mech();
+</script>
+</body>
+</html>

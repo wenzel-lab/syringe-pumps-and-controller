@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Syringe calibration — gravimetric</title>
+<title>Syringe diameter calibration (gravimetric)</title>
 <style>
   :root{
     --bg:#f4f7f9; --card:#ffffff; --ink:#15232b; --ink2:#5a6b75; --line:#dde6ea;
@@ -25,7 +25,9 @@
   .wrap{max-width:560px;margin:0 auto;padding:1.6rem 1.1rem 3rem;}
   header h1{font-size:1.35rem;margin:0 0 .2rem;text-wrap:balance;letter-spacing:-.01em;}
   header p{margin:0 0 1.4rem;color:var(--ink2);font-size:.92rem;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem;}
+  header p a{color:var(--accent);font-weight:600;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem;margin-bottom:1.3rem;}
+  .card h2{font-size:1.05rem;margin:0 0 1rem;letter-spacing:-.01em;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
   .field{display:flex;flex-direction:column;gap:.3rem;}
   .field.full{grid-column:1/-1;}
@@ -58,11 +60,13 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>Syringe pump — gravimetric calibration</h1>
-    <p>Enter what you weighed. It returns the corrected syringe diameter to set on the pump. 1&nbsp;mg of water ≈ 1&nbsp;µL.</p>
+    <h1>Syringe diameter — gravimetric</h1>
+    <p><strong>Steps 2–5</strong>: weigh the delivered water → corrected diameter. 1&nbsp;mg of water ≈ 1&nbsp;µL.
+      Do the <a href="calculator-mechanics.html">pump mechanics</a> first.</p>
   </header>
 
   <div class="card">
+    <h2>Weighed values → corrected diameter</h2>
     <div class="grid">
       <div class="field">
         <label for="syringe">Syringe</label>
@@ -112,10 +116,14 @@
     <p class="note" id="note"></p>
   </div>
 
-  <p class="note muted">Gravimetric method (ISO&nbsp;4787-style). Needs only an analytical balance; a flow sensor is an optional cross-check. Works offline — no install.</p>
+  <p class="note muted">Gravimetric = ISO&nbsp;4787-style; needs only an analytical balance. Verify
+    linearity over ≥3 flow points (×3 each). A flow sensor is an optional cross-check. Works offline —
+    no install.</p>
 </div>
 
 <script>
+  const $=id=>document.getElementById(id);
+  function fmtPct(p){return (p>=0?"+":"")+p.toFixed(1)+" %";}
   const SYR = {
     "BD Plastipak 1 mL":4.78,"BD Plastipak 3 mL":8.66,"BD Plastipak 5 mL":11.99,
     "BD Plastipak 10 mL":14.50,"BD Plastipak 20 mL":19.13,"BD Plastipak 50/60 mL":26.59,
@@ -129,14 +137,12 @@
     for(let i=0;i<RHO.length-1;i++){const[a,ra]=RHO[i],[b,rb]=RHO[i+1];
       if(t>=a&&t<=b)return ra+(t-a)/(b-a)*(rb-ra);}
   }
-  const $=id=>document.getElementById(id);
   const sel=$("syringe");
   Object.keys(SYR).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=k;sel.appendChild(o);});
   sel.value="Ciringe green 3 mL"; $("d0").value=SYR["Ciringe green 3 mL"];
   sel.addEventListener("change",()=>{const v=SYR[sel.value];if(v!==null){$("d0").value=v;}calc();});
   ["d0","qset","temp","mass","mins","sensor"].forEach(id=>$(id).addEventListener("input",calc));
 
-  function fmtPct(p){const s=(p>=0?"+":"")+p.toFixed(1)+" %";return s;}
   function calc(){
     const d0=parseFloat($("d0").value),qset=parseFloat($("qset").value),
       t=parseFloat($("temp").value),mass=parseFloat($("mass").value),mins=parseFloat($("mins").value),
