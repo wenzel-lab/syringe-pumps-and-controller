@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Open-Source Syringe Pumps</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+
+    <link href="../static/base-style.css" rel="stylesheet">
+    <link href="../static/site-style.css" rel="stylesheet">
+                <link href="../assets/style.css" rel="stylesheet">
+            <style>
+  :root {
+    --hover-color: #555555;
+}
+</style>
+    
+        <script type="text/javascript" src="../static/search.js" defer=""></script>
+    </head>
+<body>
+<header class="site-header">
+    <div class="wrapper header-wrapper" >
+        <div class=header-text>
+   
+    <h1 class="site-title">Open-Source Syringe Pumps</h1>
+   
+    <p class="author">by Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="affiliation">Institute for Biological and Medical Engineering</p>
+</div>
+            </div>
+</header>
+<div class="page-content">
+            <div>
+            <nav class="sidebar">
+                <a href="#" class="menu-icon">
+                <svg viewBox="0 0 18 15">
+                    <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+                    <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+                    <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+                </svg>
+                </a>
+                <ul class="nav-list">
+                <li>
+    <a class="navhome" href="../">
+        Open-Source Syringe Pumps
+    </a>
+</li>
+<li id="nav-search" :class="focused && searchTerm.length > 0 ? 'search-result-popout' : 'search'" v-scope v-on:vue:mounted="mounted('../')">
+  <input
+    type="text"
+    placeholder="Search..."
+    v-on:input="search($event.target.value)"
+    v-on:keypress="handleKeyPress"
+    v-on:keyup.esc="$event.target.blur()"
+    v-on:focus="handleFocus"
+    v-on:blur="handleBlur"
+    :value="searchTerm" />
+    <div class="search-results" v-if="focused && searchTerm.length > 0">
+        <div v-if="searchResults.length > 0">Results:</div>
+        <div v-if="searchResults.length === 0">No results.</div>
+        <template v-for="(result, index) in searchResults">
+            <li>
+                <a class="search-result" :href="`../${result.path}.html`">
+               <span v-for="crumb in result.breadCrumbs.slice(0, -1)">
+                ${crumb + ' > '}
+                </span>
+               ${result.title || result.breadCrumbs[result.breadCrumbs.length - 1]}
+                <p>
+                    <span v-for="node in result.highlightChars" :class="node.mark ? 'highlight' : ''" >${node.chars}</span>
+                </p>
+                </a>
+            </li>
+        </template>
+    </div>
+</li>
+<li class="not-active">
+    <a class="not-active" href="../os-pump.html">
+        Build low-cost syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="../os-pump-gearbox.html">
+        Build high-torque syringe pump
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="../controller-esp32.html">
+        Build pump controller
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="../esp32-usage.html">
+        Usage
+    </a>
+    </li>
+<li class="not-active">
+    <a class="not-active" href="../knowledge-base.html">
+        Knowledge Base
+    </a>
+    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="wrapper">
+    <h1 id="stepper-motor-coil-identification-methods">Stepper Motor Coil Identification Methods</h1>
+<p>Most NEMA 17 bipolar stepper motors have four wires corresponding to two independent electromagnetic coils.</p>
+<p>The objective is to identify:</p>
+<ul>
+<li>
+<p>Coil A (A+ and A-)</p>
+</li>
+<li>
+<p>Coil B (B+ and B-)</p>
+</li>
+</ul>
+<p>If you have access to the motor's datasheet, you can find the coil specifications there.</p>
+<p>In our case, we are using a Usongshine Stepping Motor (Model: 17HS4401). Because the datasheet from the manufacturer is not available, we will use another one as a reference from the same motor model to identify the coils. The datasheet can be found <a href="17HS4401_Datasheet.pdf" title="">here</a>.</p>
+<p>According to the datasheet, the coil resistance is <strong>1.5 Ω</strong> and the maximum current is <strong>1.7 A</strong>. The wire color coding is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Wiring</th>
+<th>Coil terminal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Black</td>
+<td>Coil A+</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Coil A-</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Coil B+</td>
+</tr>
+<tr>
+<td>Blue</td>
+<td>Coil B-</td>
+</tr>
+</tbody>
+</table>
+<p>To verify the coil connections, the following three methods shown in the video can be used to identify the motor coils. Instructions for each method are provided below:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bx5XrROhr-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr />
+<h2 id="method-1-multimeter-resistance-test-recommended">Method 1: Multimeter Resistance Test (Recommended)</h2>
+<h3 id="required-equipment">Required equipment</h3>
+<ul>
+<li>Digital multimeter.</li>
+</ul>
+<h3 id="procedure">Procedure</h3>
+<ol>
+<li>Set the multimeter to resistance (Ω) or continuity mode.</li>
+<li>Select any two motor wires.</li>
+<li>Measure the resistance between them.</li>
+<li>Repeat the measurement with different wire combinations.</li>
+<li>Identify the two pairs that show a measurable resistance.</li>
+</ol>
+<h3 id="expected-results">Expected results</h3>
+<table>
+<thead>
+<tr>
+<th>Wire combination</th>
+<th>Measurement</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Black – Green</td>
+<td>1.5 Ω</td>
+<td>Coil A</td>
+</tr>
+<tr>
+<td>Red – Blue</td>
+<td>1.5 Ω</td>
+<td>Coil B</td>
+</tr>
+<tr>
+<td>Red – Green</td>
+<td>0 Ω</td>
+<td>Different coils</td>
+</tr>
+<tr>
+<td>Red – Black</td>
+<td>0 Ω</td>
+<td>Different coils</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interpretation">Interpretation</h3>
+<ul>
+<li>Two wires with measurable resistance belong to the same coil.</li>
+<li>Two wires from different coils should show an open circuit (0 Ω).</li>
+<li>Typical winding resistance depends on the motor model.</li>
+</ul>
+<div class="info-block">
+<p><strong>Note:</strong> The wire color coding may vary depending on the manufacturer and the supplied cable. Always verify the wiring before connecting to the driver.</p>
+</div>
+<hr />
+<h2 id="method-2-led-generation-test">Method 2: LED Generation Test</h2>
+<h3 id="required-equipment_1">Required equipment</h3>
+<ul>
+<li>One LED.</li>
+<li>Connecting wires or alligator clips.</li>
+</ul>
+<h3 id="procedure_1">Procedure</h3>
+<ol>
+<li>Connect the LED directly across two motor wires.</li>
+<li>Rotate the motor shaft manually.</li>
+<li>Observe whether the LED flashes.</li>
+<li>Repeat with different wire combinations.</li>
+</ol>
+<h3 id="expected-results_1">Expected results</h3>
+<p>When the selected wires belong to the same coil, manually rotating the shaft generates a voltage in the winding.</p>
+<p>This voltage can illuminate or flash the LED.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Does not require a multimeter.</li>
+<li>Demonstrates electromagnetic induction.</li>
+<li>Useful for identifying winding pairs.</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Less reliable than the multimeter method.</li>
+<li>LED illumination depends on rotation speed and generated voltage.</li>
+<li>Some LEDs may not light up due to polarity or low voltage.</li>
+</ul>
+<hr />
+<h2 id="method-3-shaft-resistance-electromagnetic-braking-test">Method 3: Shaft Resistance (Electromagnetic Braking) Test</h2>
+<h3 id="required-equipment_2">Required equipment</h3>
+<ul>
+<li>No special equipment required.</li>
+</ul>
+<h3 id="procedure_2">Procedure</h3>
+<ol>
+<li>Hold the motor shaft and rotate it gently.</li>
+<li>Observe the force required to rotate the shaft.</li>
+<li>Short-circuit two motor wires together.</li>
+<li>Rotate the shaft again.</li>
+<li>Compare the resistance to rotation.</li>
+<li>Repeat with other wire combinations.</li>
+</ol>
+<h3 id="expected-results_2">Expected results</h3>
+<p>When two wires belonging to the same coil are shorted together, the motor generates current as the shaft rotates.</p>
+<p>This produces electromagnetic braking, making the shaft noticeably harder to turn.</p>
+<p>When wires from different coils are shorted together, this effect should not occur in the same way.</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>No additional equipment required.</li>
+<li>Quick and easy to perform.</li>
+<li>Useful as an additional confirmation.</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>The difference in rotational resistance can be subtle.</li>
+<li>Results depend on motor construction and rotational speed, as well as user perception.</li>
+</ul>
+<hr />
+<h2 id="coil-polarity-identification-and-driver-connection">Coil Polarity Identification and Driver Connection</h2>
+<p>Once both coil pairs have been identified, they can be connected to a stepper motor driver.</p>
+<h3 id="example-a4988-drv8825-or-tmc2209">Example: A4988, DRV8825 or TMC2209</h3>
+<table>
+<thead>
+<tr>
+<th>Driver terminal</th>
+<th>Motor connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1A</td>
+<td>Coil A wire 1</td>
+</tr>
+<tr>
+<td>1B</td>
+<td>Coil A wire 2</td>
+</tr>
+<tr>
+<td>2A</td>
+<td>Coil B wire 1</td>
+</tr>
+<tr>
+<td>2B</td>
+<td>Coil B wire 2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="determining-polarity">Determining polarity</h3>
+<p>The two wires belonging to each coil can initially be connected in either order.</p>
+<p>For example:</p>
+<ul>
+<li>Coil A: Red → 1A, Blue → 1B</li>
+<li>Coil B: Green → 2A, Black → 2B</li>
+</ul>
+<div class="info-block">
+<p><strong>Important:</strong> The relative polarity of the windings determines the motor's rotation direction.</p>
+</div>
+<p>If the motor rotates in the opposite direction than expected, reverse the order of one coil or invert the direction signal in software.</p>
+<div class="caution-block">
+<p><strong>Safety Precautions</strong></p>
+<ul>
+<li>Never connect or disconnect motor wires while the stepper driver is powered.</li>
+<li>Never measure winding resistance while the motor is connected to an energized driver.</li>
+<li>Avoid shorting motor wires while the driver is powered.</li>
+<li>Disconnect the motor from the driver before performing identification tests.</li>
+<li>Do not exceed the motor or driver current ratings.</li>
+</ul>
+</div>
+<h2 id="final-recommendation">Final Recommendation</h2>
+<p>The <strong>multimeter resistance test</strong> (Method 1) is the recommended approach for identifying NEMA 17 motor coils.</p>
+<p>The other two methods can be used as complementary tests when a multimeter is unavailable or when additional confirmation is desired.</p>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="wrapper">
+        <a target="_blank" rel="noopener noreferrer" href="https://gitbuilding.io">
+    <img class="icon" src="../static/Logo/GitBuilding500x.png" alt="GitBuilding logo">
+    <span class="doc-info">Documentation powered by GitBuilding</span>
+</a>
+    <p class="author">©2026 Pierre Padilla-Huamantinco, Tomás Astudillo Inostroza, Matías Hurtado Labarca, and Tobias Wenzel</p>
+    <p class="email">Contact: <a href="mailto:pgpdilla@uc.cl">pgpdilla@uc.cl</a></p>
+    <p class="license">Open-Source Syringe Pumps is released under <a href="../license.html">CERN-OHL-1.2</a>.</p>
+
+    </div>
+</footer></body>
+</html>
