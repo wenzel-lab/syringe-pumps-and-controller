@@ -1,6 +1,8 @@
 # Using the syringe pumps
 
->i These instructions describe the usage of the ESP32-based controller
+These instructions describe the usage of the ESP32-based controller in the context of droplet microfluidic experiments. However, similar workflows are performed when using syringe pumps.
+
+>i Verify that the controller and pumps are properly connected to each other and the power supply is the correct voltage. If you are unsure, please visit the [controller assembly guide](./esp32-controller-assembly.md).
 
 ## Main Screen & Navigation {pagestep}
 **Select Pump:** Press the 'C' key to cycle through pumps A, B, C, and D.
@@ -24,7 +26,7 @@
 
 **Start/Stop:** Press the star (*) key to toggle the motor.
 
->i **Note:** Flow must be between 1 and 6000 µL/h. If you enter a value outside this range, you can press '*' to clear the input and retry immediately.
+>i Flow must be between 1 and 6000 µL/h. If you enter a value outside this range, you can press '*' to clear the input and retry immediately.
 
 ## Advanced Settings Menu {pagestep}
 
@@ -45,13 +47,13 @@ _An asterisk (*) next to an option indicates the current active setting for that
 
 ## Setting Syringe Diameter {pagestep}
 
-For accurate delivery, the diameter must be set according to the specific syringe used.
+For accurate delivery, the diameter must be set according to the specific syringe used. If you are unsure of this parameter, please visit the [syringe diameter guide](./knowledge-base/calibration.md).
 
 1. In the Settings Menu, select Diameter.
-2. Enter the value in millimeters (mm). Press the 'D' key to insert a decimal point. (1 mL Syringe: 4.78 mm and 3 mL Syringe: 8.66 mm)
+2. Enter the value in millimeters (mm). Press the 'D' key to insert a decimal point. (e.g., 1 mL Syringe: 4.78 mm and 3 mL Syringe: 8.66 mm)
 3. Press '#' to confirm.
 
->i **Note:** These values are only references. Diameter must be between 1 and 50 mm. If you enter a value outside this range, you can press '*' to clear the input and retry immediately.
+>i These values are only references. Diameter must be between 1 and 50 mm. If you enter a value outside this range, you can press '*' to clear the input and retry immediately.
 
 ## Correcting Mistakes & Errors {pagestep}
 
@@ -63,15 +65,23 @@ For accurate delivery, the diameter must be set according to the specific syring
 
 ## Priming and Experiments {pagestep}
 
-**Priming:**
+**Experiment Setup:**
 
-  - Fill the syringes with the appropriate liquids and position them upright on the pump.
+- Fill the syringes with the appropriate liquids and position them upright on the pump.
+- Connect the needles or adapters to the syringes, to connect the tubing. Prevent air bubbles from entering the tubing.
+
+**Priming:** 
+
   - Set the flow rate to a high safe value (3000 µL/h) and run until liquid reaches the end of the tubing.
   - If you are manipulating multi-phase liquids, repeat these steps for both the oil phase and the aqueous phase.
 
-**Instant Updates:** You can adjust the flow rate while the pump is running. The motor speed will update immediately upon pressing '#'.
+**Instant Updates:**
 
-**Memory:** The controller saves all operation and hardware settings to internal memory. These persist even after the device is powered off.
+You can adjust the flow rate while the pump is running. The motor speed will update immediately upon pressing '#'.
 
->i **Note:** Priming can be done manually if the pump design allows you to do so (if it does not have a gearbox).
+**Memory:**
+
+The controller saves all operation and hardware settings to internal memory. These persist even after the device is powered off.
+
+>i Priming can be done manually if the pump design allows you to do so (if it does not have a gearbox).
 
