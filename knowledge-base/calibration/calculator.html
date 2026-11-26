@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syringe calibration — gravimetric</title>
+<style>
+  :root{
+    --bg:#f4f7f9; --card:#ffffff; --ink:#15232b; --ink2:#5a6b75; --line:#dde6ea;
+    --accent:#065a82; --accent-soft:#e7f0f5; --warn:#eb6834; --good:#1b9e77; --field:#fbfdfe;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#10171c; --card:#19232a; --ink:#e9f0f3; --ink2:#9fb2bc; --line:#2a3942;
+      --accent:#4da6cf; --accent-soft:#17303c; --warn:#f0814e; --good:#2bbf93; --field:#121b21; color-scheme:dark;}
+  }
+  :root[data-theme="dark"]{--bg:#10171c; --card:#19232a; --ink:#e9f0f3; --ink2:#9fb2bc; --line:#2a3942;
+    --accent:#4da6cf; --accent-soft:#17303c; --warn:#f0814e; --good:#2bbf93; --field:#121b21; color-scheme:dark;}
+  :root[data-theme="light"]{--bg:#f4f7f9; --card:#ffffff; --ink:#15232b; --ink2:#5a6b75; --line:#dde6ea;
+    --accent:#065a82; --accent-soft:#e7f0f5; --warn:#eb6834; --good:#1b9e77; --field:#fbfdfe; color-scheme:light;}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:560px;margin:0 auto;padding:1.6rem 1.1rem 3rem;}
+  header h1{font-size:1.35rem;margin:0 0 .2rem;text-wrap:balance;letter-spacing:-.01em;}
+  header p{margin:0 0 1.4rem;color:var(--ink2);font-size:.92rem;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2rem;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+  .field{display:flex;flex-direction:column;gap:.3rem;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);font-weight:600;}
+  label .hint{text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink2);opacity:.85;}
+  input,select{font:inherit;color:var(--ink);background:var(--field);border:1px solid var(--line);
+    border-radius:8px;padding:.5rem .6rem;width:100%;font-variant-numeric:tabular-nums;}
+  input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent);}
+  .divider{height:1px;background:var(--line);margin:1.2rem 0;}
+  .result{display:flex;flex-direction:column;gap:.15rem;align-items:center;text-align:center;
+    background:var(--accent-soft);border-radius:10px;padding:1.1rem;}
+  .result .lab{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink2);font-weight:600;}
+  .result .big{font-size:2.6rem;font-weight:700;color:var(--accent);line-height:1.05;font-variant-numeric:tabular-nums;}
+  .result .sub{font-size:.9rem;color:var(--ink2);}
+  .rows{display:flex;flex-direction:column;gap:.55rem;margin-top:1rem;}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:.95rem;}
+  .row .k{color:var(--ink2);}
+  .row .v{font-weight:600;font-variant-numeric:tabular-nums;}
+  .pill{font-size:.78rem;font-weight:600;padding:.1rem .5rem;border-radius:999px;}
+  .pill.ok{color:var(--good);background:color-mix(in srgb,var(--good) 15%,transparent);}
+  .pill.hi{color:var(--warn);background:color-mix(in srgb,var(--warn) 15%,transparent);}
+  .note{font-size:.8rem;color:var(--ink2);margin-top:1rem;line-height:1.45;}
+  .formula{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.8rem;
+    color:var(--ink2);background:var(--field);border:1px solid var(--line);border-radius:8px;
+    padding:.5rem .6rem;margin-top:.9rem;overflow-x:auto;white-space:nowrap;}
+  .muted{color:var(--ink2);}
+  @media (max-width:420px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Syringe pump — gravimetric calibration</h1>
+    <p>Enter what you weighed. It returns the corrected syringe diameter to set on the pump. 1&nbsp;mg of water ≈ 1&nbsp;µL.</p>
+  </header>
+
+  <div class="card">
+    <div class="grid">
+      <div class="field">
+        <label for="syringe">Syringe</label>
+        <select id="syringe"></select>
+      </div>
+      <div class="field">
+        <label for="d0">Diameter D₀ <span class="hint">(mm, programmed)</span></label>
+        <input id="d0" type="number" step="0.01" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label for="qset">Flow set point <span class="hint">(µL/h)</span></label>
+        <input id="qset" type="number" step="1" inputmode="decimal" value="1000">
+      </div>
+      <div class="field">
+        <label for="temp">Water temp <span class="hint">(°C)</span></label>
+        <input id="temp" type="number" step="0.5" inputmode="decimal" value="20">
+      </div>
+      <div class="field">
+        <label for="mass">Collected water <span class="hint">(mg, full − empty)</span></label>
+        <input id="mass" type="number" step="0.1" inputmode="decimal" placeholder="e.g. 170.5">
+      </div>
+      <div class="field">
+        <label for="mins">Collection time <span class="hint">(min)</span></label>
+        <input id="mins" type="number" step="0.1" inputmode="decimal" placeholder="e.g. 10">
+      </div>
+      <div class="field full">
+        <label for="sensor">Flow sensor reading <span class="hint">(µL/h, optional — to also check the sensor)</span></label>
+        <input id="sensor" type="number" step="1" inputmode="decimal" placeholder="leave blank if no sensor">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="result">
+      <div class="lab">Corrected diameter → set on the pump</div>
+      <div class="big" id="dreal">— mm</div>
+      <div class="sub" id="dsub">fill in the weighed values above</div>
+    </div>
+
+    <div class="rows">
+      <div class="row"><span class="k">Real flow (from balance)</span><span class="v" id="qreal">—</span></div>
+      <div class="row"><span class="k">Flow error vs set point</span><span class="v"><span class="pill" id="errpill">—</span></span></div>
+      <div class="row" id="sensorrow" style="display:none"><span class="k">Sensor vs balance</span><span class="v" id="sfac">—</span></div>
+    </div>
+
+    <div class="formula">Q_real = mass / (ρ·t) &nbsp;·&nbsp; D_real = D₀·√(Q_real / Q_set)</div>
+    <p class="note" id="note"></p>
+  </div>
+
+  <p class="note muted">Gravimetric method (ISO&nbsp;4787-style). Needs only an analytical balance; a flow sensor is an optional cross-check. Works offline — no install.</p>
+</div>
+
+<script>
+  const SYR = {
+    "BD Plastipak 1 mL":4.78,"BD Plastipak 3 mL":8.66,"BD Plastipak 5 mL":11.99,
+    "BD Plastipak 10 mL":14.50,"BD Plastipak 20 mL":19.13,"BD Plastipak 50/60 mL":26.59,
+    "Hamilton Gastight 1 mL":4.61,"HSW Norm-Ject 3 mL":8.90,"Ciringe green 3 mL":9.05,
+    "Custom…":null
+  };
+  const RHO=[[15,0.99910],[18,0.99860],[20,0.99821],[22,0.99777],[24,0.99730],[25,0.99705],[28,0.99626],[30,0.99565]];
+  function rho(t){
+    if(t<=RHO[0][0])return RHO[0][1];
+    if(t>=RHO[RHO.length-1][0])return RHO[RHO.length-1][1];
+    for(let i=0;i<RHO.length-1;i++){const[a,ra]=RHO[i],[b,rb]=RHO[i+1];
+      if(t>=a&&t<=b)return ra+(t-a)/(b-a)*(rb-ra);}
+  }
+  const $=id=>document.getElementById(id);
+  const sel=$("syringe");
+  Object.keys(SYR).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=k;sel.appendChild(o);});
+  sel.value="Ciringe green 3 mL"; $("d0").value=SYR["Ciringe green 3 mL"];
+  sel.addEventListener("change",()=>{const v=SYR[sel.value];if(v!==null){$("d0").value=v;}calc();});
+  ["d0","qset","temp","mass","mins","sensor"].forEach(id=>$(id).addEventListener("input",calc));
+
+  function fmtPct(p){const s=(p>=0?"+":"")+p.toFixed(1)+" %";return s;}
+  function calc(){
+    const d0=parseFloat($("d0").value),qset=parseFloat($("qset").value),
+      t=parseFloat($("temp").value),mass=parseFloat($("mass").value),mins=parseFloat($("mins").value),
+      sensor=parseFloat($("sensor").value);
+    const ok=[d0,qset,t,mass,mins].every(x=>isFinite(x)&&x>0);
+    if(!ok){$("dreal").textContent="— mm";$("dsub").textContent="fill in the weighed values above";
+      $("qreal").textContent="—";$("errpill").textContent="—";$("errpill").className="pill";
+      $("sensorrow").style.display="none";$("note").textContent="";return;}
+    const qreal=(mass/rho(t))/(mins/60);         // µL/h
+    const ratio=qreal/qset, dreal=d0*Math.sqrt(ratio), err=100*(ratio-1);
+    $("dreal").textContent=dreal.toFixed(2)+" mm";
+    $("dsub").textContent="was "+d0.toFixed(2)+" mm  ·  "+fmtPct(err)+" vs set point";
+    $("qreal").textContent=qreal.toFixed(0)+" µL/h";
+    const ep=$("errpill");ep.textContent=fmtPct(err);
+    ep.className="pill "+(Math.abs(err)<=1?"ok":"hi");
+    if(isFinite(sensor)&&sensor>0){
+      const fac=qreal/sensor, serr=100*(sensor/qreal-1);
+      $("sensorrow").style.display="flex";
+      $("sfac").innerHTML="×"+fac.toFixed(4)+' <span class="muted">('+fmtPct(serr)+")</span>";
+    }else{$("sensorrow").style.display="none";}
+    $("note").textContent = Math.abs(err)>15
+      ? "⚠ Correction over 15 % — check units, leaks or air in the line before trusting it."
+      : "Set "+dreal.toFixed(2)+" mm on the pump, then repeat one run to confirm the real flow lands on the set point.";
+  }
+  calc();
+</script>
+</body>
+</html>
