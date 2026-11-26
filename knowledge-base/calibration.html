@@ -105,20 +105,81 @@
         </div>
         <div class="wrapper">
     <h1 id="calibrating-a-syringe-pump-by-gravimetry">Calibrating a syringe pump by gravimetry</h1>
-<p>A syringe pump, 3D printed or commercial, computes plunger speed from the <strong>syringe inner diameter</strong> you program.</p>
-<p>Real syringes have diameter tolerance, so the <strong>delivered flow can be off by several percent</strong> even though the pump is mechanically accurate. In our tests a "3 mL" syringe with a nominal 8.94 mm bore actually delivered <strong>+2.5 %</strong>; the corrected diameter was 9.05 mm.</p>
-<h2 id="method-1-gravimetric-calibration">Method 1: Gravimetric calibration</h2>
+<p>A syringe pump's delivered flow depends on two things: <strong>how far the drive head travels</strong> (the pump mechanics — the carriage that pushes the plunger) and the <strong>syringe inner diameter</strong> you program.</p>
+<p>Weighing the water measures only their <em>product</em>, so calibrate them <strong>in order</strong> — the pump <strong>mechanics first</strong> (Method 1), then the <strong>syringe diameter</strong> (Method 2). Do it the other way round and a mechanics error hides inside a wrong "effective diameter". In our tests a "3 mL" syringe with a nominal 8.94 mm bore actually delivered <strong>+2.5 %</strong>; the corrected diameter was 9.05 mm.</p>
+<h2 id="method-1-calibrate-the-pump-mechanics-plunger-travel">Method 1: Calibrate the pump mechanics (plunger travel)</h2>
+<p>First check the mechanics on their own: <em>does the drive head move the distance it should?</em> This is the <strong>displacement method</strong> of EURAMET CG-27 §4.3.3. The metrology-lab version uses a laser interferometer; the workshop version uses a <strong>caliper or dial indicator</strong> — the same measurement a 3D-printer axis's steps/mm calibration uses.</p>
+<div class="info-block">
+<p><strong>⚙️ First, match the software to this pump.</strong> <code>gearbox</code>, <code>rod</code> (lead screw) and <code>microstep</code> are stored <strong>per pump</strong> and must match the hardware you built — set them on the keypad menu or with <code>set_gearbox</code> / <code>set_rod</code> / <code>set_microstep</code>. Re-check them whenever you swap pumps, or move the controller between a geared and an ungeared pump. On this project's pumps: ungeared → <code>gearbox 1:1</code>; geared → <code>gearbox 100:1</code>; both use the T8 <strong>1-star (2 mm)</strong> rod and <code>microstep 1/8</code>.</p>
+</div>
+<p>The pump has <strong>no "move N mm" command</strong> — you set a diameter and a flow and let it run, so the travel comes from <code>flow × time</code>:</p>
+<ol>
+<li>Mount a <strong>caliper or dial indicator</strong> against the drive head / carriage and <strong>zero it</strong>. Keep a syringe mounted, dispensing to waste, as in a normal run.</li>
+<li>Set the <strong>diameter D</strong> and a <strong>flow Q</strong> and run for a few minutes (<strong>longer = smaller % error</strong>). The commanded travel is:</li>
+</ol>
+<p><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>L</mi><mrow><mtext>set</mtext></mrow></msub><mo>&#x0003D;</mo><mfrac><mrow><mi>Q</mi><mo>&#x000B7;</mo><mi>t</mi></mrow><mrow><mi>&#x003C0;</mi><mo stretchy="false">&#x00028;</mo><mi>D</mi><mo>&#x0002F;</mo><mn>2</mn><msup><mo stretchy="false">&#x00029;</mo><mn>2</mn></msup></mrow></mfrac></mrow></math></p>
+<p>e.g. D = 9.05 mm, Q = 3000 µL/h, t = 15 min → <strong>L_set ≈ 11.7 mm</strong> (keep units consistent; the gearbox does <strong>not</strong> change this travel).</p>
+<ol start="3">
+<li>Read the <strong>actual travel</strong> <code>L_real</code> (= |end − start| caliper readings). Repeat 2–3× and average to shrink the reading scatter.</li>
+<li>If <code>L_real ≈ L_set</code>, the mechanics are good. Otherwise correct the lead-screw pitch (<code>THREADROD</code>): <code>THREADROD_corr = THREADROD × (L_real / L_set)</code>. The firmware derives steps/mm from <code>microstep</code>, <code>gearbox</code> and <code>threadrod</code>, so <code>threadrod</code> is the knob to trim.</li>
+</ol>
+<div class="info-block">
+<p><strong>No install needed:</strong> open the <a href="calibration/calculator-mechanics.html" title="">mechanics web calculator</a> in any browser — enter flow, time, diameter and the start/end caliper readings, and it returns the expected travel, the mechanical error, and the corrected THREADROD.</p>
+</div>
+<div class="info-block">
+<p><strong>No caliper?</strong> Even a <strong>ruler</strong> works — just run longer so the move is ~50–100 mm and the coarser reading stays a small fraction of the distance.</p>
+</div>
+<p><strong>If <code>L_real</code> comes out very different from <code>L_set</code></strong>, a <em>clean factor</em> points to a wrong setting; a small % is just real tolerance or reading noise:</p>
+<table>
+<thead>
+<tr>
+<th><code>L_real</code> vs <code>L_set</code></th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~25× or ~100× off</td>
+<td><strong>Gearbox</strong> set wrong</td>
+<td>set it to the pump's real ratio (1:1 / 25:1 / 100:1)</td>
+</tr>
+<tr>
+<td>~4× off</td>
+<td><strong>Rod</strong> wrong (1-star = 2 mm vs 4-star = 8 mm)</td>
+<td>set rod to match the physical lead screw</td>
+</tr>
+<tr>
+<td>~2× / 4× / 8× off (gearbox &amp; rod OK)</td>
+<td><strong>Microstep</strong> mismatch (driver ≠ firmware)</td>
+<td>check microstep — over UART it's normally self-consistent, so this is rare</td>
+</tr>
+<tr>
+<td>small (&lt; ~2 %)</td>
+<td>lead-screw pitch tolerance or reading noise</td>
+<td>tiny <code>THREADROD</code> tweak, or repeat 2–3× and average</td>
+</tr>
+<tr>
+<td>erratic / not repeatable</td>
+<td>loose coupling grub screw, binding, or missed steps</td>
+<td>tighten the coupling, check for binding, lower speed / raise motor current</td>
+</tr>
+</tbody>
+</table>
+<p>Once the mechanics check out, the diameter you get in Method 2 is the <strong>real bore</strong>, not a number that silently absorbs a steps/mm error.</p>
+<h2 id="method-2-gravimetric-calibration-the-syringe-diameter">Method 2: Gravimetric calibration (the syringe diameter)</h2>
 <p>This gravimetric calibration needs <strong>only an analytical balance</strong>, no flow sensor.</p>
 <p>Water weighs ~1 g/mL, so <strong>1 mg ≈ 1 µL</strong>: the balance gives real dispensed volume directly.</p>
 <p><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><msub><mi>Q</mi><mrow><mtext>real</mtext></mrow></msub><mo>&#x0003D;</mo><mfrac><mrow><mtext>mass</mtext></mrow><mrow><msub><mi>&#x003C1;</mi><mrow><mtext>water</mtext></mrow></msub><mo>&#x000B7;</mo><mtext>time</mtext></mrow></mfrac><msub><mi>D</mi><mrow><mtext>real</mtext></mrow></msub><mo>&#x0003D;</mo><msub><mi>D</mi><mn>0</mn></msub><mo>&#x000B7;</mo><msqrt><mrow><mfrac><mrow><msub><mi>Q</mi><mrow><mtext>real</mtext></mrow></msub></mrow><mrow><msub><mi>Q</mi><mrow><mtext>set</mtext></mrow></msub></mrow></mfrac></mrow></msqrt></mrow></math></p>
 <p>If the balance reads <strong>more</strong> flow than programmed → the syringe is <strong>wider</strong> than you told the pump → increase the diameter. Enter <code>D_real</code> and the pump delivers true flow.</p>
 <p>The calculator <code>calibrate.py</code> does the math, you just type the numbers you measured.</p>
 <div class="info-block">
-<p><strong>No install needed:</strong> open the <a href="calibration/calculator.html" title="">web calculator</a> in any browser (PC, phone), type the weighed values, and it returns the corrected diameter. The <code>calibrate.py</code> script below does the same from the command line.</p>
+<p><strong>No install needed:</strong> open the <a href="calibration/calculator.html" title="">diameter web calculator</a> in any browser (PC, phone), type the weighed values, and it returns the corrected diameter. The <code>calibrate.py</code> script below does the same from the command line.</p>
 </div>
 <h3 id="equipment">Equipment</h3>
 <ul>
 <li><strong>Analytical balance, 1 mg</strong> (0.001 g); 0.1 mg is even better.</li>
+<li><strong>Caliper or dial indicator</strong> (0.01 mm) — to measure drive-head travel (Method 1).</li>
 <li>Syringe under test, filled with <strong>bubble-free</strong> distilled water.</li>
 <li><strong>Parafilm</strong> + a small receiving tube (e.g. Eppendorf).</li>
 <li>Tweezers/tongs for handling calibration weights (skin oil weighs enough to matter).</li>
@@ -136,9 +197,9 @@
 <p>Program the <strong>nominal diameter D₀</strong> (caliper the inner bore, or use the syringe spec) and the target flow <strong>Q_set</strong>.</p>
 <p>Let the pump drip into <strong>any waste tube</strong> until the flow is <strong>steady</strong> — <strong>we use 5 min</strong>; the first minutes clear residual bubbles and let the mechanics settle.</p>
 <h2 class="page-step" id="collect-the-output-weighed-timed-collection">Step 3: Collect the output, weighed (timed collection)</h2>
-<p><strong>Prepare the collection tube first:</strong> close the empty Eppendorf, seal the top with <strong>parafilm</strong>, pierce a <strong>small hole</strong> with the <strong>sharp tip of scissors</strong> (just big enough for the capillary — keeps evaporation low), and stand it on a <strong>small, very light base</strong> (we cut one from the foam used to pack boxes — negligible mass, keeps the round-bottom tube upright on the pan).</p>
+<p><strong>Prepare the collection tube first:</strong> close the empty Eppendorf, seal the top with <strong>parafilm</strong>, pierce a <strong>small hole</strong> with the <strong>sharp tip of scissors</strong> (just big enough for the capillary — the thin outlet tube from the syringe — keeps evaporation low), and stand it on a <strong>small, very light base</strong> (we cut one from the foam used to pack boxes — negligible mass, keeps the round-bottom tube upright on the pan).</p>
 <p><strong>Weigh it in this final state</strong> (tube + parafilm + hole + foam base) → <code>m_empty</code>, or tare to zero.</p>
-<p><strong>Then collect, without stopping the flow:</strong> with the flow already steady (Step 2), move the capillary from the waste tube into the collection tube through the parafilm hole, and <strong>start the stopwatch at that instant</strong>.</p>
+<p><strong>Then collect, without stopping the flow:</strong> with the flow already steady (previous step), move the capillary from the waste tube into the collection tube through the parafilm hole, and <strong>start the stopwatch at that instant</strong>.</p>
 <p>Collect for an <strong>exactly timed interval <code>t</code></strong> (<code>t</code> goes straight into the result). Move the capillary out, press the parafilm closed over the hole, and weigh immediately → <code>m_full</code>.</p>
 <p><math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mrow><mi>Δ</mi><mi>m</mi><mo>&#x0003D;</mo><msub><mi>m</mi><mrow><mtext>full</mtext></mrow></msub><mi>−</mi><msub><mi>m</mi><mrow><mtext>empty</mtext></mrow></msub></mrow></math></p>
 <p>Aim for <strong>Δm ≥ 100 mg</strong> (e.g. 10 min at 1000 µL/h ≈ 167 mg → &lt;1 % uncertainty at 1 mg).</p>
@@ -160,7 +221,7 @@
 
 <p>Enter <code>D_real</code> on the pump. Repeat <strong>one point</strong> to confirm Q_real ≈ Q_set.</p>
 <h2 class="page-step" id="verify-linearity">Step 5: Verify linearity</h2>
-<p>Repeat at <strong>2–3 flows</strong> (e.g. 500, 1000, 2000 µL/h) with the corrected diameter. If they all give the same <code>D_real</code>, the calibration is solid and flow-independent.</p>
+<p>Repeat at <strong>at least 3 flow points — the ones you'll actually use — with 3 measurements each</strong> (e.g. 500 / 1000 / 2000 µL/h ×3), following EURAMET CG-27. The 3 repeats give the repeatability; if all points give the same <code>D_real</code>, the calibration is solid and flow-independent.</p>
 <div class="info-block">
 <p><strong>Practical tips (what ruins a run):</strong></p>
 <ul>
@@ -171,12 +232,20 @@
 <li><strong>Bubbles</strong>: purge before, and if the output suddenly spikes/dips erratically, there is air in the line, stop and purge.</li>
 </ul>
 </div>
-<h2 id="method-2-cross-check-with-a-flow-sensor-higher-precision">Method 2: cross-check with a flow sensor (higher precision)</h2>
+<h2 id="method-3-cross-check-with-a-flow-sensor-higher-precision">Method 3: cross-check with a flow sensor (higher precision)</h2>
 <p>The balance fixes the diameter. If you also have an <strong>in-line flow sensor</strong>, the same run lets you check and calibrate the sensor against the balance (ground truth), and then use the sensor as a <strong>continuous</strong> flow reference without weighing every time. </p>
 <p><code>calibrate.py</code> reports the sensor factor if you pass <code>--sensor-ul-h &lt;reading&gt;</code>.</p>
 <p>For the flow-sensor hardware, firmware and high-rate acquisition, see the Rio controller repository: <strong><a href="https://github.com/wenzel-lab/rio-controller" target="_blank" title="">wenzel-lab/rio-controller</a></strong> (pressure/flow module).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>EURAMET</strong>, <em>Calibration Guide No. 27 — Guidelines for the Calibration of Drug Delivery Devices and Infusion Device Analysers</em>, v2.0 (2026). Gravimetric (§4.3.1) and <strong>displacement (§4.3.3)</strong> methods, mechanism cycle time. <a href="https://www.euramet.org/Media/docs/Publications/calguides/I-CAL-GUI-027_Calibration_Guide_No._27_web.pdf" target="_blank" title="">PDF</a></li>
+<li><strong>IEC 60601-2-24</strong> — infusion-pump flow accuracy (trumpet curve, start-up).</li>
+<li><strong>ISO 7886-2</strong> — syringe cross-sectional-area tolerances (≈1 % large, 3 % small).</li>
+<li><strong>E. Batista et al.</strong> (2020), <em>Development of an experimental setup for microflow measurement using interferometry</em>, Flow Measurement and Instrumentation <strong>75</strong>, 101789 — the displacement method. <a href="https://www.sciencedirect.com/science/article/pii/S0955598620301345" target="_blank" title="">link</a></li>
+<li><strong>B. Wijnen, E. J. Hunt, G. C. Anzalone, J. M. Pearce</strong> (2014), <em>Open-Source Syringe Pump Library</em>, PLoS ONE <strong>9(9)</strong>:e107216. <a href="https://doi.org/10.1371/journal.pone.0107216" target="_blank" title="">link</a></li>
+</ul>
 <hr />
-<p><em>Tool: <code>calibrate.py</code> · rev 2026-11-19</em></p>
+<p><em>Tools: web calculators (mechanics + gravimetric) and <code>calibrate.py</code> · rev 2026-11-26</em></p>
     </div>
 </div>
 <footer class="site-footer">
