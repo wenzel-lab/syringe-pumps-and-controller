@@ -15,7 +15,8 @@
 [LCD screen]: parts/elect/lcd-screen.md "{Cat:electronics}"
 
 [Multimeter]: parts/tools/multimeter.md "{Cat:tool}"
-[Screwdriver]: parts/tools/screwdriver.md "{Cat:tool}"
+[Phillips screwdriver]: parts/tools/phillips-screwdriver.md "{Cat:tool}"
+[Flathead screwdriver]: parts/tools/flathead-screwdriver.md "{Cat:tool}"
 [Soldering iron]: parts/tools/soldering-iron.md "{Cat:tool}"
 
 [Base]: models/controller-base.stl
@@ -43,7 +44,7 @@ Before mounting the drivers, verify the PCB configuration is compatible with you
 
 Then, configure the voltage reference (Vref) of your driver to supply the appropriate current to your motor model. Check the datasheet of your motor to determine the appropriate current rating.
 
-Connect a 12V/6A [power supply][Power Supply 12V 6A]{qty:1} to the power port of the PCB controller. As shown in this [tutorial][video], take a [multimeter][Multimeter]{qty:1}, a [precision screwdriver][Screwdriver]{qty:1}, and an [alligator clip wire][Alligator clip wire]{qty:1} to measure and set the voltage across the Vref pin of the driver. This value will determine the maximum current that the driver can supply to the motor.
+Connect a 12V/6A [power supply][Power Supply 12V 6A]{qty:1} to the power port of the PCB controller. As shown in this [tutorial][video], take a [multimeter][Multimeter]{qty:1}, a [precision screwdriver][Phillips screwdriver]{qty:1}, and an [alligator clip wire][Alligator clip wire]{qty:1} to measure and set the voltage across the Vref pin of the driver. This value will determine the maximum current that the driver can supply to the motor.
 
 ![](images/controller-esp32/PCB-driver-1.jpg)
 ![](images/controller-esp32/PCB-drivers.jpg)
@@ -98,8 +99,28 @@ Well done! The controller is now assembled. It's time to [flash the firmware](./
 
 ![](images/controller-esp32/controller-assembled.jpg)
 
-Before connecting the cables and the pumps, verify the wiring and coils distributions of your stepper motors [i](./knowledge-base/stepper-motor-coils.md) 
+## Connect the pumps to the controller {pagestep}
 
+Before connecting the cables and the pumps, verify the wiring and coils distributions of your stepper motors [i](./knowledge-base/stepper-motor-coils.md)
+
+The controller has four motor ports, with terminal blocks labeled A+, A-, B+, and B-.
+
+![](images/controller-esp32/controller-pump.jpg)
+
+Connect the cables from the pumps to these ports, ensuring that the wiring matches the coils distribution of your stepper motors. Use a [flathead screwdriver][Flathead screwdriver]{qty:1} to loosen the terminal blocks and secure the cables.
+
+![](images/controller-esp32/controller-pump-1.jpg)
+![](images/controller-esp32/controller-pump-2.jpg)
+![](images/controller-esp32/controller-pump-3.jpg)
+![](images/controller-esp32/controller-pump-4.jpg)
+
+To power the controller, connect a [12V 6A power supply][Power supply 12V 6A]{qty:1} to the DC jack on the left side of the controller.
+
+For starting, connect only one pump to the controller. To set the pump parameters, follow the instructions in the [user guide](./esp32-usage.md).
+
+Repeat this process for each new pump, ensuring that the wiring matches the coils distribution of your stepper motors.
+
+>i For droplet microfluidic applications, you will need at least two pumps, one for the aqueous phase and one for the oil phase.
 
 [guide to use heat-set inserts]: https://hackaday.com/2019/02/28/threading-3d-sprinted-parts-how-to-use-heat-set-inserts/
 [video]: https://www.youtube.com/watch?v=zIiZ_gSi77Y
