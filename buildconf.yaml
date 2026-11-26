@@ -38,6 +38,8 @@ Navigation:
     Title: Build pump controller
   - Link: esp32-usage.md
     Title: Usage
+  - Link: knowledge-base.md
+    Title: Knowledge Base
 PageBOMTitle: '## For this section you will need:'
 hoverColor: '#555555'
 primaryColor: '#f1502f'

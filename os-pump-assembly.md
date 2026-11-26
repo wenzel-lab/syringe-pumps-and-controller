@@ -22,9 +22,9 @@
 [Hand knob]: models/hand-knob.stl "{previewpage}"
 [Syringe holder]: models/syringe-holders.stl "{previewpage}"
 
->i **You should build two syringe pumps for droplet microfluidic assays**
-
 ## Assemble the stepper motor and lead screw {pagestep}
+
+>i Before assembling the pumps, [verify the wiring and coils distributions of your stepper motors](./knowledge-base/stepper-motor-coils.md) 
 
 ![](images/syringe-pump/motor-leadscrew-coupling.jpg)
 
@@ -112,3 +112,5 @@ Finally, align the linear rails with the front support to make it sure that they
 Your syringe pump is ready to be used.
 
 ![](images/syringe-pump/syringe-pump.jpg)
+
+>i **You should build two syringe pumps for droplet microfluidic assays**

@@ -32,9 +32,9 @@
 [Hand knob]: models/hand-knob.stl "{previewpage}"
 [Syringe holder]: models/syringe-holders.stl "{previewpage}"
 
->i **You should build two syringe pumps for droplet microfluidic assays**
-
 ## Assemble the stepper motor and gearbox {pagestep}
+
+>i Before assembling the pumps, [verify the wiring and coils distributions of your stepper motors](./knowledge-base/stepper-motor-coils.md) 
 
 Insert the motor shaft of the [NEMA 17 motor]{Qty: 1} to the [gearbox][Planetary gearbox 100:1]{Qty: 1} and attach it to the housing by using four [M3 8mm][M3 8mm screw]{Qty: 4}. Use a [M3 hex key]{Qty: 1} to tighten them.
 
@@ -133,5 +133,7 @@ Finally, grab the [syringe holder][Syringe holder]{Qty:1, Cat: printedparts} and
 Your syringe pump is ready to be used.
 
 ![](images/syringe-pump/syringe-pump-gearbox.jpg)
+
+>i **You should build two syringe pumps for droplet microfluidic assays**
 
 [guide to use heat-set inserts]: https://hackaday.com/2019/02/28/threading-3d-printed-parts-how-to-use-heat-set-inserts/

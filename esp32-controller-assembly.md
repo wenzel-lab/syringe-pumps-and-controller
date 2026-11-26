@@ -98,5 +98,8 @@ Well done! The controller is now assembled. It's time to [flash the firmware](./
 
 ![](images/controller-esp32/controller-assembled.jpg)
 
-[guide to use heat-set inserts]: https://hackaday.com/2019/02/28/threading-3d-printed-parts-how-to-use-heat-set-inserts/
+Before connecting the cables and the pumps, verify the wiring and coils distributions of your stepper motors [i](./knowledge-base/stepper-motor-coils.md) 
+
+
+[guide to use heat-set inserts]: https://hackaday.com/2019/02/28/threading-3d-sprinted-parts-how-to-use-heat-set-inserts/
 [video]: https://www.youtube.com/watch?v=zIiZ_gSi77Y
